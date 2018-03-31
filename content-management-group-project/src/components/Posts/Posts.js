@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getUser } from "../../ducks/reducer";
+import { Link, withRouter } from "react-router-dom";
 
 class Posts extends Component {
   render() {
@@ -6,4 +9,6 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+const mapStateToProps = state => state;
+
+export default withRouter(connect(mapStateToProps, { getUser })(Posts));
