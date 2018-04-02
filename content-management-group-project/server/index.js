@@ -9,6 +9,8 @@ const cors = require("cors");
 const massive = require("massive");
 const path = require("path");
 
+const mc = require(`${__dirname}/controllers/mainCtrl`);
+
 const port = 3001;
 
 const app = express();
@@ -57,7 +59,7 @@ passport.use(
       callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      console.log(profile)
+      
       app
         .get("db")
         .getUserByAuthId([profile.id])
@@ -84,7 +86,7 @@ app.get(
     failureRedirect: "http://localhost:3000/#/"
   }),
   (req, res) => {
-    console.log(req);
+  
     res.redirect(`http://localhost:3000/#/home/${req.user.name}`);
   }
 );
@@ -100,7 +102,20 @@ app.get("/logout", (req, res) => {
   });
 });
 
-// const { getSubject } = require(`${__dirname}/controllers/mainCtrl`);
+
+//EndPoints
+
+//get blogs
+app.get("/api/blogs/:id", mc.getBlogs);
+app.post("/api/blog/:id", mc.createBlog); //create blog
+
+//get posts
+app.get("/api/posts/:id", mc.getPosts); //Get All Post
+app.get("/api/post/:id", mc.getPost); //Get One Post
+app.post("/api/post/:id", mc.createPost); //create post
+
+
+
 
 // app.post("/api/Subject", getSubject);
 
