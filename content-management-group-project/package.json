@@ -9,7 +9,11 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "massive": "^4.7.1",
+    "passport": "^0.4.0",
+    "passport-auth0": "^0.6.1",
+    "path": "^0.12.7",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
@@ -24,5 +28,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

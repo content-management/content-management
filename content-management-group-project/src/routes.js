@@ -10,7 +10,7 @@ import TextEditor from "./components/Editor/TextEditor";
 export default (
   <Switch>
     <Route exact path="/" component={Splash} />
-    <Route exact path="/Home" component={Home} />
+    <Route exact path="/Home/:id" component={Home} />
     <Route exact path="/PageView" component={PageView} />
     <Route exact path="/PostView" component={PostView} />
     <Route exact path="/Editor" component={TextEditor}/>
