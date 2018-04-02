@@ -4,7 +4,6 @@ import { getUser } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
-
 class PickBlog extends Component {
   constructor(props) {
     super(props);
@@ -34,16 +33,15 @@ class PickBlog extends Component {
     let blogs =
       this.state.blogs &&
       this.state.blogs.map((obj, i) => {
-        return <div key={i}>
+        return (
+          <div key={i}>
             <ul>
-              <Link to={`/Home/${obj.blog_id}`}>
-                <li >
-            
-                  {obj.blog_name}
-                </li>
+              <Link to={`/Posts/${obj.blog_id}`}>
+                <li> {obj.blog_name}</li>
               </Link>
             </ul>
-          </div>;
+          </div>
+        );
       });
     console.log("user", this.props.user);
     console.log(this.state.currBlog);
