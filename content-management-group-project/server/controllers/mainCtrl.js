@@ -16,6 +16,54 @@ const axios = require("axios");
 //     .catch(console.log);
 // };
 
-// module.exports = {
-//   getSubject: getSubject
-// };
+module.exports = {
+  getBlogs: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_blogs([params.id])
+      .then(blogs => res.status(200).json(blogs))
+      .catch(() => res.status(500).json());
+  },
+  //create new blog
+  createBlog: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { userid, blogName } = req.body;
+
+    dbInstance
+      .create_blog([userid, blogName])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
+  },
+  //all posts
+  getPosts: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_posts([params.id])
+      .then(posts => res.status(200).json(posts))
+      .catch(() => res.status(500).json());
+  },
+  //one post
+  getPost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_post([params.id])
+      .then(post => res.status(200).json(post))
+      .catch(() => res.status(500).json());
+  },
+  // create a post
+  createPost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { blogid, title, content, image, caption } = req.body;
+
+    dbInstance
+      .create_blog([blogid, title, content, image, caption])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
+  }
+};

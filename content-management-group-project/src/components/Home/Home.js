@@ -14,7 +14,7 @@ class Home extends Component {
     this.props.getUser()
   }
   render() {
-    console.log(this.props.user)
+   
     return (
       <div className="App">
       <h1>Hello, </h1>
