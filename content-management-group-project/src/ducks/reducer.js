@@ -8,7 +8,7 @@ export function getUser() {
   return {
     type: GET_USER,
     payload: axios
-      .request({ url: "/api/me" })
+      .request("/api/me")
       .then(response => response.data)
       .catch(err => err.message)
   };
@@ -32,6 +32,9 @@ export default function reducer(state = initialState, action) {
       });
 
     case `${GET_USER}_REJECTED`:
-      return Object.assign({}, state, { isLoading: false, didErr: true });
+      return Object.assign({}, state, {
+        isLoading: false,
+        didErr: true
+      });
   }
 }

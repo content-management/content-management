@@ -39,7 +39,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 100000
+      maxAge: 10000000000
     }
   })
 );
@@ -57,7 +57,7 @@ passport.use(
       callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      console.log(profile)
+      console.log(profile);
       app
         .get("db")
         .getUserByAuthId([profile.id])

@@ -1,23 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser } from "../../ducks/reducer";//get user from redux
+import { getUser } from "../../ducks/reducer"; //get user from redux
 import Pages from "../Pages/Pages";
 import Posts from "../Posts/Posts";
 import { Link, withRouter } from "react-router-dom";
 
+let temp = "";
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {
-    this.props.getUser()
+    this.props.getUser().then(response => {
+      temp = response.value.authid;
+    });
+    console.log("user", this.props.user);
   }
   render() {
-    console.log(this.props.user)
     return (
       <div className="App">
-      <h1>Hello, </h1>
+        <div>
+          <h1>Hello, </h1>
+        </div>
         <Posts />
         <Pages />
       </div>
