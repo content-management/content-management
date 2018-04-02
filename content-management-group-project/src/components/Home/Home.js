@@ -9,10 +9,11 @@ let temp = "";
 class Home extends Component {
   constructor(props) {
     super(props);
+ 
   }
 
   componentDidMount() {
-    this.props.getUser();
+    this.props.getUser()
   }
   render() {
     console.log("user", this.props.user);
