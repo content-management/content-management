@@ -12,9 +12,9 @@ class Splash extends Component {
             <button
               style={{ borderRight: "solid white thin" }}
               className="loginButton"
-            >
+            ><a href={process.env.REACT_APP_LOGIN}>
               Login
-            </button>
+            </a></button>
             <button className="loginButton">Signup</button>
           </div>
         </div>
