@@ -14,7 +14,11 @@ body {
 }
 
 /* APP */
-
+.postResultsWrapper {
+  background-color: white;
+  width: 80vw;
+  height: 20vh;
+}
 .App {
   text-align: center;
   display: flex;
@@ -42,4 +46,3 @@ body {
 .App-intro {
   font-size: large;
 }
-
