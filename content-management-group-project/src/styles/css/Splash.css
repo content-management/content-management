@@ -1,0 +1,12 @@
+.loginButtonsWrapper {
+  width: 800px;
+  height: 400px;
+  background-color: #00000033;
+}
+.loginButton {
+  color: white;
+  background-color: #00000033;
+  margin: 150px auto;
+  padding: 50px;
+  border: none;
+}
