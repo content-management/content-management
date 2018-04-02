@@ -19,7 +19,10 @@ class Home extends Component {
     console.log(this.props.isLoading);
     return (
       <div className="App">
-        <div>{!this.props.isloading && <h1>Hello, </h1>}</div>
+        <div>
+          {!this.props.isLoading && <h1>Hello, {this.props.user.name}</h1>}
+          {this.props.isLoading && <h2>Loading...</h2>}
+        </div>
         <Posts />
         <Pages />
       </div>
@@ -29,4 +32,4 @@ class Home extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps, { getUser })(Home));
+export default connect(mapStateToProps, { getUser })(Home);
