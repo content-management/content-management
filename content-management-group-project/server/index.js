@@ -41,7 +41,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 100000
+      maxAge: 10000000000
     }
   })
 );
@@ -59,7 +59,6 @@ passport.use(
       callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      
       app
         .get("db")
         .getUserByAuthId([profile.id])
@@ -86,7 +85,6 @@ app.get(
     failureRedirect: "http://localhost:3000/#/"
   }),
   (req, res) => {
-  
     res.redirect(`http://localhost:3000/#/home/${req.user.name}`);
   }
 );
@@ -102,7 +100,6 @@ app.get("/logout", (req, res) => {
   });
 });
 
-
 //EndPoints
 
 //get blogs
@@ -113,9 +110,6 @@ app.post("/api/blog/:id", mc.createBlog); //create blog
 app.get("/api/posts/:id", mc.getPosts); //Get All Post
 app.get("/api/post/:id", mc.getPost); //Get One Post
 app.post("/api/post/:id", mc.createPost); //create post
-
-
-
 
 // app.post("/api/Subject", getSubject);
 

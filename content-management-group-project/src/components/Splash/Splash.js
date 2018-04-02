@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import Pages from "../Pages/Pages";
-import Posts from "../Posts/Posts";
-
 class Splash extends Component {
   render() {
     return (
