@@ -12,17 +12,14 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.getUser().then(response => {
-      temp = response.value.authid;
-    });
-    console.log("user", this.props.user);
+    this.props.getUser();
   }
   render() {
+    console.log("user", this.props.user);
+    console.log(this.props.isLoading);
     return (
       <div className="App">
-        <div>
-          <h1>Hello, </h1>
-        </div>
+        <div>{!this.props.isloading && <h1>Hello, </h1>}</div>
         <Posts />
         <Pages />
       </div>

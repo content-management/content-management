@@ -17,7 +17,10 @@ export function getUser() {
 //INITIAL STATE
 
 const initialState = {
-  user: {}
+  user: {},
+  isLoading: false,
+  didErr: false,
+  errMessage: null
 };
 
 export default function reducer(state = initialState, action) {
