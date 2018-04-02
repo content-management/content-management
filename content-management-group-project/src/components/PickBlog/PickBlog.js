@@ -8,8 +8,11 @@ class PickBlog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blogs: ""
+      blogs: "",
+      addBlog: false
+    
     };
+    this.addBlogClicked = this.addBlogClicked.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +24,10 @@ class PickBlog extends Component {
         })
         .catch(console.log());
     });
+  }
+
+  addBlogClicked() {
+    this.setState({ addBlog: true });
   }
   render() {
     let blogs =
@@ -37,7 +44,7 @@ class PickBlog extends Component {
         );
       });
     console.log("user", this.props.user);
-    console.log(this.state.blogs);
+    console.log(this.state.currBlog);
     return (
       <div className="App">
         <div>
@@ -45,6 +52,13 @@ class PickBlog extends Component {
         </div>
         <h1>Which blog are you working on?</h1>
         {blogs}
+        <button onClick={this.addBlogClicked}>Add Blog</button>
+        
+        {this.state.addBlog === true ? <div>
+          <input type="text" placeholder="Your blog name"/>
+          <input type="submit"/>
+        </div> : null}
+     
       </div>
     );
   }
