@@ -1,0 +1,18 @@
+.scroll-container{
+  display: block;
+  position: relative;
+  padding: 4px;
+  background: grey;
+  height: 200px;
+  max-width: 600px;
+  width: 200%;
+}
+
+.scroll{
+  background: darkcyan;
+  position: relative;
+  margin: 8px auto;
+  display: inline-block;
+  height: 150px;
+  width: 80%;
+}

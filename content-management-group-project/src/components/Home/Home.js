@@ -10,26 +10,33 @@ let temp = "";
 class Home extends Component {
   constructor(props) {
     super(props);
+ 
   }
 
   componentDidMount() {
-    this.props.getUser();
+    this.props.getUser()
   }
   render() {
     console.log("user", this.props);
   
     return (
-      <div className="App">
-        <div>
-          {!this.props.isLoading && <h1>Hello, {this.props.user.name}</h1>}
-          {this.props.isLoading && <h2>Loading...</h2>}
-        </div>
+      <div>
+        <div className="App">
+          <div>
+            {!this.props.isLoading && <h1>Hello, {this.props.user.name}</h1>}
+            {this.props.isLoading && <h2>Loading...</h2>}
+          </div>
 
-        <div className="scroll-container">
-        
+          <div className="scroll-container">
+          scroll-container
+            <div className="scroll">
+              scroll         
+            </div>
+          </div>
+
+          <Posts />
+          <Pages />
         </div>
-        <Posts />
-        <Pages />
       </div>
     );
   }

@@ -85,7 +85,7 @@ app.get(
     failureRedirect: "http://localhost:3000/#/"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3000/#/home/${req.user.name}`);
+    res.redirect(`http://localhost:3000/#/pickblog/${req.user.name}`);
   }
 );
 
