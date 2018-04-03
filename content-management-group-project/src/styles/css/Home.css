@@ -16,3 +16,22 @@
   height: 150px;
   width: 80%;
 }
+.cards_container{
+  display: flex;
+  margin: 5%;
+
+}
+/* feel free to change all of my css lol-Xavier */
+.cards{
+  background: rgb(16, 16, 19, .6);
+ border-radius: 11px 11px 11px 11px;
+-moz-border-radius: 11px 11px 11px 11px;
+-webkit-border-radius: 11px 11px 11px 11px;
+border: 0px solid #000000;
+  margin: 5%;
+  height: 10em;
+  width: 10em;
+}
+.cards:hover{
+  cursor: pointer;
+}

@@ -39,7 +39,12 @@ class Posts extends Component {
           </div>
         );
       });
-    return <div>{results}</div>;
+    return <div>
+        <Link to={`/Home/${this.props.user.name}`}>
+          <h3> Home</h3>
+        </Link>
+        {results}
+      </div>;
   }
 }
 
