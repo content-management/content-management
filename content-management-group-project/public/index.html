@@ -1,52 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-  <!-- <script src="https://cdn.tinymce.com/4/tinymce.min.js"></script> -->
-  <!-- <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=1318oi67c4f6ciu59gdg6fh8f14qxn4rnqqxxuhrm9nieswt"></script>
-    <!-- <script> -->
-  <!-- tinymce.init({ selector:'textarea',
-      height: 500, 
-      plugins: ["advlist autolink lists link image code charmap print preview anchor",
-      "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste imagetools wordcount", "fullpage", "save"],
-      toolbar: "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | fullpage | save",
-      block_formats: 'Paragraph=p;Header 1=h1;Header 2=h2;Header 3=h3',
-      save_onsavecallback: function(){console.log();},
-      image_title: true,
-      automatic_uploads: true,
-      file_picker_types: 'image',
-      file_picker_callback: function(cb, value, meta){
-        var input = document.createElement('input');
-        input.setAttribute('type', 'file');
-        input.setAttribute('accept', 'image/*');
-
-        input.onchange = function(){
-          var file = this.files[0];
-          var reader = new FileReader();
-          reader.onload = function(){
-            var id = 'blobid' + (new Date().getTime());
-            var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-            var base64 = reader.result.split(',')[1];
-            var blobInfo = blobCache.create(id, file, base64);
-            blobCache.add(blobInfo);
-            cb(blobInfo.blobUri(), { title: file.name});
-          };
-          reader.readAsDataURL(file);
-        };
-        input.click();
-      }
-    });</script> -->
-  <!--
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    
+    <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  <!--
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
+    <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
