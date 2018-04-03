@@ -12,15 +12,27 @@ import { Editor } from '@tinymce/tinymce-react';
       }
       handleEditorChange = e => {
         this.setState({content: e.target.getContent()});
+        
+
       };
       saveContent(){
         console.log(this.state.content);
+        console.log(this.state.title);
+    //     let body = {
+    //       title: this.state.title,
+    //       content: this.state.content
+    //     }
+    //      axios.post(`/api/post/${blogid}`, body).then(results => {
+    //   this.props.user.push;
+    // });
       }
       render() {
         return <div>
-          <div><input type="text" placeholder="Add Title Here"/></div>
+           
+              <input type="text" placeholder="Add Title Here" onChange={e => this.setState({title: e.target.value})} />
+       
             <input id="my-file" type="file" name="my-file" style={{ display: "none" }} onChange="" />
-            <Editor initialValue="<p>This is the initial content of the editor</p>" init={{ selector: "textarea", height: 500, plugins: ["advlist autolink lists link image code charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste imagetools wordcount", "fullpage", "save"], toolbar: "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ", content_css: "//www.tinymce.com/css/codepen.min.css", file_browser_callback_types: "image", file_picker_callback: function(callback, value, meta) {
+            <Editor initialValue="<p>Your post content</p>" init={{ selector: "textarea", height: 500, plugins: ["advlist autolink lists link image code charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste imagetools wordcount", "fullpage", "save"], toolbar: "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ", content_css: "//www.tinymce.com/css/codepen.min.css", file_browser_callback_types: "image", file_picker_callback: function(callback, value, meta) {
                   if (meta.filetype == "image") {
                     var input = document.getElementById("my-file");
                     input.click();

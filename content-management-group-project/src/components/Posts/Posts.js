@@ -36,6 +36,7 @@ class Posts extends Component {
               <h1>{obj.title}</h1>
               <li>{obj.content}</li>
             </ul>
+            <button>Edit Post</button>
           </div>
         );
       });
@@ -44,6 +45,9 @@ class Posts extends Component {
           <h3> Home</h3>
         </Link>
         {results}
+        <Link to="/Editor/">
+        <button>New Post</button>
+        </Link>
       </div>;
   }
 }
