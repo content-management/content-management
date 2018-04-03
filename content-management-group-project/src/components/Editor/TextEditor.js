@@ -6,18 +6,21 @@ class TextEditor extends React.Component {
     super();
     this.state = {
       content: "",
-      title: ""
+      title: "",
+      tinyID: ""
     };
     this.saveContent = this.saveContent.bind(this);
   }
   handleEditorChange = e => {
-    this.setState({ content: e.target.getContent() });
+    console.log(e.target.contentDocument);
+    this.setState({
+      content: e.target.getContent()
+    });
   };
   saveContent() {
     console.log(this.state.content);
   }
   render() {
-    console.log("loggy", document.body.children[1]);
     return (
       <div>
         <div>
