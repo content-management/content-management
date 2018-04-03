@@ -18,27 +18,31 @@ class Home extends Component {
   }
   render() {
     console.log("user", this.props);
-  
-    return (
-      <div>
+
+    return <div>
         <div className="App">
           <div>
-            {!this.props.isLoading && <h1>Hello, {this.props.user.name}</h1>}
+            {!this.props.isLoading && <h1>
+                Hello, {this.props.user.name}
+              </h1>}
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
 
           <div className="scroll-container">
-          scroll-container
-            <div className="scroll">
-              scroll         
-            </div>
+            scroll-container
+            <div className="scroll">scroll</div>
+          </div>
+          <div className="cards_container">
+          <Link  to={`/Posts/${this.props.match.params.id}`}>
+            <div className=" cards postCard" >All Post</div>
+            </Link>
+            <div className="cards pagesCard" >All Pages</div>
           </div>
 
           <Posts />
           <Pages />
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
