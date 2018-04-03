@@ -1,5 +1,7 @@
 import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
+import axios from "axios";
+
 
 class TextEditor extends React.Component {
   constructor() {
@@ -12,15 +14,23 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
   }
   handleEditorChange = e => {
-    console.log(e.target.contentDocument);
+    // console.log(e.target.contentDocument);
     this.setState({
       content: e.target.getContent()
     });
   };
   saveContent() {
     console.log(this.state.content);
+           let body = {
+          title: this.state.title,
+          content: this.state.content
+        }
+         axios.post(`/api/post/${this.props.match.params.id}`, body).then(results => {
+          alert("New post added");
+    });
   }
   render() {
+     console.log(this.props.match.params.id);
     return (
       <div>
         <div>
