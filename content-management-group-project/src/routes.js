@@ -23,8 +23,10 @@ export default (
     <Route
       path="*"
       render={() => (
-        <div>
-          <p>Not Found</p>
+        <div className="button-container">
+          <button className="loginButton">
+            <a href={process.env.REACT_APP_LOGIN}>Login/Sign Up</a>
+          </button>
         </div>
       )}
     />
