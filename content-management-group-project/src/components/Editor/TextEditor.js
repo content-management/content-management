@@ -2,7 +2,6 @@ import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 
-
 class TextEditor extends React.Component {
   constructor() {
     super();
@@ -21,17 +20,24 @@ class TextEditor extends React.Component {
     });
   };
   saveContent() {
-    console.log(this.state.content);
-           let body = {
-          title: this.state.title,
-          content: this.state.content
-        }
-         axios.post(`/api/post/${this.props.match.params.id}`, body).then(results => {
-          alert("New post added");
-    });
+    let temp = this.state.content.replace("<!DOCTYPE html>", "");
+    temp = temp.replace("<html>", "");
+    temp = temp.replace("<head>", "");
+    temp = temp.replace("</head>", "");
+    temp = temp.replace("</html>", "");
+    console.log(temp);
+    let body = {
+      title: this.state.title,
+      content: temp
+    };
+    axios
+      .post(`/api/post/${this.props.match.params.id}`, body)
+      .then(results => {
+        alert("New post added");
+      });
   }
   render() {
-     console.log(this.props.match.params.id);
+    console.log(this.props.match.params.id);
     return (
       <div>
         <div>
