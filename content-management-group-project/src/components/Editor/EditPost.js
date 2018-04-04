@@ -46,6 +46,8 @@ class TextEditor extends React.Component {
     console.log(this.props.match.params.id);
     console.log(this.state.post);
     console.log(this.state.post.content);
+    console.log(this.state.post.title);
+    
     
     let title = this.state.post.title;
     let content = this.state.post.content;

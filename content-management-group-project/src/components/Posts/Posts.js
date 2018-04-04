@@ -40,7 +40,7 @@ class Posts extends Component {
 
               <div>{obj.post_id}</div>
             </div>
-              <Link to={`/NewPost/${obj.post_id}`}>
+              <Link to={`/EditPost/${obj.post_id}`}>
             <button>Edit Post</button>
             </Link>
           </div>
