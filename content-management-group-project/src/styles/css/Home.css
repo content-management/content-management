@@ -1,37 +1,136 @@
-.scroll-container{
+.home-body{
+  background-image: url('../../assets/images/backgroudphoto.jpg');
+  background-position: cover;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-greeting{
+  background-color: #f0808096;
+  width: 50%;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  overflow: auto;
+}
+
+.home-greeting h1{
+  display: inline-block;
+  background-color: #184bf193;
+  position: relative;
+  width: 90%;
+}
+
+
+/*** SIDESCROLL THANGS ***/
+
+::-webkit-scrollbar{width:2px;height:2px;}
+::-webkit-scrollbar-button{width:2px;height:2px;}
+
+.scroll-container{ 
   display: block;
   position: relative;
-  padding: 4px;
-  background: grey;
-  height: 200px;
-  max-width: 600px;
-  width: 200%;
-}
-
-.scroll{
-  background: darkcyan;
+  padding: 20px;
   position: relative;
-  margin: 8px auto;
-  display: inline-block;
-  height: 150px;
-  width: 80%;
+  margin: 25px auto;
+  height: 200px;
+  background: grey;
+  overflow-y:auto;
+  border: 2px solid orange;
+  width: 70%;
 }
-.cards_container{
-  display: flex;
-  margin: 5%;
 
+.horizontal-scroll-wrapper{
+  position:absolute;
+  display:block;
+  max-width: 130px;
+  margin: 35px auto;
+  background: lightgreen;
+  outline: 2px solid black;
+  overflow:auto;
+  transform:rotate(-90deg) translateY(-80px);
+  transform-origin:right top;
 }
-/* feel free to change all of my css lol-Xavier */
-.cards{
-  background: rgb(16, 16, 19, .6);
- border-radius: 11px 11px 11px 11px;
--moz-border-radius: 11px 11px 11px 11px;
--webkit-border-radius: 11px 11px 11px 11px;
-border: 0px solid #000000;
+ 
+.rectangles{
+  display: inline-block;
+  padding:10px;
+}
+
+.rectangles div{
+  position: relative;
+  top: 10px;
+  right: 20px;
+  max-width: 155px;
+  min-width: 140px;
+  width: 50%;
+  height: 90px;
+  margin: 60px 70px;
+  padding: 15px;
+  background: lightblue;
+  transform:rotate(90deg) translateY(70px);
+  transform-origin: bottom-left;
+  transition: .3s ease-out;
+}
+
+.rectangles p {
+  display: block;
+  position: relative;
+  padding: 3px;
+  background: #ffa600a4;
+  margin: 25px auto;
+  letter-spacing: -1.5px;
+  font-weight: 600;
+  text-align: center;
+  transition: all .2s ease-out;
+  font-size: 1rem;
+}
+
+
+.rectangles div:hover{
+  transition: .3s ease all;
+  background: #ffa600a4;
+  width:140px;
+  height:110px;
+}
+
+.rectangles div p:hover{
+  transition: all .2s ease-in-out;
+  background:#6a9cad;
+  letter-spacing: -2px;
+  font-size: 1.08rem;
+}
+
+/*** CARD THANGS ***/
+
+.cards-container{
+  background: #a36464;
+  display: block;
+  text-align: center;
+  width: 90%;
+  min-width: 40%;
+  padding: 2px;
   margin: 5%;
-  height: 10em;
-  width: 10em;
 }
+
+.cards{
+  background: #a5a5f599;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  height: 180px;
+  width: 20%;
+  min-width: 200px;
+  border-radius: 11px 11px 11px 11px;
+  -moz-border-radius: 11px 11px 11px 11px;
+  -webkit-border-radius: 11px 11px 11px 11px;
+  border: 0px solid #000000;
+  margin: 5%;
+}
+
 .cards:hover{
   cursor: pointer;
 }
+
+

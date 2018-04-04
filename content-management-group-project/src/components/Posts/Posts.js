@@ -23,6 +23,10 @@ class Posts extends Component {
     );
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
+  deleteSub(i){
+    axios.delete(`/api/delete/${i}`)
+    .then(alert('post deleted'))
+  }
 
   render() {
     console.log(this.props.match.params.id);
@@ -40,9 +44,10 @@ class Posts extends Component {
 
               <div>{obj.post_id}</div>
             </div>
-              <Link to={`/NewPost/${obj.post_id}`}>
-            <button>Edit Post</button>
+            <Link to={`/EditPost/${obj.post_id}`}>
+              <button>Edit Post</button>
             </Link>
+            <button onClick={() => this.deleteSub(obj.post_id)}>Delete Post</button>
           </div>
         );
       });
@@ -53,7 +58,7 @@ class Posts extends Component {
         </Link>
         {results}
         <Link to={`/NewPost/${this.props.match.params.id}`}>
-        <button>New Post</button>
+          <button>New Post</button>
         </Link>
       </div>
     );
