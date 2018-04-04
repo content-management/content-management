@@ -15,10 +15,10 @@ class App extends Component {
                 <a href="/">Login Page</a>
               </li>
               <li>
-                <a href="Posts">Posts Page</a>
+                <a href="/#/Posts">Posts Page</a>
               </li>
               <li>
-                <a href="/editor">Editor Page</a>
+                <a href="/#/editor">Editor Page</a>
               </li>
             </ul>
           </h3>
