@@ -2,17 +2,27 @@ import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 
-
 class TextEditor extends React.Component {
   constructor() {
     super();
     this.state = {
-      content: "",
-      title: "",
-      tinyID: ""
+    post: "",
+    title: "",
+    content: "",
     };
     this.saveContent = this.saveContent.bind(this);
-    this.handleEditorChange = this.handleEditorChange.bind(this);
+  }
+  componentDidMount() {
+    
+      axios
+        .get(`/api/post/${this.props.match.params.id}`)
+        .then(response => {
+          console.log("response", response.data);
+          this.setState({ post: response.data[0] });
+        //   this.setState({title: this.state.post.title, content: this.state.post.content})
+        })
+        .catch(console.log())
+    
   }
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
@@ -22,20 +32,27 @@ class TextEditor extends React.Component {
   };
   saveContent() {
     console.log(this.state.content);
-           let body = {
-          title: this.state.title,
-          content: this.state.content
-        }
-         axios.post(`/api/post/${this.props.match.params.id}`, body).then(results => {
-          alert("New post added");
-    });
+    let body = {
+      title: this.state.title,
+      content: this.state.content
+    };
+    axios
+      .put(`/api/put/${this.props.match.params.id}`, body)
+      .then(results => {
+        alert("updated post")
+      });
   }
   render() {
-     console.log(this.props.match.params.id);
+    console.log(this.props.match.params.id);
+    console.log(this.state.post);
+    console.log(this.state.post.content);
+    
+    let title = this.state.post.title;
+    let content = this.state.post.content;
     return (
       <div>
         <div>
-          <input type="text" placeholder="Add Title Here" />
+          <input type="text" value={title} />
         </div>
         <input
           id="my-file"
@@ -45,7 +62,7 @@ class TextEditor extends React.Component {
           onChange=""
         />
         <Editor
-          initialValue="<p>This is the initial content of the editor</p>"
+          initialValue={content}
           init={{
             selector: "textarea",
             height: 500,

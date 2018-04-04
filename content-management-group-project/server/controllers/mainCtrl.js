@@ -59,13 +59,27 @@ module.exports = {
   // create a post
   createPost: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { params, body} = req;
+    const { params, body } = req;
     console.log(params);
     console.log(body);
 
     dbInstance
       .create_post([params.id, body.title, body.content])
       .then(() => res.status(200).json())
-      .catch((err) => res.status(500).console.log(err))//.json());
+      .catch(err => res.status(500).console.log(err)); //.json());
+  },
+  updatePost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params, body } = req;
+
+    dbInstance
+      .update_post([
+        params.id,
+        body.title,
+        body.content
+    
+      ])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
   }
 };
