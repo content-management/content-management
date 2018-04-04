@@ -59,11 +59,13 @@ module.exports = {
   // create a post
   createPost: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { blogid, title, content, image, caption } = req.body;
+    const { params, body} = req;
+    console.log(params);
+    console.log(body);
 
     dbInstance
-      .create_blog([blogid, title, content, image, caption])
+      .create_post([params.id, body.title, body.content])
       .then(() => res.status(200).json())
-      .catch(() => res.status(500).json());
+      .catch((err) => res.status(500).console.log(err))//.json());
   }
 };

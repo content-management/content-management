@@ -9,7 +9,8 @@ class PickBlog extends Component {
     super(props);
     this.state = {
       blogs: "",
-      addBlog: false
+      addBlog: false,
+      currentBlog: ""
     
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
@@ -36,7 +37,7 @@ class PickBlog extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link to={`/Posts/${obj.blog_id}`}>
+              <Link to={`/Posts/${obj.blog_id}`}  >
                 <li> {obj.blog_name}</li>
               </Link>
             </ul>
@@ -44,7 +45,7 @@ class PickBlog extends Component {
         );
       });
     console.log("user", this.props.user);
-    console.log(this.state.currBlog);
+    console.log(this.state.currentBlog);
     return (
       <div className="App">
         <div>

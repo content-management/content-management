@@ -15,9 +15,17 @@ body {
 
 /* APP */
 .postResultsWrapper {
-  background-color: white;
+  background-color: rgba(000, 000, 000, 0.2);
   width: 80vw;
-  height: 20vh;
+  height: 40vh;
+  border: solid white thin;
+  border-radius: 20px;
+  margin: 8px;
+}
+.postIframe {
+  width: 85%;
+  height: 80%;
+  background: white;
 }
 /* .App {
   text-align: center;
@@ -28,6 +36,13 @@ body {
 } */
 
 
+.App-header {
+  top: 0px;
+  text-align: left;
+  align-self: flex-start;
+  background: white;
+  width: 100%;
+}
 
 .App-title {
   font-size: 1.5em;

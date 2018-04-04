@@ -16,7 +16,7 @@ export default (
     <Route exact path="/Home/:id" component={Home} />
     <Route exact path="/PageView" component={PageView} />
     <Route exact path="/PostView" component={PostView} />
-    <Route exact path="/Editor" component={TextEditor} />
+    <Route exact path="/Editor/:id" component={TextEditor} />
     <Route exact path="/Posts/:id" component={Posts} />
     <Route
       path="*"
