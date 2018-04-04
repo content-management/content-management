@@ -13,7 +13,7 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
   }
-  
+
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
     this.setState({
@@ -26,6 +26,7 @@ class TextEditor extends React.Component {
     temp = temp.replace("<head>", "");
     temp = temp.replace("</head>", "");
     temp = temp.replace("</html>", "");
+    temp = temp.replace(/\r?\n/g, "");
     console.log(temp);
     let body = {
       title: this.state.title,
@@ -42,7 +43,7 @@ class TextEditor extends React.Component {
     return (
       <div>
         <div>
-          <input type="text" placeholder="Add Title Here" />
+          <input type="text" placeholder="Add Title Here" onChange={(e) => this.setState({title: e.target.value})} />
         </div>
         <input
           id="my-file"

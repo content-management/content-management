@@ -40,8 +40,8 @@ class Posts extends Component {
 
               <div>{obj.post_id}</div>
             </div>
-              <Link to={`/EditPost/${obj.post_id}`}>
-            <button>Edit Post</button>
+            <Link to={`/EditPost/${obj.post_id}`}>
+              <button>Edit Post</button>
             </Link>
           </div>
         );
@@ -53,7 +53,7 @@ class Posts extends Component {
         </Link>
         {results}
         <Link to={`/NewPost/${this.props.match.params.id}`}>
-        <button>New Post</button>
+          <button>New Post</button>
         </Link>
       </div>
     );
