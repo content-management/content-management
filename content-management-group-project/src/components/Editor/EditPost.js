@@ -19,8 +19,11 @@ class TextEditor extends React.Component {
       .then(response => {
         console.log("response", response.data[0].content);
 
-        // this.setState({ post: response.data[0] });
-        //   this.setState({title: this.state.post.title, content: this.state.post.content})
+        this.setState({ post: response.data[0] });
+        this.setState({
+          title: this.state.post.title,
+          content: this.state.post.content
+        });
       })
       .catch(console.log());
   }
