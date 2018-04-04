@@ -18,13 +18,14 @@ const axios = require("axios");
 
 module.exports = {
   getBlogs: (req, res, next) => {
+    console.log("you hit me");
     const dbInstance = req.app.get("db");
     const { params } = req;
 
     dbInstance
       .get_blogs([params.id])
       .then(blogs => res.status(200).json(blogs))
-      .catch(() => res.status(500).json());
+      .catch(err => res.status(500).console.log(err));
   },
   //create new blog
   createBlog: (req, res, next) => {
@@ -60,8 +61,6 @@ module.exports = {
   createPost: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params, body } = req;
-    console.log(params);
-    console.log(body);
 
     dbInstance
       .create_post([params.id, body.title, body.content])
@@ -73,12 +72,7 @@ module.exports = {
     const { params, body } = req;
 
     dbInstance
-      .update_post([
-        params.id,
-        body.title,
-        body.content
-    
-      ])
+      .update_post([params.id, body.title, body.content])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   }

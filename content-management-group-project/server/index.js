@@ -31,7 +31,9 @@ massive(CONNECTION_STRING)
   })
   .catch(console.log);
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 
 //sessions
@@ -110,7 +112,7 @@ app.post("/api/blog/:id", mc.createBlog); //create blog
 app.get("/api/posts/:id", mc.getPosts); //Get All Post
 app.get("/api/post/:id", mc.getPost); //Get One Post
 app.post("/api/post/:id", mc.createPost); //create post
-app.put("/api/post/:id", mc.updatePost); //update post
+app.put("/api/put/:id", mc.updatePost); //update post
 
 // app.post("/api/Subject", getSubject);
 
