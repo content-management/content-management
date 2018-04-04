@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    position: fixed;
+    border: none;
+    background-color: lightgray;
+    opacity: .7;
+    width: 100%;
+    
+}
+

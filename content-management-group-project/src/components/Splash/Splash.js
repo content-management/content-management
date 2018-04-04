@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "../../styles/css/Splash.css";
-// import Background from './backgroudphoto.jpg';
+
 
 class Splash extends Component{
   render(){

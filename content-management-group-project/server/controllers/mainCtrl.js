@@ -75,5 +75,14 @@ module.exports = {
       .update_post([params.id, body.title, body.content])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
+  },
+  deletePost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .delete_post([params.id])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
   }
 };
