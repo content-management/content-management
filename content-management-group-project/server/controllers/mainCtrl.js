@@ -60,8 +60,7 @@ module.exports = {
   createPost: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params, body } = req;
-    console.log(params);
-    console.log(body);
+  
 
     dbInstance
       .create_post([params.id, body.title, body.content])

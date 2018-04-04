@@ -43,7 +43,7 @@ class TextEditor extends React.Component {
     return (
       <div>
         <div>
-          <input type="text" placeholder="Add Title Here" />
+          <input type="text" placeholder="Add Title Here" onChange={(e) => this.setState({title: e.target.value})} />
         </div>
         <input
           id="my-file"
