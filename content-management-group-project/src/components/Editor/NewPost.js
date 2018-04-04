@@ -13,7 +13,7 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
   }
-  
+
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
     this.setState({
@@ -26,16 +26,17 @@ class TextEditor extends React.Component {
     temp = temp.replace("<head>", "");
     temp = temp.replace("</head>", "");
     temp = temp.replace("</html>", "");
+    temp = temp.replace(/\r?\n/g, "");
     console.log(temp);
-    let body = {
-      title: this.state.title,
-      content: temp
-    };
-    axios
-      .post(`/api/post/${this.props.match.params.id}`, body)
-      .then(results => {
-        alert("New post added");
-      });
+    // let body = {
+    //   title: this.state.title,
+    //   content: temp
+    // };
+    // axios
+    //   .post(`/api/post/${this.props.match.params.id}`, body)
+    //   .then(results => {
+    //     alert("New post added");
+    //   });
   }
   render() {
     console.log(this.props.match.params.id);
