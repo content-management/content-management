@@ -6,23 +6,21 @@ class TextEditor extends React.Component {
   constructor() {
     super();
     this.state = {
-    post: "",
-    title: "",
-    content: "",
+      post: "",
+      title: "",
+      content: ""
     };
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
-    
-      axios
-        .get(`/api/post/${this.props.match.params.id}`)
-        .then(response => {
-          console.log("response", response.data);
-          this.setState({ post: response.data[0] });
+    axios
+      .get(`/api/post/${this.props.match.params.id}`)
+      .then(response => {
+        console.log("response", response.data);
+        this.setState({ post: response.data[0] });
         //   this.setState({title: this.state.post.title, content: this.state.post.content})
-        })
-        .catch(console.log())
-    
+      })
+      .catch(console.log());
   }
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
@@ -36,17 +34,15 @@ class TextEditor extends React.Component {
       title: this.state.title,
       content: this.state.content
     };
-    axios
-      .put(`/api/put/${this.props.match.params.id}`, body)
-      .then(results => {
-        alert("updated post")
-      });
+    axios.put(`/api/put/${this.props.match.params.id}`, body).then(results => {
+      alert("updated post");
+    });
   }
   render() {
     console.log(this.props.match.params.id);
     console.log(this.state.post);
     console.log(this.state.post.content);
-    
+
     let title = this.state.post.title;
     let content = this.state.post.content;
     return (
