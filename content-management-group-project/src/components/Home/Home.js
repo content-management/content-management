@@ -20,7 +20,7 @@ class Home extends Component {
       <div>
         <div className="home-body">
 
-          <div>
+          <div className="home-greeting">
           {!this.props.isLoading && <h1>
             Welcome back, {this.props.user.name} !
             </h1>}
@@ -44,8 +44,8 @@ class Home extends Component {
               <div className="cards">Posts</div>
             </Link>
 
-              <div className="cards">Pages</div>
-              <div className="cards">Media</div>
+            <div className="cards">Pages</div>
+            <div className="cards">Media</div>
 
           </div>
         </div>
