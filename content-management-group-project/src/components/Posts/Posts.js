@@ -40,7 +40,9 @@ class Posts extends Component {
 
               <div>{obj.post_id}</div>
             </div>
+              <Link to={`/NewPost/${obj.post_id}`}>
             <button>Edit Post</button>
+            </Link>
           </div>
         );
       });
@@ -50,8 +52,8 @@ class Posts extends Component {
           <h3> Home</h3>
         </Link>
         {results}
-        <Link to={`/Editor/${this.props.match.params.id}`}>
-          <button>New Post</button>
+        <Link to={`/NewPost/${this.props.match.params.id}`}>
+        <button>New Post</button>
         </Link>
       </div>
     );

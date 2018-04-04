@@ -13,6 +13,7 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
   }
+  
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
     this.setState({
