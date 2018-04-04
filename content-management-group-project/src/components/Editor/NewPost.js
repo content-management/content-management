@@ -12,6 +12,7 @@ class TextEditor extends React.Component {
       tinyID: ""
     };
     this.saveContent = this.saveContent.bind(this);
+    this.handleEditorChange = this.handleEditorChange.bind(this);
   }
   
   handleEditorChange = e => {

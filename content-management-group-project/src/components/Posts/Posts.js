@@ -25,25 +25,29 @@ class Posts extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id)
+    console.log(this.props.match.params.id);
     let results = {};
     results =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
-        return <div className="postResultsWrapper" key={i}>
-            <ul>
+        return (
+          <div className="postResultsWrapper" key={i}>
+            <div style={{ height: "80%" }}>
               <span>{obj.blog_name}</span>
               <h1>{obj.title}</h1>
-              
-              <li><iframe srcdoc={obj.content} /></li>
-              <li>{obj.post_id}</li>
-            </ul>
-            <Link to={`/EditPost/${obj.post_id}`}>
+
+              <iframe className="postIframe" srcdoc={obj.content} />
+
+              <div>{obj.post_id}</div>
+            </div>
+              <Link to={`/NewPost/${obj.post_id}`}>
             <button>Edit Post</button>
             </Link>
-          </div>;
+          </div>
+        );
       });
-    return <div>
+    return (
+      <div>
         <Link to={`/Home/${this.props.user.name}`}>
           <h3> Home</h3>
         </Link>
@@ -51,7 +55,8 @@ class Posts extends Component {
         <Link to={`/NewPost/${this.props.match.params.id}`}>
         <button>New Post</button>
         </Link>
-      </div>;
+      </div>
+    );
   }
 }
 

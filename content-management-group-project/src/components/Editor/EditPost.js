@@ -62,7 +62,7 @@ class TextEditor extends React.Component {
           onChange=""
         />
         <Editor
-          initialValue="<body><h1>Hey my name</h1><p>Whats up</p></body>"
+          initialValue={content}
           init={{
             selector: "textarea",
             height: 500,
