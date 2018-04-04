@@ -110,6 +110,7 @@ app.post("/api/blog/:id", mc.createBlog); //create blog
 app.get("/api/posts/:id", mc.getPosts); //Get All Post
 app.get("/api/post/:id", mc.getPost); //Get One Post
 app.post("/api/post/:id", mc.createPost); //create post
+app.put("/api/post/:id", mc.updatePost)//update post
 
 // app.post("/api/Subject", getSubject);
 

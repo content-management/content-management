@@ -38,7 +38,9 @@ class Posts extends Component {
               <li><iframe srcdoc={obj.content} /></li>
               <li>{obj.post_id}</li>
             </ul>
+            <Link to={`/EditPost/${obj.post_id}`}>
             <button>Edit Post</button>
+            </Link>
           </div>;
       });
     return <div>
@@ -46,7 +48,7 @@ class Posts extends Component {
           <h3> Home</h3>
         </Link>
         {results}
-        <Link to={`/Editor/${this.props.match.params.id}`}>
+        <Link to={`/NewPost/${this.props.match.params.id}`}>
         <button>New Post</button>
         </Link>
       </div>;
