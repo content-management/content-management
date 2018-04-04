@@ -23,6 +23,10 @@ class Posts extends Component {
     );
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
+  deleteSub(i){
+    axios.delete(`/api/delete/${i}`)
+    .then(alert('post deleted'))
+  }
 
   render() {
     console.log(this.props.match.params.id);
@@ -43,6 +47,7 @@ class Posts extends Component {
             <Link to={`/EditPost/${obj.post_id}`}>
               <button>Edit Post</button>
             </Link>
+            <button onClick={() => this.deleteSub(obj.post_id)}>Delete Post</button>
           </div>
         );
       });

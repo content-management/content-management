@@ -111,6 +111,7 @@ app.get("/api/posts/:id", mc.getPosts); //Get All Post
 app.get("/api/post/:id", mc.getPost); //Get One Post
 app.post("/api/post/:id", mc.createPost); //create post
 app.put("/api/put/:id", mc.updatePost)//update post
+app.delete("/api/delete/:id", mc.deletePost);//delte post
 
 // app.post("/api/Subject", getSubject);
 
