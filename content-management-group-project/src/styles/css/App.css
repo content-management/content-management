@@ -3,10 +3,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: URL(
+  /* background: URL(
       "https://c.pxhere.com/photos/e7/17/coffee_notebook_wooden_background_orange_work_table_office-642063.jpg!d"
-    )
-    no-repeat center center fixed;
+    ) */
+    /* no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -19,25 +19,15 @@ body {
   width: 80vw;
   height: 20vh;
 }
-.App {
+/* .App {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
+} */
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
 
 .App-title {
   font-size: 1.5em;
