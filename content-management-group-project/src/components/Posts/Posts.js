@@ -70,10 +70,12 @@ class Posts extends Component {
       });
     return (
       <div>
-        <Header />
-
+        <Header
+          id={this.props.match.params.id}
+          id2={this.props.match.params.id2}
+        />
         <Link to={`/Home/${this.props.user.name}`} />
-        <div className="postsUnderHeader">{results}</div>
+        {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
           <button className="newPostButton">New Post</button>
         </Link>

@@ -37,28 +37,25 @@ class Home extends Component {
         );
       });
 
-    return (
-      <div>
-        <Header />
+    return <div>
+        <Header id={this.props.match.params.id} id2={this.props.match.params.id2} />
         <div className="home-body">
           <div className="home-greeting">
-            {!this.props.isLoading && (
-              <h1>Welcome back, {this.props.user.name} !</h1>
-            )}
+            {!this.props.isLoading && <h1>
+                Welcome back, {this.props.user.name} !
+              </h1>}
             <h2>{this.props.match.params.id}</h2>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
 
           <div className="scroll-container">
-            <div className="horizontal-scroll-wrapper rectangles">{myPost}</div>
+            <div className="horizontal-scroll-wrapper rectangles">
+              {myPost}
+            </div>
           </div>
 
           <div className="cards-container">
-            <Link
-              to={`/Posts/${this.props.match.params.id}/${
-                this.props.match.params.id2
-              }`}
-            >
+            <Link to={`/Posts/${this.props.match.params.id}/${this.props.match.params.id2}`}>
               <div className="cards">Posts</div>
             </Link>
 
@@ -66,8 +63,7 @@ class Home extends Component {
             <div className="cards">Media</div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
