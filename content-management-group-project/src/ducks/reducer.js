@@ -2,6 +2,7 @@ import axios from "axios";
 
 //CONSTANTS
 const GET_USER = "GET_USER";
+const CURR_BLOG = "CURRBLOG";
 
 // ACTION CREATORS
 export function getUser() {
@@ -14,13 +15,21 @@ export function getUser() {
   };
 }
 
+export function currBlog(e) {
+  return {
+    type: CURR_BLOG,
+    payload: e
+  };
+}
+
 //INITIAL STATE
 
 const initialState = {
   user: {},
   isLoading: false,
   didErr: false,
-  errMessage: null
+  errMessage: null,
+  currentBlog: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -35,10 +44,10 @@ export default function reducer(state = initialState, action) {
       });
 
     case `${GET_USER}_REJECTED`:
-      return Object.assign({}, state, {
-        isLoading: false,
-        didErr: true
-      });
+      return Object.assign({}, state, { isLoading: false, didErr: true });
+    case CURR_BLOG:
+      return Object.assign({}, state, { currentBlog: action.payload });
+
     default:
       return state;
   }

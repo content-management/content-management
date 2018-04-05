@@ -12,15 +12,13 @@ class Posts extends Component {
     };
   }
   componentDidMount() {
-    this.props.getUser().then(
-      axios
-        .get(`/api/posts/${parseInt(window.location.hash.split("/")[2])}`)
+    this.props.getUser().then(axios
+        .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
           console.log("response", response.data);
           this.setState({ posts: response.data });
         })
-        .catch(console.log())
-    );
+        .catch(console.log()));
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
   deleteSub(i) {
@@ -68,7 +66,7 @@ class Posts extends Component {
           <h3> Home</h3>
         </Link>
         {results}
-        <Link to={`/NewPost/${this.props.match.params.id}`}>
+        <Link to={`/NewPost/${this.props.match.params.id2}`}>
           <button>New Post</button>
         </Link>
       </div>
