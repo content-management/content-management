@@ -36,6 +36,15 @@ class Home extends Component {
           </div>
         );
       });
+      let myContent =
+      this.state.posts &&
+      this.state.posts.map((obj, i) => {
+        return (
+          <div key={i}>
+            <span>{obj.content}</span>
+          </div>
+        );
+      });
 
     return (
       <div>
@@ -50,15 +59,14 @@ class Home extends Component {
           </div>
 
           <div className="scroll-container">
-            <div className="horizontal-scroll-wrapper rectangles">{myPost}</div>
+            <div className="horizontal-scroll-wrapper rectangles"><span>{myPost}</span></div>
           </div>
 
           <div className="cards-container">
             <Link
               to={`/Posts/${this.props.match.params.id}/${
                 this.props.match.params.id2
-              }`}
-            >
+              }`}>
               <div className="cards">Posts</div>
             </Link>
 
