@@ -13,13 +13,15 @@ class Posts extends Component {
     };
   }
   componentDidMount() {
-    this.props.getUser().then(axios
+    this.props.getUser().then(
+      axios
         .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
           console.log("response", response.data);
           this.setState({ posts: response.data });
         })
-        .catch(console.log()));
+        .catch(console.log())
+    );
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
   deleteSub(i) {
@@ -43,34 +45,43 @@ class Posts extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         return (
-          <div> 
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
-              <span>{obj.blog_name}</span>
+              <h3>{obj.blog_name}</h3>
               <h1>{obj.title}</h1>
 
               <iframe className="postIframe" srcdoc={obj.content} />
 
-              <div>{obj.post_id}</div>
+              <div>Post: {obj.post_id}</div>
+              <br />
+              <br />
             </div>
             <Link to={`/EditPost/${obj.post_id}`}>
-              <button>Edit Post</button>
+              <button className="postsButtons">Edit Post</button>
             </Link>
-            <button onClick={() => this.deleteSub(obj.post_id)}>
+            <button
+              className="postsButtons"
+              onClick={() => this.deleteSub(obj.post_id)}
+            >
               Delete Post
             </button>
           </div>
-          </div>
         );
       });
-    return <div>
-        <Header id={this.props.match.params.id} id2={this.props.match.params.id2} />
+    return (
+      <div>
+        <Header
+          id={this.props.match.params.id}
+          id2={this.props.match.params.id2}
+        />
         <Link to={`/Home/${this.props.user.name}`} />
+        <div style={{ height: "100px" }} />
         {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
-          <button>New Post</button>
+          <button className="newPostButton">New Post</button>
         </Link>
-      </div>;
+      </div>
+    );
   }
 }
 

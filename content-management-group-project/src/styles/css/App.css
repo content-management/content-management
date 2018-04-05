@@ -7,13 +7,58 @@
   height: 40vh;
   border: solid white thin;
   border-radius: 20px;
-  margin: 8px;
+  margin: 0 auto;
+  margin-top: 5px;
+  text-align: center;
+}
+.postsUnderHeader {
+  margin-top: 150px;
+}
+.postsButtons {
+  margin: 5px;
+  margin-top: 25px;
+  padding: 3px;
+}
+.newPostButton {
+  position: fixed;
+  left: 1px;
+  top: 250px;
+  padding: 20px;
+  background: rgb(18, 172, 18);
+  border: none;
+  box-shadow: 1px 1px 1px;
+  border-radius: 25px;
+}
+.newPostButton:active {
+  box-shadow: none;
+}
+.newPostButton:hover {
+  background: rgb(64, 228, 64);
 }
 .postIframe {
-  width: 85%;
-  height: 80%;
+  width: 90%;
+  height: 85%;
   background: white;
+  border-radius: 20px;
 }
+
+/* .App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
+
+/* .App-header {
+  display: fixed;
+  top: 0px;
+  text-align: left;
+  align-self: flex-start;
+  background: white;
+  width: 100%;
+} */
+
 
 .App-title {
   font-size: 1.5em;
