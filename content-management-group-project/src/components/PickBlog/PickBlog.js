@@ -13,11 +13,10 @@ class PickBlog extends Component {
       blogs: "",
       addBlog: false,
       currentBlog: "",
-      blogName: "",
+      blogName: ""
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
     this.addBlog = this.addBlog.bind(this);
-    
   }
 
   componentDidMount() {
@@ -34,23 +33,23 @@ class PickBlog extends Component {
   addBlogClicked() {
     this.setState({ addBlog: true });
   }
-  addBlog(){
-       let body = {
-        name: this.state.blogName
-       }
-       axios
-         .post(`/api/blog/${this.props.user.id}`, body)
-         .then(axios.get(`/api/blogs/${this.props.user.id}`)
-         .then(response => {
-           this.props.getBlogs(response.data);
-         })).then(
-         this.setState({ addBlog: false}));
+  addBlog() {
+    let body = {
+      name: this.state.blogName
+    };
+    axios
+      .post(`/api/blog/${this.props.user.id}`, body)
+      .then(
+        axios.get(`/api/blogs/${this.props.user.id}`).then(response => {
+          this.props.getBlogs(response.data);
+        })
+      )
+      .then(this.setState({ addBlog: false }));
   }
 
-
   render() {
-    console.log(this.props.user.id)
-    console.log(this.state.blogName)
+    console.log(this.props.user.id);
+    console.log(this.state.blogName);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -64,8 +63,6 @@ class PickBlog extends Component {
           </div>
         );
       });
-    console.log("user", this.props.user);
-    console.log(this.props.currentBlog);
     return (
       <div>
       <Header />
@@ -79,8 +76,12 @@ class PickBlog extends Component {
 
         {this.state.addBlog === true ? (
           <div>
-            <input type="text" placeholder="Your blog name" onChange={(e) => this.setState({ blogName: e.target.value })} />
-            <button onClick={() => this.addBlog()} >Submit</button>
+            <input
+              type="text"
+              placeholder="Your blog name"
+              onChange={e => this.setState({ blogName: e.target.value })}
+            />
+            <button onClick={() => this.addBlog()}>Submit</button>
           </div>
         ) : null}
       </div>
@@ -91,4 +92,6 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(PickBlog);
+export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(
+  PickBlog
+);
