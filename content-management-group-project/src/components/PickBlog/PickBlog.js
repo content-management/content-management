@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
@@ -22,7 +22,7 @@ class PickBlog extends Component {
       axios
         .get(`/api/blogs/${this.props.user.id}`)
         .then(response => {
-          this.setState({ blogs: response.data });
+          this.props.getBlogs(response.data);
         })
         .catch(console.log());
     });
@@ -39,9 +39,10 @@ class PickBlog extends Component {
   }
 
   render() {
+    console.log(this.props.blogs)
     let blogs =
-      this.state.blogs &&
-      this.state.blogs.map((obj, i) => {
+      this.props.blogs &&
+      this.props.blogs.map((obj, i) => {
         return (
           <div key={i}>
             <ul>
@@ -76,4 +77,4 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog })(PickBlog);
+export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(PickBlog);
