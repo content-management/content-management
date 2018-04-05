@@ -23,9 +23,18 @@ class Posts extends Component {
     );
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
-  deleteSub(i){
-    axios.delete(`/api/delete/${i}`)
-    .then(alert('post deleted'))
+  deleteSub(i) {
+    axios
+      .delete(`/api/delete/${i}`)
+      .then(
+        axios
+          .get(`/api/posts/${parseInt(window.location.hash.split("/")[2])}`)
+          .then(response => {
+            console.log("response", response.data);
+            this.setState({ posts: response.data });
+          })
+      )
+      .catch(console.log());
   }
 
   render() {
@@ -47,7 +56,9 @@ class Posts extends Component {
             <Link to={`/EditPost/${obj.post_id}`}>
               <button>Edit Post</button>
             </Link>
-            <button onClick={() => this.deleteSub(obj.post_id)}>Delete Post</button>
+            <button onClick={() => this.deleteSub(obj.post_id)}>
+              Delete Post
+            </button>
           </div>
         );
       });

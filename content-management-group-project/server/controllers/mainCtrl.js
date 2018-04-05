@@ -18,13 +18,14 @@ const axios = require("axios");
 
 module.exports = {
   getBlogs: (req, res, next) => {
+    console.log("you hit me");
     const dbInstance = req.app.get("db");
     const { params } = req;
 
     dbInstance
       .get_blogs([params.id])
       .then(blogs => res.status(200).json(blogs))
-      .catch(() => res.status(500).json());
+      .catch(err => res.status(500).console.log(err));
   },
   //create new blog
   createBlog: (req, res, next) => {

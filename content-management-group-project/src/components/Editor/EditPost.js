@@ -13,12 +13,17 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
+    console.log("window", window.tinyMCE);
     axios
       .get(`/api/post/${this.props.match.params.id}`)
       .then(response => {
-        console.log("response", response.data);
+        console.log("response", response.data[0].content);
+
         this.setState({ post: response.data[0] });
-        //   this.setState({title: this.state.post.title, content: this.state.post.content})
+        this.setState({
+          title: this.state.post.title,
+          content: this.state.post.content
+        });
       })
       .catch(console.log());
   }
@@ -46,6 +51,7 @@ class TextEditor extends React.Component {
     // console.log(this.state.post.title);
 
     let title = this.state.post.title;
+    // let content = this.state.post.content;
     let content = this.state.post.content;
     return (
       <div>

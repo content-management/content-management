@@ -11,7 +11,6 @@ class PickBlog extends Component {
       blogs: "",
       addBlog: false,
       currentBlog: ""
-    
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
   }
@@ -37,8 +36,8 @@ class PickBlog extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link to={`/Posts/${obj.blog_id}`}  >
-                <li> {obj.blog_name}</li>
+              <Link className="blogLinks" to={`/Posts/${obj.blog_id}`}>
+                <span> {obj.blog_name}</span>
               </Link>
             </ul>
           </div>
@@ -47,19 +46,20 @@ class PickBlog extends Component {
     console.log("user", this.props.user);
     console.log(this.state.currentBlog);
     return (
-      <div className="App">
+      <div className="pickBlogPage">
         <div>
           <h1>Hello, {this.props.user.name}</h1>
         </div>
         <h1>Which blog are you working on?</h1>
         {blogs}
-        <button onClick={this.addBlogClicked}>Add Blog</button>
-        
-        {this.state.addBlog === true ? <div>
-          <input type="text" placeholder="Your blog name"/>
-          <input type="submit"/>
-        </div> : null}
-     
+        <button onClick={this.addBlogClicked}>Create New Blog</button>
+
+        {this.state.addBlog === true ? (
+          <div>
+            <input type="text" placeholder="Your blog name" />
+            <input type="submit" />
+          </div>
+        ) : null}
       </div>
     );
   }
