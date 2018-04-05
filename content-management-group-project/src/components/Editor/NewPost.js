@@ -1,6 +1,7 @@
 import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
+import Header from "../Header/Header";
 
 class TextEditor extends React.Component {
   constructor() {
@@ -49,6 +50,7 @@ class TextEditor extends React.Component {
     console.log(this.props.match.params.id);
     return (
       <div>
+        <Header />
         <div>
           <input
             type="text"

@@ -5,23 +5,33 @@ import { getUser, getBlogs } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
 import '../../styles/css/Header.css';
 
-
-
 class Header extends Component {
     render(){
-        console.log(this.props.blogs);
+        console.log(this.props.blogs)
+        let blogs =
+        this.props.blogs &&
+        this.props.blogs.map((obj, i) => {
+        return (
+          <div key={i}>
+            <ul>
+              <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
+                <a> {obj.blog_name}</a>
+              </Link>
+            </ul>
+          </div>
+        );
+      });
         return(
             <div>
                 <div className="header">
                 <div><img src={Logo} className='logo'alt="Logo"/></div>
                 <div className="nav">
-                <Link to={`/Home/:id`}> <div className='links'>Home</div></Link>
+                <Link to={`/Home/:id`}> <div className='links'>Dashboard</div></Link>
                 <div className='dropdown'>Switch Sites
                 <div className='dropdown-content'>
-                <a href ="#">Blog 1</a>
+                {blogs}
                 </div>
                 </div>
-                <Link to={`/Posts/:id`}><div className='links'>Posts</div></Link>
                 </div>
                 </div>
             </div>
