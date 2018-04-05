@@ -21,29 +21,40 @@ class TextEditor extends React.Component {
     });
   };
   saveContent() {
-    let temp = this.state.content.replace("<!DOCTYPE html>", "");
-    temp = temp.replace("<html>", "");
-    temp = temp.replace("<head>", "");
-    temp = temp.replace("</head>", "");
-    temp = temp.replace("</html>", "");
-    temp = temp.replace(/\r?\n/g, "");
-    console.log(temp);
-    let body = {
-      title: this.state.title,
-      content: temp
-    };
-    axios
-      .post(`/api/post/${this.props.match.params.id}`, body)
-      .then(results => {
-        alert("New post added");
-      });
+    console.log(this.state.content.length);
+    if (this.state.content.length > 3000000) {
+      alert(
+        "The post data size is too large, this is usually due to large or high resolution images. Please use an image compression service to limit your image file size. Your post has NOT been created."
+      );
+    } else {
+      let temp = this.state.content.replace("<!DOCTYPE html>", "");
+      temp = temp.replace("<html>", "");
+      temp = temp.replace("<head>", "");
+      temp = temp.replace("</head>", "");
+      temp = temp.replace("</html>", "");
+      temp = temp.replace(/\r?\n/g, "");
+      console.log(temp);
+      let body = {
+        title: this.state.title,
+        content: temp
+      };
+      axios
+        .post(`/api/post/${this.props.match.params.id}`, body)
+        .then(results => {
+          alert("New post added");
+        });
+    }
   }
   render() {
     console.log(this.props.match.params.id);
     return (
       <div>
         <div>
-          <input type="text" placeholder="Add Title Here" onChange={(e) => this.setState({title: e.target.value})} />
+          <input
+            type="text"
+            placeholder="Add Title Here"
+            onChange={e => this.setState({ title: e.target.value })}
+          />
         </div>
         <input
           id="my-file"

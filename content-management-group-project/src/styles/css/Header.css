@@ -1,10 +1,31 @@
 .header{
     display: flex;
     position: fixed;
+    justify-content: space-between;
     border: none;
     background-color: lightgray;
     opacity: .7;
     width: 100%;
+    margin-bottom: 0;
     
 }
 
+.logo {
+    height: 100px;
+    width: 100px;
+    
+    
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Allerta", sans-serif;
+    text-decoration-color: #00168a;
+}
+
+.links{
+    margin: 5px;
+}

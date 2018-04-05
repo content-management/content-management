@@ -11,7 +11,6 @@ class PickBlog extends Component {
       blogs: "",
       addBlog: false,
       currentBlog: ""
-    
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
     this.updateBlog = this.updateBlog.bind(this);
@@ -43,29 +42,33 @@ class PickBlog extends Component {
     let blogs =
       this.state.blogs &&
       this.state.blogs.map((obj, i) => {
-        return <div key={i} >
-        
-            <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`}> 
-              <h1>{obj.blog_name}</h1>
-            </Link>
-          </div>;
+        return (
+          <div key={i}>
+            <ul>
+              <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
+                <span> {obj.blog_name}</span>
+              </Link>
+            </ul>
+          </div>
+        );
       });
     console.log("user", this.props.user);
     console.log(this.props.currentBlog);
     return (
-      <div className="App">
+      <div className="pickBlogPage">
         <div>
           <h1>Hello, {this.props.user.name}</h1>
         </div>
         <h1>Which blog are you working on?</h1>
         {blogs}
-        <button onClick={this.addBlogClicked}>Add Blog</button>
-        
-        {this.state.addBlog === true ? <div>
-          <input type="text" placeholder="Your blog name"/>
-          <input type="submit"/>
-        </div> : null}
-     
+        <button onClick={this.addBlogClicked}>Create New Blog</button>
+
+        {this.state.addBlog === true ? (
+          <div>
+            <input type="text" placeholder="Your blog name" />
+            <input type="submit" />
+          </div>
+        ) : null}
       </div>
     );
   }

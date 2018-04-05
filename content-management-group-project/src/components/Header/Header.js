@@ -12,9 +12,12 @@ class Header extends Component {
         return(
             <div>
                 <div className="header">
-                <Link  to={`/Home/${this.props.user.name}`}>
-                <div><img src={Logo} className='logo'alt="Logo" height='100px' width='100px'/></div>
-                </Link>
+                <div><img src={Logo} className='logo'alt="Logo"/></div>
+                <div className="nav">
+                <Link to={`/Home/:id/:id2`}> <div className='links'>Home</div></Link>
+                <Link to={`/pickblog/:id`}><div className='links'>Switch Sites</div></Link>
+                <Link to={`/Posts/:id/id2`}><div className='links'>Posts</div></Link>
+                </div>
                 </div>
             </div>
         )
