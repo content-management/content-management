@@ -14,7 +14,6 @@ class PickBlog extends Component {
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
     this.updateBlog = this.updateBlog.bind(this);
-    
   }
 
   componentDidMount() {
@@ -31,30 +30,27 @@ class PickBlog extends Component {
   addBlogClicked() {
     this.setState({ addBlog: true });
   }
-  updateBlog(i){
-    console.log("updating blog")
-    console.log(i)
+  updateBlog(i) {
     this.props.currBlog(i);
-  
   }
 
   render() {
-    console.log(this.props.blogs)
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
         return (
           <div key={i}>
             <ul>
-              <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
+              <Link
+                className="blogLinks"
+                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
+              >
                 <span> {obj.blog_name}</span>
               </Link>
             </ul>
           </div>
         );
       });
-    console.log("user", this.props.user);
-    console.log(this.props.currentBlog);
     return (
       <div className="pickBlogPage">
         <div>
@@ -77,4 +73,6 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(PickBlog);
+export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(
+  PickBlog
+);
