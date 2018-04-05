@@ -3,6 +3,7 @@ import { connect } from "react-redux"; //connect to redux
 import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
+import Header from "../Header/Header";
 
 class PickBlog extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class PickBlog extends Component {
         );
       });
     return (
+      <div><Header />
       <div className="pickBlogPage">
         <div>
           <h1>Hello, {this.props.user.name}</h1>
@@ -83,6 +85,7 @@ class PickBlog extends Component {
             <button onClick={() => this.addBlog()}>Submit</button>
           </div>
         ) : null}
+      </div>
       </div>
     );
   }

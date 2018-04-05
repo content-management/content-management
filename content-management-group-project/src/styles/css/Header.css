@@ -35,29 +35,29 @@
     border: none;
     outline: none;
     color:#00168a;
+    padding-right: 20px;
+    margin: 0;
 }
 .dropdown-content{
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    min-width: 100px;
     z-index: 1;
 }
 
 .dropdown-content a {
     float: none;
     color: #00168a;
-    padding: 12px 16px;
+    padding-right: 10px;
+    padding-bottom: 2px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
 .dropdown-content a:hover {
     background-color: lightgrey;
-
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }

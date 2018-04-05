@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import Header from "../Header/Header";
 
 class PageView extends Component {
   render() {
-    return <div> single page view here</div>;
+    return <div>
+      <Header />
+       single page view here</div>;
   }
 }
 
