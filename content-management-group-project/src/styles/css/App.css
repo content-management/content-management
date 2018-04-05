@@ -1,13 +1,4 @@
 /* SITE-WIDE */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 
 /* APP */
 .postResultsWrapper {
@@ -50,6 +41,7 @@ body {
   background: white;
   border-radius: 20px;
 }
+
 /* .App {
   text-align: center;
   display: flex;
@@ -67,6 +59,7 @@ body {
   width: 100%;
 } */
 
+
 .App-title {
   font-size: 1.5em;
 }
@@ -74,16 +67,6 @@ body {
 .App-intro {
   font-size: large;
 }
-.pickBlogPage {
-  padding: 150px;
-  text-align: left;
-}
-.blogLinks {
-  text-decoration: none;
-  color: black;
-}
-.blogLinks:hover {
-  color: black;
-  background: yellow;
-  /* border: solid thin rgb(0, 255, 0); */
-}
+
+
+
