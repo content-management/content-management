@@ -7,7 +7,8 @@ import Header from "./components/Header/Header";
 class App extends Component {
   render() {
     console.log(window.location.href);
-    return ( <div>
+    return (
+      <div>
         <Header />
         <div>{routes}</div>
       </div>

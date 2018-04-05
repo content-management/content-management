@@ -10,10 +10,11 @@ class PickBlog extends Component {
     this.state = {
       blogs: "",
       addBlog: false,
-      currentBlog: ""
+      currentBlog: "",
+      blogName: "",
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
-    this.updateBlog = this.updateBlog.bind(this);
+    this.addBlog = this.addBlog.bind(this);
     
   }
 
@@ -31,15 +32,23 @@ class PickBlog extends Component {
   addBlogClicked() {
     this.setState({ addBlog: true });
   }
-  updateBlog(i){
-    console.log("updating blog")
-    console.log(i)
-    this.props.currBlog(i);
-  
+  addBlog(){
+       let body = {
+        name: this.state.blogName
+       }
+       axios
+         .post(`/api/blog/${this.props.user.id}`, body)
+         .then(axios.get(`/api/blogs/${this.props.user.id}`)
+         .then(response => {
+           this.props.getBlogs(response.data);
+         })).then(
+         this.setState({ addBlog: false}));
   }
 
+
   render() {
-    console.log(this.props.blogs)
+    console.log(this.props.user.id)
+    console.log(this.state.blogName)
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -66,8 +75,8 @@ class PickBlog extends Component {
 
         {this.state.addBlog === true ? (
           <div>
-            <input type="text" placeholder="Your blog name" />
-            <input type="submit" />
+            <input type="text" placeholder="Your blog name" onChange={(e) => this.setState({ blogName: e.target.value })} />
+            <button onClick={() => this.addBlog()} >Submit</button>
           </div>
         ) : null}
       </div>
