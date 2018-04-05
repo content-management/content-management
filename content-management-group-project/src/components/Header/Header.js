@@ -16,7 +16,7 @@ class Header extends Component {
           <div key={i}>
             <ul>
               <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
-                <a> {obj.blog_name}</a>
+                 {obj.blog_name}
               </Link>
             </ul>
           </div>

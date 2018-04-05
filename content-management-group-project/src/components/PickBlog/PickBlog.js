@@ -4,6 +4,7 @@ import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user fr
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import Header from "../Header/Header";
+import "../../styles/css/PickBlog.css";
 
 class PickBlog extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class PickBlog extends Component {
       this.props.blogs.map((obj, i) => {
         return (
           <div key={i}>
-            <ul>
+            <ul className="blogList">
               <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
                 <span> {obj.blog_name}</span>
               </Link>
@@ -66,14 +67,15 @@ class PickBlog extends Component {
     console.log("user", this.props.user);
     console.log(this.props.currentBlog);
     return (
-      <div><Header />
+      <div>
+      <Header />
       <div className="pickBlogPage">
         <div>
           <h1>Hello, {this.props.user.name}</h1>
         </div>
-        <h1>Which blog are you working on?</h1>
+        <h1>Which website are you working on?</h1>
         {blogs}
-        <button onClick={this.addBlogClicked}>Create New Blog</button>
+        <button onClick={this.addBlogClicked} className="newBlog">Create New Blog</button>
 
         {this.state.addBlog === true ? (
           <div>
