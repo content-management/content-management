@@ -3,6 +3,7 @@ import axios from "axios";
 //CONSTANTS
 const GET_USER = "GET_USER";
 const CURR_BLOG = "CURRBLOG";
+const GET_BLOGS = "GET_BLOGS";
 
 // ACTION CREATORS
 export function getUser() {
@@ -21,6 +22,12 @@ export function currBlog(e) {
     payload: e
   };
 }
+export function getBlogs(e) {
+  return {
+    type: GET_BLOGS,
+    payload: e
+  };
+}
 
 //INITIAL STATE
 
@@ -29,6 +36,7 @@ const initialState = {
   isLoading: false,
   didErr: false,
   errMessage: null,
+  blogs: "",
   currentBlog: ""
 };
 
@@ -47,6 +55,9 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { isLoading: false, didErr: true });
     case CURR_BLOG:
       return Object.assign({}, state, { currentBlog: action.payload });
+
+    case GET_BLOGS:
+      return Object.assign({}, state, { blogs: action.payload });
 
     default:
       return state;
