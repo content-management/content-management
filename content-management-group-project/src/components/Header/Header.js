@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import { connect } from "react-redux"; //connect to redux
-import { getUser } from "../../ducks/reducer"; //get user from redux
+import { getUser, getBlogs } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
 import '../../styles/css/Header.css';
 
@@ -9,6 +9,7 @@ import '../../styles/css/Header.css';
 
 class Header extends Component {
     render(){
+        console.log(this.props.blogs);
         return(
             <div>
                 <div className="header">
@@ -26,4 +27,4 @@ class Header extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(Header);
+export default connect(mapStateToProps, { getUser, getBlogs })(Header);
