@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
+import Header from "../Header/Header";
 
 class Posts extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class Posts extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         return (
+          <div> <Header />
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
               <span>{obj.blog_name}</span>
@@ -58,12 +60,12 @@ class Posts extends Component {
               Delete Post
             </button>
           </div>
+          </div>
         );
       });
     return (
       <div>
         <Link to={`/Home/${this.props.user.name}`}>
-          <h3> Home</h3>
         </Link>
         {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
