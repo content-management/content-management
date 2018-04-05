@@ -15,9 +15,13 @@ class Header extends Component {
                 <div className="header">
                 <div><img src={Logo} className='logo'alt="Logo"/></div>
                 <div className="nav">
-                <Link to={`/Home/:id/:id2`}> <div className='links'>Home</div></Link>
-                <Link to={`/pickblog/:id`}><div className='links'>Switch Sites</div></Link>
-                <Link to={`/Posts/:id/id2`}><div className='links'>Posts</div></Link>
+                <Link to={`/Home/:id`}> <div className='links'>Home</div></Link>
+                <div className='dropdown'>Switch Sites
+                <div className='dropdown-content'>
+                <a href ="#">Blog 1</a>
+                </div>
+                </div>
+                <Link to={`/Posts/:id`}><div className='links'>Posts</div></Link>
                 </div>
                 </div>
             </div>

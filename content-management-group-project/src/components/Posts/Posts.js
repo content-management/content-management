@@ -63,7 +63,7 @@ class Posts extends Component {
         );
       });
     return (
-      <div className="pickBlogPage">
+      <div>
         <Link to={`/Home/${this.props.user.name}`}>
           <h3> Home</h3>
         </Link>
