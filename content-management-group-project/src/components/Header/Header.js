@@ -7,6 +7,7 @@ import '../../styles/css/Header.css';
 
 class Header extends Component {
     render(){
+      console.log(this.props.id);
         console.log(this.props.blogs)
         let blogs =
         this.props.blogs &&
@@ -26,7 +27,7 @@ class Header extends Component {
                 <div className="header">
                 <div><img src={Logo} className='logo'alt="Logo"/></div>
                 <div className="nav">
-                <Link to={`/Home/:id/:id2`}> <div className='links'>Dashboard</div></Link>
+                <Link to={`/Home/${this.props.id}/${this.props.id2}`}> <div className='links'>Dashboard</div></Link>
                 <div className='dropdown'>Switch Sites
                 <div className='dropdown-content'>
                 {blogs}

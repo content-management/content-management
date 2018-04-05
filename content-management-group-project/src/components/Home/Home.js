@@ -27,48 +27,30 @@ class Home extends Component {
     );
   }
   render() {
-        console.log(this.props.match.params.id)
-        console.log(this.props.match.params.id2);
-        
-    console.log("user", this.props);
-    // let myPost = this.state.posts &&
-    //   this.state.posts.map((obj, i) => {
-    //     console.log(obj.title);
-    //     return
-    //          ( <div key={i}>
+    let myPost =
+      this.state.posts &&
+      this.state.posts.map((obj, i) => {
+        return (
+          <div key={i}>
+            <p>{obj.title}</p>
+          </div>
+        );
+      });
 
-    //             <p>{obj.title}</p>
-
-    //           </div>)
-    //   });
     return <div>
-      <Header />
+        <Header id={this.props.match.params.id} id2={this.props.match.params.id2} />
         <div className="home-body">
           <div className="home-greeting">
             {!this.props.isLoading && <h1>
                 Welcome back, {this.props.user.name} !
               </h1>}
-              <h2>{this.props.match.params.id}</h2>
+            <h2>{this.props.match.params.id}</h2>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
 
           <div className="scroll-container">
             <div className="horizontal-scroll-wrapper rectangles">
-              <div>
-                <p>blog posts here</p>
-              </div>
-              <div>
-                <p>blog posts here</p>
-              </div>
-              <div>
-                <p>blog posts here</p>
-              </div>
-              <div>
-                <p>blog posts here</p>
-              </div>
-              <div>
-                <p>blog posts here</p>
-              </div>
+              {myPost}
             </div>
           </div>
 
