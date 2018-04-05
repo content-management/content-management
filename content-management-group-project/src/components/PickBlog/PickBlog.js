@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
@@ -13,6 +13,8 @@ class PickBlog extends Component {
       currentBlog: ""
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
+    this.updateBlog = this.updateBlog.bind(this);
+    
   }
 
   componentDidMount() {
@@ -20,7 +22,7 @@ class PickBlog extends Component {
       axios
         .get(`/api/blogs/${this.props.user.id}`)
         .then(response => {
-          this.setState({ blogs: response.data });
+          this.props.getBlogs(response.data);
         })
         .catch(console.log());
     });
@@ -29,14 +31,22 @@ class PickBlog extends Component {
   addBlogClicked() {
     this.setState({ addBlog: true });
   }
+  updateBlog(i){
+    console.log("updating blog")
+    console.log(i)
+    this.props.currBlog(i);
+  
+  }
+
   render() {
+    console.log(this.props.blogs)
     let blogs =
-      this.state.blogs &&
-      this.state.blogs.map((obj, i) => {
+      this.props.blogs &&
+      this.props.blogs.map((obj, i) => {
         return (
           <div key={i}>
             <ul>
-              <Link className="blogLinks" to={`/Posts/${obj.blog_id}`}>
+              <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
                 <span> {obj.blog_name}</span>
               </Link>
             </ul>
@@ -44,7 +54,7 @@ class PickBlog extends Component {
         );
       });
     console.log("user", this.props.user);
-    console.log(this.state.currentBlog);
+    console.log(this.props.currentBlog);
     return (
       <div className="pickBlogPage">
         <div>
@@ -67,4 +77,4 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(PickBlog);
+export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(PickBlog);

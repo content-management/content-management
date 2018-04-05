@@ -14,12 +14,14 @@ export default (
   <Switch>
     <Route exact path="/" component={Splash} />
     <Route exact path="/pickblog/:id" component={PickBlog} />
-    <Route exact path="/Home/:id" component={Home} />
+    <Route exact path="/Home/:id/:id2" component={Home} />{" "}
+    {/*id-blog name, id2-blogid  */}
     <Route exact path="/PageView" component={PageView} />
     <Route exact path="/PostView" component={PostView} />
     <Route exact path="/NewPost/:id" component={NewPost} />
     <Route exact path="/EditPost/:id" component={EditPost} />
-    <Route exact path="/Posts/:id" component={Posts} />
+    <Route exact path="/Posts/:id/:id2" component={Posts} />
+    {/*id-blog name, id2-blogid  */}
     <Route
       path="*"
       render={() => (
