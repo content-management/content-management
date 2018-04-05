@@ -30,10 +30,11 @@ module.exports = {
   //create new blog
   createBlog: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { userid, blogName } = req.body;
+    const { params, body } = req;
+
 
     dbInstance
-      .create_blog([userid, blogName])
+      .create_blog([params.id, body.name])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   },

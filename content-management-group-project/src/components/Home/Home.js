@@ -19,24 +19,28 @@ class Home extends Component {
       axios
         .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
-          console.log("cool response", response.data);
+          console.log("response", response.data);
           this.setState({ posts: response.data });
         })
         .catch(console.log())
     );
   }
   render() {
-    let myPost = this.state.posts &&
-      this.state.posts.map((obj, i) => {
-        console.log(obj.title);
-        return
-             ( <div key={i}>
+        console.log(this.props.match.params.id)
+        console.log(this.props.match.params.id2);
+        
+    console.log("user", this.props);
+    // let myPost = this.state.posts &&
+    //   this.state.posts.map((obj, i) => {
+    //     console.log(obj.title);
+    //     return
+    //          ( <div key={i}>
 
-                <p>{obj.title}</p>
+    //             <p>{obj.title}</p>
 
-              </div>)
-      });
-    return( <div>
+    //           </div>)
+    //   });
+    return <div>
         <div className="home-body">
           <div className="home-greeting">
             {!this.props.isLoading && <h1>
@@ -75,7 +79,7 @@ class Home extends Component {
             <div className="cards">Media</div>
           </div>
         </div>
-      </div>)
+      </div>;
   }
 }
 

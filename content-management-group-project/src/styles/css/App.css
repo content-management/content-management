@@ -6,7 +6,7 @@ body {
   /* background: URL(
       "https://c.pxhere.com/photos/e7/17/coffee_notebook_wooden_background_orange_work_table_office-642063.jpg!d"
     ) */
-    /* no-repeat center center fixed; */
+  /* no-repeat center center fixed; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -35,7 +35,6 @@ body {
   flex-direction: column;
 } */
 
-
 .App-header {
   top: 0px;
   text-align: left;
@@ -50,4 +49,17 @@ body {
 
 .App-intro {
   font-size: large;
+}
+.pickBlogPage {
+  padding: 150px;
+  text-align: left;
+}
+.blogLinks {
+  text-decoration: none;
+  color: black;
+}
+.blogLinks:hover {
+  color: black;
+  background: yellow;
+  /* border: solid thin rgb(0, 255, 0); */
 }
