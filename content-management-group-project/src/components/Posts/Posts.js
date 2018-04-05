@@ -43,7 +43,7 @@ class Posts extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         return (
-          <div> <Header />
+          <div> 
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
               <span>{obj.blog_name}</span>
@@ -63,17 +63,14 @@ class Posts extends Component {
           </div>
         );
       });
-    return (
-      
-      <div>
-        <Link to={`/Home/${this.props.user.name}`}>
-        </Link>
+    return <div>
+        <Header id={this.props.match.params.id} id2={this.props.match.params.id2} />
+        <Link to={`/Home/${this.props.user.name}`} />
         {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
           <button>New Post</button>
         </Link>
-      </div>
-    );
+      </div>;
   }
 }
 
