@@ -75,6 +75,7 @@ class Posts extends Component {
           id2={this.props.match.params.id2}
         />
         <Link to={`/Home/${this.props.user.name}`} />
+        <div style={{ height: "100px" }} />
         {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
           <button className="newPostButton">New Post</button>
