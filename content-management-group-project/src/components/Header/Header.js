@@ -10,7 +10,12 @@ class Header extends Component {
         return(
             <div>
                 <div className="header">
-                <div><img src={Logo} className='logo'alt="Logo" height='100px' width='100px'/></div>
+                <div><img src={Logo} className='logo'alt="Logo"/></div>
+                <div className="nav">
+                <Link to={`/Home/:id`}> <div className='links'>Home</div></Link>
+                <Link to={`/pickblog/:id`}><div className='links'>Switch Sites</div></Link>
+                <Link to={`/Posts/:id`}><div className='links'>Posts</div></Link>
+                </div>
                 </div>
             </div>
         )
