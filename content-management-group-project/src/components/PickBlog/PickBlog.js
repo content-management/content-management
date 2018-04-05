@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
@@ -14,6 +14,8 @@ class PickBlog extends Component {
     
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
+    this.updateBlog = this.updateBlog.bind(this);
+    
   }
 
   componentDidMount() {
@@ -30,22 +32,26 @@ class PickBlog extends Component {
   addBlogClicked() {
     this.setState({ addBlog: true });
   }
+  updateBlog(i){
+    console.log("updating blog")
+    console.log(i)
+    this.props.currBlog(i);
+  
+  }
+
   render() {
     let blogs =
       this.state.blogs &&
       this.state.blogs.map((obj, i) => {
-        return (
-          <div key={i}>
-            <ul>
-              <Link to={`/Posts/${obj.blog_id}`}  >
-                <li> {obj.blog_name}</li>
-              </Link>
-            </ul>
-          </div>
-        );
+        return <div key={i} >
+        
+            <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`}> 
+              <h1>{obj.blog_name}</h1>
+            </Link>
+          </div>;
       });
     console.log("user", this.props.user);
-    console.log(this.state.currentBlog);
+    console.log(this.props.currentBlog);
     return (
       <div className="App">
         <div>
@@ -67,4 +73,4 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(PickBlog);
+export default connect(mapStateToProps, { getUser, currBlog })(PickBlog);
