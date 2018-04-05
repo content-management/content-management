@@ -5,6 +5,7 @@ import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import Posts from "../Posts/Posts";
 import "../../styles/css/Home.css";
+import Header from "../Header/Header";
 
 let temp = "";
 class Home extends Component {
@@ -41,6 +42,7 @@ class Home extends Component {
     //           </div>)
     //   });
     return <div>
+      <Header />
         <div className="home-body">
           <div className="home-greeting">
             {!this.props.isLoading && <h1>

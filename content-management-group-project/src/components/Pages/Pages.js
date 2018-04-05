@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Header from '../Header/Header';
 
 class Pages extends Component {
   render() {
-    return <div>see all your pages here in this view</div>;
+    return <div><Header />See all your pages in this view</div>;
   }
 }
 
