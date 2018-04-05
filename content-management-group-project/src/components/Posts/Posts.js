@@ -45,33 +45,37 @@ class Posts extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         return (
-          <div> <Header />
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
-              <span>{obj.blog_name}</span>
+              <h3>{obj.blog_name}</h3>
               <h1>{obj.title}</h1>
 
               <iframe className="postIframe" srcdoc={obj.content} />
 
-              <div>{obj.post_id}</div>
+              <div>Post: {obj.post_id}</div>
+              <br />
+              <br />
             </div>
             <Link to={`/EditPost/${obj.post_id}`}>
-              <button>Edit Post</button>
+              <button className="postsButtons">Edit Post</button>
             </Link>
-            <button onClick={() => this.deleteSub(obj.post_id)}>
+            <button
+              className="postsButtons"
+              onClick={() => this.deleteSub(obj.post_id)}
+            >
               Delete Post
             </button>
-          </div>
           </div>
         );
       });
     return (
       <div>
-        <Link to={`/Home/${this.props.user.name}`}>
-        </Link>
-        {results}
+        <Header />
+
+        <Link to={`/Home/${this.props.user.name}`} />
+        <div className="postsUnderHeader">{results}</div>
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
-          <button>New Post</button>
+          <button className="newPostButton">New Post</button>
         </Link>
       </div>
     );
