@@ -25,12 +25,12 @@ class Posts extends Component {
     );
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
-  deleteSub(i) {
+  deletePost(i) {
     axios
       .delete(`/api/delete/${i}`)
       .then(
         axios
-          .get(`/api/posts/${parseInt(window.location.hash.split("/")[2])}`)
+          .get(`/api/posts/${this.props.match.params.id2}`)
           .then(response => {
             console.log("response", response.data);
             this.setState({ posts: response.data });
@@ -41,6 +41,8 @@ class Posts extends Component {
 
   render() {
     console.log(this.props.match.params.id);
+    console.log(this.props.match.params.id2);
+    
     let results = {};
     results =
       this.state.posts &&
@@ -62,10 +64,11 @@ class Posts extends Component {
             </Link>
             <button
               className="postsButtons"
-              onClick={() => this.deleteSub(obj.post_id)}
+              onClick={() => this.deletePost(obj.post_id)}
             >
               Delete Post
             </button>
+          
           </div>
         );
       });
