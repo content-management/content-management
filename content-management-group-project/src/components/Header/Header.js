@@ -46,7 +46,7 @@ class Header extends Component {
             <img src={Logo} className="logo" alt="Logo" />
           </div>
           <div className="nav">
-            <Link to={`${this.props.id}/${this.props.id2}`}>
+            <Link to={`/Home/${this.props.id}/${this.props.id2}`}>
               <div className="links">Dashboard</div>
             </Link>
             <div className="links dropdown">

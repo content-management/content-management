@@ -80,7 +80,8 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #afafaf;
+  background-color: #d3d3d3af;
+  padding:6px;
   min-width: 100px;
   text-align: left;
   overflow: auto;
@@ -94,22 +95,28 @@
 .dropdown-content a {
   display: block;
   position: relative;
-  transition: .3s ease all;
+  width: 100%;
+  transition: .4s ease all;
   margin: 0 auto;
   float:left;
   /* background-color: blue; */
   color: #00168a;
   padding: 2px;
+  display: block;
   text-decoration: none;
   text-align: left;
 }
 .dropdown-content a:hover {
-  transition: .3s ease all;
-  background-color: lightblue;
+  display:block;
+  position: relative;
+  transition: .4s ease all;
+  width: 100%;
+  color: #d3d3d3;
+  background-color: #00178a6b
   
 }
+
  .dropdown:hover .dropdown-content {
   display: block;
-  z-index: 1101;
  }
 
