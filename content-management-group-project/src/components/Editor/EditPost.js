@@ -2,6 +2,7 @@ import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
+import swal from "sweetalert";
 
 class TextEditor extends React.Component {
   constructor() {
@@ -41,7 +42,7 @@ class TextEditor extends React.Component {
       content: this.state.content
     };
     axios.put(`/api/put/${this.props.match.params.id}`, body).then(results => {
-      alert("updated post");
+      swal("updated post");
     });
   }
   render() {

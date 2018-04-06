@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import Header from "../Header/Header";
 import "../../styles/css/PickBlog.css";
+import swal from "sweetalert";
 
 class PickBlog extends Component {
   constructor(props) {
@@ -48,20 +49,40 @@ class PickBlog extends Component {
   }
 
   deleteBlog(i) {
-    axios
-      .delete(`/api/deleteblog/${i}`)
+    swal({
+      title: "Are you sure?",
+      text: "This will delete the entire blog including all posts!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    })
+      .then(willDelete => {
+        if (willDelete) {
+          axios
+            .delete(`/api/deleteblog/${i}`)
+            .then(
+              axios.get(`/api/blogs/${this.props.user.id}`).then(response => {
+                this.props.getBlogs(response.data);
+              })
+            )
+            .catch(console.log())
+            .then(
+              swal("Blog Deleted!", {
+                icon: "success"
+              })
+            );
+        } else {
+          swal("Your blog is safe!");
+        }
+      })
       .then(
-        axios
-          .get(`/api/blogs/${this.props.user.id}`)
-          .then(response => {
-           this.props.getBlogs(response.data);
-          })
-      )
-      .catch(console.log());
+        axios.get(`/api/blogs/${this.props.user.id}`).then(response => {
+          this.props.getBlogs(response.data);
+        })
+      );
   }
 
   render() {
-
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -74,9 +95,9 @@ class PickBlog extends Component {
               >
                 <span> {obj.blog_name}</span>
               </Link>
-            <button onClick={() => this.deleteBlog(obj.blog_id)}>
-              Delete Blog
-            </button>
+              <button onClick={() => this.deleteBlog(obj.blog_id)}>
+                Delete Blog
+              </button>
             </ul>
           </div>
         );
