@@ -41,9 +41,12 @@ class TextEditor extends React.Component {
       title: this.state.title,
       content: this.state.content
     };
-    axios.put(`/api/put/${this.props.match.params.id}`, body).then(results => {
-      swal("updated post");
-    });
+    axios
+      .put(`/api/put/${this.props.match.params.id}`, body)
+      .then(results => {
+        swal("updated post");
+      })
+      .then(window.history.back());
   }
   render() {
     console.log(this.props.match.params.id);
