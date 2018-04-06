@@ -1,0 +1,40 @@
+.postResultsWrapper {
+  background-color: #00000033;
+  width: 80vw;
+  height: 40vh;
+  border: solid white thin;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 5px;
+  overflow:auto;
+  text-align: center;
+}
+
+.postsButtons {
+  margin: 5px;
+  margin-top: 25px;
+  padding: 3px;
+}
+.postIframe {
+  width: 90%;
+  height: 85%;
+  background: white;
+  border-radius: 20px;
+}
+
+.newPostButton {
+  position: fixed;
+  left: 1px;
+  top: 250px;
+  padding: 20px;
+  background: rgb(18, 172, 18);
+  border: none;
+  box-shadow: 1px 1px 1px;
+  border-radius: 25px;
+}
+.newPostButton:active {
+  box-shadow: none;
+}
+.newPostButton:hover {
+  background: rgb(64, 228, 64);
+}

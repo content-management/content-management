@@ -1,7 +1,7 @@
 .title-button{
   display: block;
   position: relative;
-  background: lightcoral;
+  background: #00168a;
   padding: 4px;
   align-content: center;
   width: 15%;
@@ -20,7 +20,7 @@
 .new-post-editor{
   display: block;
   position: relative;
-  background: lightcoral;
+  background: #00168a;
   padding: 4px;
   margin: 20px auto;
   top: 100px;

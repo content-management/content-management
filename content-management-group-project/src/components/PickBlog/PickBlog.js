@@ -47,9 +47,21 @@ class PickBlog extends Component {
       .then(this.setState({ addBlog: false }));
   }
 
+  deleteBlog(i) {
+    axios
+      .delete(`/api/deleteblog/${i}`)
+      .then(
+        axios
+          .get(`/api/blogs/${this.props.user.id}`)
+          .then(response => {
+           this.props.getBlogs(response.data);
+          })
+      )
+      .catch(console.log());
+  }
+
   render() {
-    console.log(this.props.user.id);
-    console.log(this.state.blogName);
+
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -62,6 +74,9 @@ class PickBlog extends Component {
               >
                 <span> {obj.blog_name}</span>
               </Link>
+            <button onClick={() => this.deleteBlog(obj.blog_id)}>
+              Delete Blog
+            </button>
             </ul>
           </div>
         );
