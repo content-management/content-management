@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../Header/Header";
 import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
+import { Redirect } from "react-router";
 
 
 class TextEditor extends React.Component {
@@ -53,11 +54,17 @@ class TextEditor extends React.Component {
         .post(`/api/post/${this.props.match.params.id}`, body)
         .then(results => {
           swal("New post added");
-        });
+        })
+        .then(window.history.back());
     }
   }
   render() {
-    // console.log(this.props.match.params.id);
+
+    // if (this.state.redirect) {
+    //   return <Redirect push to="/" />;
+    // }
+    console.log(this.props.match.params.id);
+
     return (
       <div className="new-post-container">
         <Header />
