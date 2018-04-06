@@ -28,11 +28,13 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
+
               <Link
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
                 {obj.blog_name}
+
               </Link>
             </ul>
           </div>
