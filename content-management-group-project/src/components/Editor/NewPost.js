@@ -2,7 +2,8 @@ import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
-import  "../../styles/css/NewPost.css";
+import "../../styles/css/NewPost.css";
+import swal from "sweetalert";
 
 class TextEditor extends React.Component {
   constructor() {
@@ -26,7 +27,7 @@ class TextEditor extends React.Component {
   saveContent() {
     console.log(this.state.content.length);
     if (this.state.content.length > 3000000) {
-      alert(
+      swal(
         "The post data size is too large, this is usually due to large or high resolution images. Please use an image compression service to limit your image file size. Your post has NOT been created."
       );
     } else {
@@ -48,7 +49,7 @@ class TextEditor extends React.Component {
       axios
         .post(`/api/post/${this.props.match.params.id}`, body)
         .then(results => {
-          alert("New post added");
+          swal("New post added");
         });
     }
   }
@@ -57,7 +58,7 @@ class TextEditor extends React.Component {
     return (
       <div className="new-post-container">
         <Header />
-        
+
         <div className="title-button">
           <input
             type="text"

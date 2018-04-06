@@ -25,7 +25,8 @@
     "react-scripts": "1.1.1",
     "react-tinymce": "^0.7.0",
     "redux": "^3.7.2",
-    "redux-promise-middleware": "^5.0.0"
+    "redux-promise-middleware": "^5.0.0",
+    "sweetalert": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
