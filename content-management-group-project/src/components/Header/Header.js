@@ -27,14 +27,13 @@ class Header extends Component {
           </div>
         );
       });
-    return (
-      <div>
+    return <div>
         <div className="header">
           <div>
             <img src={Logo} className="logo" alt="Logo" />
           </div>
           <div className="nav">
-            <Link to={`/Home/:id`}>
+            <Link to={`/Home/${this.props.id}/${this.props.id2}`}>
               {" "}
               <div className="links">Dashboard</div>
             </Link>
@@ -62,8 +61,7 @@ class Header extends Component {
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
