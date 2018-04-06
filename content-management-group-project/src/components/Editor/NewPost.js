@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
 
+
 class TextEditor extends React.Component {
   constructor() {
     super();
@@ -39,12 +40,14 @@ class TextEditor extends React.Component {
       temp = temp.replace(/\r?\n/g, "");
       // console.log(temp);
 
-      let date = new Date();
-      console.log(date);
+      let dateTime = new Date();
   
       let body = {
         title: this.state.title,
-        content: temp
+        content: temp,
+        date: dateTime.toLocaleDateString(),
+        time: dateTime.toLocaleTimeString()
+        
       };
       axios
         .post(`/api/post/${this.props.match.params.id}`, body)
@@ -54,7 +57,7 @@ class TextEditor extends React.Component {
     }
   }
   render() {
-    console.log(this.props.match.params.id);
+    // console.log(this.props.match.params.id);
     return (
       <div className="new-post-container">
         <Header />
