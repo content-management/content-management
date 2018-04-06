@@ -6,13 +6,15 @@ import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
 import { Redirect } from "react-router";
 
+
 class TextEditor extends React.Component {
   constructor() {
     super();
     this.state = {
       content: "",
       title: "",
-      tinyID: ""
+      tinyID: "",
+      dateTime: ""
     };
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -37,10 +39,16 @@ class TextEditor extends React.Component {
       temp = temp.replace("</head>", "");
       temp = temp.replace("</html>", "");
       temp = temp.replace(/\r?\n/g, "");
-      console.log(temp);
+      // console.log(temp);
+
+      let dateTime = new Date();
+  
       let body = {
         title: this.state.title,
-        content: temp
+        content: temp,
+        date: dateTime.toLocaleDateString(),
+        time: dateTime.toLocaleTimeString()
+        
       };
       axios
         .post(`/api/post/${this.props.match.params.id}`, body)
@@ -51,10 +59,12 @@ class TextEditor extends React.Component {
     }
   }
   render() {
+
     // if (this.state.redirect) {
     //   return <Redirect push to="/" />;
     // }
     console.log(this.props.match.params.id);
+
     return (
       <div className="new-post-container">
         <Header />

@@ -42,14 +42,14 @@ class Header extends Component {
       });
     return <div>
         <div className="header">
-          <div>
+          <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
           <div className="nav">
-            <Link to={`${this.props.id}/${this.props.id2}`}>
+            <Link to={`/Home/${this.props.id}/${this.props.id2}`}>
               <div className="links">Dashboard</div>
             </Link>
-            <div className="dropdown">
+            <div className="dropdown links">
               Switch Sites
               <div className="dropdown-content">{blogs}</div>
             </div>

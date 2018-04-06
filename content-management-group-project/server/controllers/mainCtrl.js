@@ -73,7 +73,7 @@ module.exports = {
     const { params, body } = req;
 
     dbInstance
-      .create_post([params.id, body.title, body.content])
+      .create_post([params.id, body.title, body.content, body.date, body.time])
       .then(() => res.status(200).json())
       .catch(err => res.status(500).console.log(err)); //.json());
   },
