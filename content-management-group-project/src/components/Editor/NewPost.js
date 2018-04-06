@@ -10,7 +10,8 @@ class TextEditor extends React.Component {
     this.state = {
       content: "",
       title: "",
-      tinyID: ""
+      tinyID: "",
+      dateTime: ""
     };
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
@@ -35,7 +36,11 @@ class TextEditor extends React.Component {
       temp = temp.replace("</head>", "");
       temp = temp.replace("</html>", "");
       temp = temp.replace(/\r?\n/g, "");
-      console.log(temp);
+      // console.log(temp);
+
+      let date = new Date();
+      console.log(date);
+  
       let body = {
         title: this.state.title,
         content: temp
