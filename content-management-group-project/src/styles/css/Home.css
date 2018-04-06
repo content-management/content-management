@@ -1,9 +1,8 @@
 .home-body {
-  /* background-image: url('../../assets/images/backgroudphoto.jpg'); */
-  background-position: cover;
-  background-attachment: scroll;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display:block;
+  position: relative;
+  margin: 2px auto;
+  top: 100px;
 }
 
 .home-greeting {
