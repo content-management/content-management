@@ -49,7 +49,7 @@ class Header extends Component {
             <Link to={`${this.props.id}/${this.props.id2}`}>
               <div className="links">Dashboard</div>
             </Link>
-            <div className="dropdown links">
+            <div className="links dropdown">
               Switch Sites
               <div className="dropdown-content">{blogs}</div>
             </div>
