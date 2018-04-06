@@ -38,6 +38,15 @@ module.exports = {
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   },
+   deleteBlog: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+    console.log(params)
+    dbInstance
+      .delete_blog([params.id])
+      .then(() => res.status(200).json())
+      .catch((err) => console.log(err));
+  },
   //all posts
   getPosts: (req, res, next) => {
     const dbInstance = req.app.get("db");

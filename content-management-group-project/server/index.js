@@ -107,13 +107,15 @@ app.get("/logout", (req, res) => {
 //get blogs
 app.get("/api/blogs/:id", mc.getBlogs);
 app.post("/api/blog/:id", mc.createBlog); //create blog
+app.delete("/api/deleteblog/:id", mc.deleteBlog); //delete post
+
 
 //get posts
 app.get("/api/posts/:id", mc.getPosts); //Get All Post
 app.get("/api/post/:id", mc.getPost); //Get One Post
 app.post("/api/post/:id", mc.createPost); //create post
 app.put("/api/put/:id", mc.updatePost); //update post
-app.delete("/api/delete/:id", mc.deletePost); //delte post
+app.delete("/api/delete/:id", mc.deletePost); //delete post
 
 // app.post("/api/Subject", getSubject);
 
