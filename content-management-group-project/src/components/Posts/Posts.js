@@ -70,6 +70,8 @@ class Posts extends Component {
             <div style={{ height: "80%" }}>
               <h3>{obj.blog_name}</h3>
               <h1>{obj.title}</h1>
+              <h4>{obj.date} </h4>
+              {/* <h4> {obj.time}</h4> */}
 
               <iframe className="postIframe" srcdoc={obj.content} />
 
