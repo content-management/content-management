@@ -25,16 +25,17 @@
 }
 
 .links {
-  margin: 5px;
+  margin: 0px;
 }
 .dropdown {
   float: left;
   overflow: hidden;
   border: none;
   outline: none;
+  padding: 0px 10px 0px 10px;
   color: #00168a;
-  padding-right: 20px;
-  margin: 0;
+
+  margin: 0 auto;
 }
 .dropdown-content {
   display: none;
