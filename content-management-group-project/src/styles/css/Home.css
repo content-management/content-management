@@ -38,7 +38,7 @@
   padding: 20px;
   position: relative;
   margin: 25px auto;
-  height: 500px;
+  height: 300px;
   background: grey;
   overflow-y: auto;
   border: 2px solid orange;
@@ -76,9 +76,9 @@
   right: 20px;
   max-width: 155px;
   min-width: 140px;
-  width: 50%;
-  height: 90px;
-  margin: 60px 70px;
+  width: 70%;
+  height: 190px;
+  /* margin: 50px 020px; */
   padding: 15px;
   background: lightblue;
   transform: rotate(90deg) translateY(70px);
@@ -91,7 +91,7 @@
   position: relative;
   padding: 3px;
   background: #ffa600a4;
-  margin: 25px auto;
+  /* margin: 25px auto; */
   letter-spacing: -1.5px;
   font-weight: 600;
   text-align: center;
@@ -103,7 +103,7 @@
   transition: 0.3s ease all;
   background: #ffa600a4;
   width: 140px;
-  height: 110px;
+  height: 290px;
 }
 
 .rectangles div p:hover {

@@ -4,7 +4,8 @@ import { getUser } from "../../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header/Header";
-import "../../styles/css/Posts.css"
+import "../../styles/css/Posts.css";
+import swal from "sweetalert";
 
 class Posts extends Component {
   constructor() {
@@ -26,23 +27,40 @@ class Posts extends Component {
     console.log(parseInt(window.location.hash.split("/")[2]));
   }
   deletePost(i) {
-    axios
-      .delete(`/api/delete/${i}`)
-      .then(
+    swal({
+      title: "Are you sure?",
+      text: "Once this post is deleted it will not come back!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
         axios
-          .get(`/api/posts/${this.props.match.params.id2}`)
-          .then(response => {
-            console.log("response", response.data);
-            this.setState({ posts: response.data });
-          })
-      )
-      .catch(console.log());
+          .delete(`/api/delete/${i}`)
+          .then(
+            axios
+              .get(`/api/posts/${this.props.match.params.id2}`)
+              .then(response => {
+                console.log("response", response.data);
+                this.setState({ posts: response.data });
+              })
+          )
+          .catch(console.log())
+          .then(
+            swal("Your post has been deleted!", {
+              icon: "success"
+            })
+          );
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
   }
 
   render() {
     console.log(this.props.match.params.id);
     console.log(this.props.match.params.id2);
-    
+
     let results = {};
     results =
       this.state.posts &&
@@ -68,7 +86,6 @@ class Posts extends Component {
             >
               Delete Post
             </button>
-          
           </div>
         );
       });
