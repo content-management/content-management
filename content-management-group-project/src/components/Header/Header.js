@@ -4,8 +4,21 @@ import { connect } from "react-redux"; //connect to redux
 import { getUser, getBlogs } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
 import "../../styles/css/Header.css";
+import axios from "axios";
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.logout = this.logout.bind(this);
+  }
+  logout(event) {
+    axios
+      .get("/logout")
+      .then(response => {
+        console.log(window.session);
+      })
+      .catch(console.log());
+  }
   render() {
     console.log(this.props.id);
     console.log(this.props.blogs);
@@ -33,31 +46,17 @@ class Header extends Component {
           </div>
           <div className="nav">
             <Link to={`/Home/:id`}>
-              {" "}
               <div className="links">Dashboard</div>
             </Link>
             <div className="dropdown">
               Switch Sites
               <div className="dropdown-content">{blogs}</div>
             </div>
-            return(
-            <div>
-              <div className="header">
-                <div>
-                  <img src={Logo} className="logo" alt="Logo" />
-                </div>
-                <div className="nav">
-                  <Link to={`/Home/${this.props.id}/${this.props.id2}`}>
-                    {" "}
-                    <div className="links">Dashboard</div>
-                  </Link>
-                  <div className="dropdown">
-                    Switch Sites
-                    <div className="dropdown-content">{blogs}</div>
-                  </div>
-                </div>
+            <a href={`/`}>
+              <div className="links" onClick={this.logout}>
+                Logout
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
