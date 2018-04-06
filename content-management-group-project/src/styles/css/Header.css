@@ -1,22 +1,49 @@
+  /*** HEADER THANGS ***/
+
 .header {
   display: flex;
   position: fixed;
+  transition: .4s ease all;
   top: 0;
   justify-content: space-between;
   border: none;
-  background-color: lightgray;
+  background: #afafaf;
   opacity: 0.7;
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 10px;
+  /* overflow: hidden; */
+  z-index: 1000;
+}
+
+.header:hover{
+  transition: .3s ease all;
+  background: #d3d3d3;
+}
+
+  /*** logo thangs ***/
+
+.logo-container{
+  display:block;
+  position: relative;
+  margin: 2px;
 }
 
 .logo {
   height: 100px;
   width: 100px;
+  transition: .4s ease all;
+}
+.logo:hover{
+  transition: .4s ease all;
+  box-shadow: -5px 5px 1px #414040;
 }
 
 .nav {
   display: flex;
+  position: relative;
+  padding: 4px;
+  margin: 8px;
+  margin-right: 12px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -26,16 +53,24 @@
 }
 
 .links {
-  margin: 0px;
+  display:inline-block;
+  transition: .4s ease all;
+  padding: 4px;
+  margin: 2px; 
+  filter: blur(1px);
+  letter-spacing: -1px;
 }
+
+.links:hover{
+  transition: .4s ease all;
+  filter:blur(0px);
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
-  border: none;
-  outline: none;
-  padding: 0px 10px 0px 10px;
   color: #00168a;
-
+  padding: 0px 10px 0px 10px;
   margin: 0 auto;
 }
 .dropdown-content {
@@ -43,7 +78,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-width: 100px;
-  z-index: 1;
+  z-index: 1100;
 }
 
 .dropdown-content a {
