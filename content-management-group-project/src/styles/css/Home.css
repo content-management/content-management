@@ -1,4 +1,4 @@
-.home-body{
+.home-body {
   /* background-image: url('../../assets/images/backgroudphoto.jpg'); */
   background-position: cover;
   background-attachment: scroll;
@@ -6,7 +6,7 @@
   background-size: cover;
 }
 
-.home-greeting{
+.home-greeting {
   background-color: #f0808096;
   width: 50%;
   position: relative;
@@ -15,50 +15,63 @@
   overflow: auto;
 }
 
-.home-greeting h1{
+.home-greeting h1 {
   display: inline-block;
   background-color: #184bf193;
   position: relative;
   width: 90%;
 }
 
-
 /*** SIDESCROLL THANGS ***/
 
-::-webkit-scrollbar{width:2px;height:2px;}
-::-webkit-scrollbar-button{width:2px;height:2px;}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 2px;
+  height: 2px;
+}
 
-.scroll-container{ 
+.scroll-container {
   display: block;
   position: relative;
   padding: 20px;
   position: relative;
   margin: 25px auto;
-  height: 200px;
+  height: 500px;
   background: grey;
-  overflow-y:auto;
+  overflow-y: auto;
   border: 2px solid orange;
   width: 70%;
 }
 
-.horizontal-scroll-wrapper{
-  position:absolute;
-  display:block;
-  max-width: 130px;
+.horizontal-scroll-wrapper {
+  position: absolute;
+  display: block;
+  max-width: 500px;
   margin: 35px auto;
   background: lightgreen;
   outline: 2px solid black;
-  overflow:auto;
-  transform:rotate(-90deg) translateY(-80px);
-  transform-origin:right top;
-}
- 
-.rectangles{
-  display: inline-block;
-  padding:10px;
+  overflow: scroll;
+  transform: rotate(-90deg) translateY(-80px);
+  transform-origin: right top;
 }
 
-.rectangles div{
+.rectangles {
+  display: inline-block;
+  padding: 10px;
+}
+.iframy {
+  overflow: hidden;
+  background: white;
+}
+.iframy > * {
+  zoom: 0.4;
+  overflow: hidden;
+  background: white;
+}
+.rectangles div {
   position: relative;
   top: 10px;
   right: 20px;
@@ -69,12 +82,12 @@
   margin: 60px 70px;
   padding: 15px;
   background: lightblue;
-  transform:rotate(90deg) translateY(70px);
+  transform: rotate(90deg) translateY(70px);
   transform-origin: bottom-left;
-  transition: .3s ease-out;
+  transition: 0.3s ease-out;
 }
 
-.rectangles p{
+.rectangles p {
   display: block;
   position: relative;
   padding: 3px;
@@ -83,28 +96,27 @@
   letter-spacing: -1.5px;
   font-weight: 600;
   text-align: center;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
   font-size: 1rem;
 }
 
-
-.rectangles div:hover{
-  transition: .3s ease all;
+.rectangles div:hover {
+  transition: 0.3s ease all;
   background: #ffa600a4;
-  width:140px;
-  height:110px;
+  width: 140px;
+  height: 110px;
 }
 
-.rectangles div p:hover{
-  transition: all .2s ease-in-out;
-  background:#6a9cad;
+.rectangles div p:hover {
+  transition: all 0.2s ease-in-out;
+  background: #6a9cad;
   letter-spacing: -2px;
   font-size: 1.08rem;
 }
 
 /*** CARD THANGS ***/
 
-.cards-container{
+.cards-container {
   background: #a36464;
   display: block;
   text-align: center;
@@ -114,7 +126,7 @@
   margin: 5%;
 }
 
-.cards{
+.cards {
   background: #a5a5f599;
   display: inline-block;
   position: relative;
@@ -129,8 +141,6 @@
   margin: 5%;
 }
 
-.cards:hover{
+.cards:hover {
   cursor: pointer;
 }
-
-
