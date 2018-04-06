@@ -19,7 +19,6 @@ class Posts extends Component {
       axios
         .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
-          console.log("response", response.data);
           this.setState({ posts: response.data });
         })
         .catch(console.log())
@@ -58,13 +57,12 @@ class Posts extends Component {
   }
 
   render() {
-    console.log(this.props.match.params.id);
-    console.log(this.props.match.params.id2);
-
     let results = {};
+    let num = this.state.posts.length + 1;
     results =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
+        num -= 1;
         return (
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
@@ -73,7 +71,7 @@ class Posts extends Component {
 
               <iframe className="postIframe" srcdoc={obj.content} />
 
-              <div>Post: {obj.post_id}</div>
+              <div>Post: {num}</div>
               <br />
               <br />
             </div>
