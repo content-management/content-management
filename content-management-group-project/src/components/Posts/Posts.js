@@ -4,6 +4,7 @@ import { getUser } from "../../ducks/reducer";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header/Header";
+import "../../styles/css/Posts.css"
 
 class Posts extends Component {
   constructor() {

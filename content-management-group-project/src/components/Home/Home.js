@@ -67,7 +67,6 @@ class Home extends Component {
               {myContent}
             </div>
           </div>
-
           <div className="cards-container">
             <Link
               to={`/Posts/${this.props.match.params.id}/${
@@ -76,13 +75,12 @@ class Home extends Component {
             >
               <div className="cards">Posts</div>
             </Link>
-
             <div className="cards">Pages</div>
             <div className="cards">Media</div>
           </div>
         </div>
-      </div>
-    );
+    </div>
+    )
   }
 }
 
