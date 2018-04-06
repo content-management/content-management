@@ -56,7 +56,10 @@ class PickBlog extends Component {
         return (
           <div key={i}>
             <ul className="blogList">
-              <Link className="blogLinks" to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
+              <Link
+                className="blogLinks"
+                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
+              >
                 <span> {obj.blog_name}</span>
               </Link>
             </ul>
@@ -65,26 +68,28 @@ class PickBlog extends Component {
       });
     return (
       <div>
-      <Header />
-      <div className="pickBlogPage">
-        <div>
-          <h1>Hello, {this.props.user.name}</h1>
-        </div>
-        <h1>Which website are you working on?</h1>
-        {blogs}
-        <button onClick={this.addBlogClicked} className="newBlog">Create New Blog</button>
-
-        {this.state.addBlog === true ? (
+        <Header />
+        <div className="pickBlogPage">
           <div>
-            <input
-              type="text"
-              placeholder="Your blog name"
-              onChange={e => this.setState({ blogName: e.target.value })}
-            />
-            <button onClick={() => this.addBlog()}>Submit</button>
+            <h1>Hello, {this.props.user.name}</h1>
           </div>
-        ) : null}
-      </div>
+          <h1>Which website are you working on?</h1>
+          {blogs}
+          <button onClick={this.addBlogClicked} className="newBlog">
+            Create New Blog
+          </button>
+
+          {this.state.addBlog === true ? (
+            <div>
+              <input
+                type="text"
+                placeholder="Your blog name"
+                onChange={e => this.setState({ blogName: e.target.value })}
+              />
+              <button onClick={() => this.addBlog()}>Submit</button>
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }
