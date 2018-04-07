@@ -1,8 +1,9 @@
 .home-body {
-  display:block;
+  display: block;
   position: relative;
   margin: 2px auto;
   top: 100px;
+  z-index: 1;
 }
 
 .home-greeting {
@@ -33,64 +34,68 @@
 }
 
 .scroll-container {
-  display: block;
+  /* display: block; */
   position: relative;
-  padding: 20px;
+  /* padding: 20px; */
   position: relative;
-  margin: 25px auto;
-  height: 300px;
-  background: grey;
+  margin: 20px auto;
+  height: 220px;
+  background: transparent;
   overflow-y: auto;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   width: 70%;
 }
 
 .horizontal-scroll-wrapper {
-  position: absolute;
-  display: block;
-  max-width: 500px;
-  margin: 35px auto;
-  background: lightgreen;
-  outline: 2px solid black;
+  /* position: absolute; */
+  /* display: block; */
+  max-width: 220px;
+  /* margin: 20px auto; */
+  background: transparent;
+  /* outline: 2px solid black; */
   overflow: scroll;
   transform: rotate(-90deg) translateY(-80px);
   transform-origin: right top;
 }
 
 .rectangles {
-  display: inline-block;
-  padding: 10px;
+  /* display: inline-block; */
+  /* padding: 10px; */
 }
 .iframy {
   overflow: hidden;
   background: white;
+  margin-left: 80px;
+  z-index: 100;
 }
 .iframy > * {
   zoom: 0.4;
   overflow: hidden;
   background: white;
+  z-index: 101;
 }
 .rectangles div {
   position: relative;
   top: 10px;
   right: 20px;
-  max-width: 155px;
+  max-width: 180px;
   min-width: 140px;
   width: 70%;
   height: 190px;
   /* margin: 50px 020px; */
   padding: 15px;
-  background: lightblue;
+  /* background: lightblue; */
   transform: rotate(90deg) translateY(70px);
   transform-origin: bottom-left;
   transition: 0.3s ease-out;
+  border: solid thin;
 }
 
 .rectangles p {
   display: block;
   position: relative;
   padding: 3px;
-  background: #ffa600a4;
+  /* background: #ffa600a4; */
   /* margin: 25px auto; */
   letter-spacing: -1.5px;
   font-weight: 600;
@@ -101,8 +106,8 @@
 
 .rectangles div:hover {
   transition: 0.3s ease all;
-  background: #ffa600a4;
-  width: 140px;
+  /* background: #ffa600a4; */
+  width: 230px;
   height: 290px;
 }
 

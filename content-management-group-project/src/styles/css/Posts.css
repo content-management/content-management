@@ -1,23 +1,35 @@
 .postResultsWrapper {
-  background-color: #00000033;
+  background-color: rgb(175, 175, 175, 0.7);
   width: 80vw;
-  height: 40vh;
+  /* height: 40vh; */
   border: solid white thin;
   border-radius: 20px;
   margin: 0 auto;
   margin-top: 5px;
-  overflow:auto;
+  overflow: auto;
   text-align: center;
 }
 
 .postsButtons {
+  padding: 10px;
+  background: rgb(0, 22, 138);
+  border: none;
+  box-shadow: 1px 1px 1px;
+  border-radius: 25px;
+  color: white;
   margin: 5px;
-  margin-top: 25px;
-  padding: 3px;
+  width: 90px;
+}
+.postsButtons:active {
+  box-shadow: none;
+}
+.postsButtons:hover {
+  background: rgb(0, 22, 138, 0.5);
+  color: black;
 }
 .postIframe {
   width: 90%;
-  height: 85%;
+  height: 95%;
   background: white;
   border-radius: 20px;
 }
@@ -25,16 +37,19 @@
 .newPostButton {
   position: fixed;
   left: 1px;
-  top: 250px;
-  padding: 20px;
-  background: rgb(18, 172, 18);
+  top: 120px;
+  padding: 10px;
+  background: rgb(0, 22, 138);
   border: none;
   box-shadow: 1px 1px 1px;
   border-radius: 25px;
+  color: white;
+  width: 90px;
 }
 .newPostButton:active {
   box-shadow: none;
 }
 .newPostButton:hover {
-  background: rgb(64, 228, 64);
+  background: rgb(0, 22, 138, 0.5);
+  color: black;
 }
