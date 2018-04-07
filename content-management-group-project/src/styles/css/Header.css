@@ -11,7 +11,6 @@
   opacity: 0.7;
   width: 100%;
   margin-bottom: 10px;
-  /* overflow: hidden; */
   z-index: 1000;
 }
 
@@ -20,12 +19,12 @@
   background: #d3d3d3;
 }
 
-  /*** logo thangs ***/
+  /*** LOGO THANGS ***/
 
 .logo-container{
   display:block;
   position: relative;
-  margin: 2px;
+  margin: 4px;
 }
 
 .logo {
@@ -35,7 +34,7 @@
 }
 .logo:hover{
   transition: .4s ease all;
-  box-shadow: -5px 5px 1px #414040;
+  box-shadow: -4px 5px 1px #414040;
 }
 
 .nav {
@@ -48,51 +47,76 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Allerta", sans-serif;
-  text-decoration-color: #00168a;
   padding-right: 15px;
 }
 
 .links {
   display:inline-block;
-  transition: .4s ease all;
+  transition: .3s ease all;
   padding: 4px;
   margin: 2px; 
-  filter: blur(1px);
-  letter-spacing: -1px;
+  filter: blur(.4px);
+  letter-spacing: -2.1px;
+  /* color: #00168a; */
+  font-size: 1.25rem;
+  color: #00178a8c
 }
 
 .links:hover{
-  transition: .4s ease all;
+  transition: .3s ease all;
+  color: #00168a;
+  letter-spacing: -2px;
   filter:blur(0px);
 }
 
 .dropdown {
   float: left;
   overflow: hidden;
-  color: #00168a;
+  /* color: #00168a; */
+  color: #00178a8c;
   padding: 0px 10px 0px 10px;
   margin: 0 auto;
 }
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #d3d3d3af;
+  padding:6px;
   min-width: 100px;
+  text-align: left;
+  overflow: auto;
   z-index: 1100;
 }
 
-.dropdown-content a {
-  float: none;
+.dropdown:hover{
   color: #00168a;
-  padding-right: 10px;
-  padding-bottom: 2px;
-  text-decoration: none;
+}
+
+.dropdown-content a {
   display: block;
+  position: relative;
+  width: 100%;
+  transition: .4s ease all;
+  margin: 0 auto;
+  float:left;
+  /* background-color: blue; */
+  color: #00168a;
+  padding: 2px;
+  display: block;
+  text-decoration: none;
   text-align: left;
 }
 .dropdown-content a:hover {
-  background-color: lightgrey;
+  display:block;
+  position: relative;
+  transition: .4s ease all;
+  width: 100%;
+  color: #d3d3d3;
+  background-color: #00178a6b
+  
 }
-.dropdown:hover .dropdown-content {
+
+ .dropdown:hover .dropdown-content {
   display: block;
-}
+ }
+
