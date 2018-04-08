@@ -41,9 +41,14 @@ class Home extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         let iframeHTML = renderHTML(obj.content);
+        console.log("postID", obj.post_id);
         return (
-          <div className="iframy" key={i}>
-            {iframeHTML}
+          <div
+            
+            className="iframy"
+            key={i}
+          >
+            <Link to={`/EditPost/${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
       });
@@ -79,8 +84,8 @@ class Home extends Component {
             <div className="cards">Media</div>
           </div>
         </div>
-    </div>
-    )
+      </div>
+    );
   }
 }
 
