@@ -2,6 +2,9 @@ import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
+import { connect } from "react-redux"; //connect to redux
+import {  currBlog } from "../../ducks/reducer"; //get user from redux
+import { Link, withRouter } from "react-router-dom";
 import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
 import { Redirect } from "react-router";
@@ -55,7 +58,7 @@ class TextEditor extends React.Component {
         .then(results => {
           swal("New post added");
         })
-        .then(window.history.back());
+        // .then(window.history.back());
     }
   }
   render() {
@@ -122,10 +125,20 @@ class TextEditor extends React.Component {
             onChange={this.handleEditorChange}
           />
         </div>
+         <Link
+              to={`/Posts/${this.props.myBlog.blog_name}/${
+                this.props.myBlog.blog_id
+              }`}
+            >
         <button onClick={this.saveContent}>Save</button>
+        </Link>
       </div>
     );
   }
 }
 
-export default TextEditor;
+const mapStateToProps = state => state;
+
+export default connect(mapStateToProps, { currBlog })(
+  TextEditor
+);

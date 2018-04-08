@@ -48,6 +48,11 @@ class PickBlog extends Component {
       .then(this.setState({ addBlog: false }));
   }
 
+  setBlog(i){
+console.log(i);
+this.props.currBlog(i);
+  }
+
   deleteBlog(i) {
     swal({
       title: "Are you sure?",
@@ -93,7 +98,7 @@ class PickBlog extends Component {
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                <span> {obj.blog_name}</span>
+                <span onClick={(() => this.setBlog(obj))}> {obj.blog_name}</span>
               </Link>
               <button onClick={() => this.deleteBlog(obj.blog_id)}>
                 Delete Blog

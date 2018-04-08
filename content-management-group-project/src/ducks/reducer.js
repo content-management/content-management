@@ -37,7 +37,7 @@ const initialState = {
   didErr: false,
   errMessage: null,
   blogs: "",
-  currentBlog: ""
+  myBlog: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -54,7 +54,7 @@ export default function reducer(state = initialState, action) {
     case `${GET_USER}_REJECTED`:
       return Object.assign({}, state, { isLoading: false, didErr: true });
     case CURR_BLOG:
-      return Object.assign({}, state, { currentBlog: action.payload });
+      return Object.assign({}, state, { myBlog: action.payload });
 
     case GET_BLOGS:
       return Object.assign({}, state, { blogs: action.payload });
