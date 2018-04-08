@@ -90,7 +90,7 @@ class TextEditor extends React.Component {
 
         <div className="new-post-editor">
           <Editor
-            initialValue="<p>This is the initial content of the editor</p>"
+            initialValue=""
             init={{
               selector: "textarea",
               height: 500,
@@ -130,7 +130,7 @@ class TextEditor extends React.Component {
                 this.props.myBlog.blog_id
               }`}
             >
-        <button onClick={this.saveContent}>Save</button>
+        <button className="savebutton" onClick={this.saveContent}>Save</button>
         </Link>
       </div>
     );

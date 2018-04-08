@@ -6,23 +6,33 @@ h1{
 
 .pickBlogPage{
     font-family: "Allerta", sans-serif;
-    color: #00186a;
+    color: black;
     padding: 150px;
     text-align: center;
 }
 
+.pickBlogPage:hover {
+    color: #00168a;
+}
+
 .blogLinks {
     font-family: "Allerta", sans-serif;
-    color: #00186a;
+    color: black;
     align-content: center;
 }
 
+.blogLinks:hover{
+    color: #00168a;
+}
+
 .newBlog {
-    background-color: lightgrey;
+    background-color: #00168a;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    border-radius: 25px;
     size: 200%;
-    opacity: .7;
     text-align: center;
-    
+    color: white;
 }
 
 .blogList {
@@ -32,4 +42,12 @@ h1{
     background-color: lightgrey;
     opacity: .7;
     margin: auto;
+}
+
+span.list {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 20px;
 }

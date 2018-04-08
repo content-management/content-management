@@ -7,7 +7,7 @@
 }
 
 .home-greeting {
-  background-color: #f0808096;
+  font-family: "Allerta", sans-serif;
   width: 50%;
   position: relative;
   margin: 0 auto;
@@ -122,7 +122,6 @@
 /*** CARD THANGS ***/
 
 .cards-container {
-  background: #a36464;
   display: block;
   text-align: center;
   width: 90%;
@@ -144,6 +143,8 @@
   -webkit-border-radius: 11px 11px 11px 11px;
   border: 0px solid #000000;
   margin: 5%;
+  font-family: "Allerta", sans-serif;
+  font-size: 20px;
 }
 
 .cards:hover {
