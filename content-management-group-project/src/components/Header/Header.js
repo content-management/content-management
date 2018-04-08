@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //connect to redux
-import { getUser, getBlogs } from "../../ducks/reducer"; //get user from redux
+import { getUser, getBlogs, currBlog } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
@@ -19,6 +19,10 @@ class Header extends Component {
       })
       .catch(console.log());
   }
+  setBlog(i) {
+ 
+    this.props.currBlog(i);
+  }
   render() {
     console.log(this.props.id);
     console.log(this.props.blogs);
@@ -28,25 +32,28 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-
               <Link
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                {obj.blog_name}
-
+                <span onClick={() => this.setBlog(obj)}>{obj.blog_name}</span>
               </Link>
             </ul>
           </div>
         );
       });
-    return <div>
+    return (
+      <div>
         <div className="header">
           <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
           <div className="nav">
-            <Link to={`/Home/${this.props.id}/${this.props.id2}`}>
+            <Link
+              to={`/Home/${this.props.myBlog.blog_name}/${
+                this.props.myBlog.blog_id
+              }`}
+            >
               <div className="links">Dashboard</div>
             </Link>
             <div className="links dropdown">
@@ -60,10 +67,13 @@ class Header extends Component {
             </a>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, getBlogs })(Header);
+export default connect(mapStateToProps, { getUser, getBlogs, currBlog })(
+  Header
+);

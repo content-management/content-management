@@ -36,6 +36,12 @@ class Posts extends Component {
       if (willDelete) {
         axios
           .delete(`/api/delete/${i}`)
+          .catch(console.log())
+          .then(
+            swal("Your post has been deleted!", {
+              icon: "success"
+            })
+          )
           .then(
             axios
               .get(`/api/posts/${this.props.match.params.id2}`)
@@ -43,12 +49,6 @@ class Posts extends Component {
                 console.log("response", response.data);
                 this.setState({ posts: response.data });
               })
-          )
-          .catch(console.log())
-          .then(
-            swal("Your post has been deleted!", {
-              icon: "success"
-            })
           );
       } else {
         swal("Your imaginary file is safe!");

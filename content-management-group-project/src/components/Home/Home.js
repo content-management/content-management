@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import Posts from "../Posts/Posts";
@@ -28,6 +28,7 @@ class Home extends Component {
     );
   }
   render() {
+    console.log(this.props.myBlog)
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
@@ -59,7 +60,7 @@ class Home extends Component {
             {!this.props.isLoading && (
               <h1>Welcome back, {this.props.user.name} !</h1>
             )}
-            <h2>{this.props.match.params.id}</h2>
+            <h2>{this.props.myBlog.blog_name}</h2>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
           <div className="scroll-container">
@@ -86,4 +87,4 @@ class Home extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(Home);
+export default connect(mapStateToProps, { getUser, currBlog })(Home);
