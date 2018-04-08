@@ -43,13 +43,13 @@
   background: transparent;
   overflow-y: auto;
   /* border: 2px solid orange; */
-  width: 70%;
+  width: 90%;
 }
 
 .horizontal-scroll-wrapper {
   /* position: absolute; */
   /* display: block; */
-  max-width: 220px;
+  max-width: 250px;
   /* margin: 20px auto; */
   background: transparent;
   /* outline: 2px solid black; */
@@ -65,8 +65,9 @@
 .iframy {
   overflow: hidden;
   background: white;
-  margin-left: 80px;
+  margin-left: 55px;
   z-index: 100;
+  border-radius: 25px;
 }
 .iframy > * {
   zoom: 0.4;
