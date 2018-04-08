@@ -1,7 +1,6 @@
 .title-button{
   display: block;
   position: relative;
-  background: #00168a;
   padding: 4px;
   align-content: center;
   width: 15%;
@@ -20,9 +19,18 @@
 .new-post-editor{
   display: block;
   position: relative;
-  background: #00168a;
   padding: 4px;
   margin: 20px auto;
   top: 100px;
   width: 80%;
+}
+
+.savebutton{
+  font-family: "Allerta", sans-serif;
+  font-size: 20px;
+  border: none;
+  box-shadow: 1px 1px 1px;
+  border-radius: 25px;
+  background-color: #00168a;
+  color: white;
 }

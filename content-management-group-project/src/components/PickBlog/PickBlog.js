@@ -98,7 +98,7 @@ this.props.currBlog(i);
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                <span onClick={(() => this.setBlog(obj))}> {obj.blog_name}</span>
+                <span className="list" onClick={(() => this.setBlog(obj))}> {obj.blog_name}</span>
               </Link>
               <button onClick={() => this.deleteBlog(obj.blog_id)}>
                 Delete Blog

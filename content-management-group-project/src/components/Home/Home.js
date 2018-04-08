@@ -62,9 +62,9 @@ class Home extends Component {
         />
         <div className="home-body">
           <div className="home-greeting">
-            {!this.props.isLoading && (
+            {/* {!this.props.isLoading && (
               <h1>Welcome back, {this.props.user.name} !</h1>
-            )}
+            )} */}
             <h2>{this.props.myBlog.blog_name}</h2>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
