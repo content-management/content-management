@@ -124,10 +124,12 @@
    left: 110px;
    top: 20px;
    height: 75px;
+   border-radius: 350px;
  }
  .backButton:hover {
   background: white;
-  border-radius: 350px;
+  transition: .4s ease all;
+  box-shadow: -4px 5px 1px #414040;
 }
 @media only screen and (max-width: 550px) {
   .header {

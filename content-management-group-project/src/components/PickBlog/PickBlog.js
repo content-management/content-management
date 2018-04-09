@@ -100,7 +100,7 @@ this.props.currBlog(i);
               >
                 <span className="list" onClick={(() => this.setBlog(obj))}> {obj.blog_name}</span>
               </Link>
-              <button onClick={() => this.deleteBlog(obj.blog_id)}>
+              <button className="postsButtons" onClick={() => this.deleteBlog(obj.blog_id)}>
                 Delete Blog
               </button>
             </ul>
@@ -116,7 +116,7 @@ this.props.currBlog(i);
           </div>
           <h1>Which website are you working on?</h1>
           {blogs}
-          <button onClick={this.addBlogClicked} className="newBlog">
+          <button className="postsButtons" onClick={this.addBlogClicked}>
             Create New Blog
           </button>
 
@@ -127,7 +127,7 @@ this.props.currBlog(i);
                 placeholder="Your blog name"
                 onChange={e => this.setState({ blogName: e.target.value })}
               />
-              <button onClick={() => this.addBlog()}>Submit</button>
+              <button className="postsButtons" onClick={() => this.addBlog()}>Submit</button>
             </div>
           ) : null}
         </div>
