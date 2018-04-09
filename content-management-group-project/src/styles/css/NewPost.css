@@ -2,18 +2,20 @@
   display: block;
   position: relative;
   padding: 4px;
-  align-content: center;
+  align-content: left;
   width: 15%;
-  overflow: auto;
   height: 20px;
-  margin: 10px auto;
   top: 110px;
 }
 
 .title-button input{
-  display:block;
+  display: block;
   position: relative;
-  margin: 0 auto;
+  width: 1000px;
+  height: 25px;
+  margin-left: 75%;
+  font-family: "Allerta", sans-serif;
+  font-size: 15px;
 }
 
 .new-post-editor{
@@ -33,4 +35,7 @@
   border-radius: 25px;
   background-color: #00168a;
   color: white;
+  position: fixed;
+  right: 25px;
 }
+
