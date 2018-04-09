@@ -8,6 +8,7 @@ import PageView from "./components/Pages/PageView";
 import PostView from "./components/Posts/PostView";
 import NewPost from "./components/Editor/NewPost";
 import EditPost from "./components/Editor/EditPost";
+import EditPage from "./components/Editor/EditPage";
 import Posts from "./components/Posts/Posts";
 
 
@@ -21,6 +22,7 @@ export default (
     <Route exact path="/PostView" component={PostView} />
     <Route exact path="/NewPost/:id" component={NewPost} />
     <Route exact path="/EditPost/:id" component={EditPost} />
+    <Route exact path="/EditPage/:id" component={EditPage} />
     <Route exact path="/Posts/:id/:id2" component={Posts} />
     {/*id-blog name, id2-blogid  */}
     <Route

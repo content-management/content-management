@@ -12,6 +12,7 @@ class PickBlog extends Component {
     super(props);
     this.state = {
       blogs: "",
+      pages: "",
       addBlog: false,
       currentBlog: "",
       blogName: ""
@@ -27,7 +28,12 @@ class PickBlog extends Component {
         .then(response => {
           this.props.getBlogs(response.data);
         })
-        .catch(console.log());
+        .catch(console.log())
+
+        axios.get(`/api/pages/${this.props.user.id}`)
+        .then(response => {
+          this.setState({pages: response.data})
+        })
     });
   }
 
@@ -107,6 +113,22 @@ this.props.currBlog(i);
           </div>
         );
       });
+          let pages = this.state.pages && this.state.pages.map(
+              (obj, i) => {
+                return <div key={i}>
+                    <ul className="pageList">
+                      <Link className="pageLinks" to={`/EditPage/${this.props.user.id}`}>
+                        <span className="list">
+                          {obj.page_name}
+                        </span>
+                      </Link>
+                      <button className="pageButtons">
+                        Delete Page
+                      </button>
+                    </ul>
+                  </div>;
+              }
+            );
     return (
       <div>
         <Header />
@@ -115,6 +137,7 @@ this.props.currBlog(i);
             <h1>Hello, {this.props.user.name}</h1>
           </div>
           <h1>Which website are you working on?</h1>
+          <h2>Blogs</h2>
           {blogs}
           <button className="postsButtons" onClick={this.addBlogClicked}>
             Create New Blog
@@ -130,6 +153,8 @@ this.props.currBlog(i);
               <button className="postsButtons" onClick={() => this.addBlog()}>Submit</button>
             </div>
           ) : null}
+          <h2>Pages</h2>
+          {pages}
         </div>
       </div>
     );
