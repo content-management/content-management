@@ -18,7 +18,6 @@ const axios = require("axios");
 
 module.exports = {
   getBlogs: (req, res, next) => {
-    console.log("you hit me");
     const dbInstance = req.app.get("db");
     const { params } = req;
 
@@ -32,20 +31,19 @@ module.exports = {
     const dbInstance = req.app.get("db");
     const { params, body } = req;
 
-
     dbInstance
       .create_blog([params.id, body.name])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   },
-   deleteBlog: (req, res, next) => {
+  deleteBlog: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params } = req;
-    console.log(params)
+    console.log(params);
     dbInstance
       .delete_blog([params.id])
       .then(() => res.status(200).json())
-      .catch((err) => console.log(err));
+      .catch(err => console.log(err));
   },
   //all posts
   getPosts: (req, res, next) => {
@@ -92,6 +90,42 @@ module.exports = {
 
     dbInstance
       .delete_post([params.id])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
+  },
+  getPages: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_pages([params.id])
+      .then(pages => res.status(200).json(pages))
+      .catch(err => res.status(500).console.log(err));
+  },
+  updatePage: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params, body } = req;
+
+    dbInstance
+      .update_page([params.id, body.pageName, body.content])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
+  },
+  deletePage: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .delete_page([params.id])
+      .then(() => res.status(200).json())
+      .catch(() => res.status(500).json());
+  },
+  createPage: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params, body } = req;
+    console.log(body);
+    dbInstance
+      .create_page([params.id, body.name])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   }

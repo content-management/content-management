@@ -51,7 +51,7 @@ class Posts extends Component {
               })
           );
       } else {
-        swal("Your imaginary file is safe!");
+        swal("Your post has NOT been deleted!");
       }
     });
   }
@@ -66,16 +66,15 @@ class Posts extends Component {
         return (
           <div className="postResultsWrapper" key={i}>
             <div style={{ height: "80%" }}>
-              <h3>{obj.blog_name}</h3>
-              <h1>{obj.title}</h1>
-              <h4>{obj.date} </h4>
+              <div>{obj.blog_name}</div>
+              <div>{obj.title}</div>
+              <div>{obj.date} </div>
               {/* <h4> {obj.time}</h4> */}
 
               <iframe className="postIframe" srcdoc={obj.content} />
 
               <div>Post: {num}</div>
-              <br />
-              <br />
+              <div>PostId: {obj.post_id}</div>
             </div>
             <Link to={`/EditPost/${obj.post_id}`}>
               <button className="postsButtons">Edit Post</button>
