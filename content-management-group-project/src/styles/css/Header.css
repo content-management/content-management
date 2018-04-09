@@ -119,4 +119,18 @@
  .dropdown:hover .dropdown-content {
   display: block;
  }
-
+ .backButton {
+   position: absolute;
+   left: 110px;
+   top: 20px;
+   height: 75px;
+ }
+ .backButton:hover {
+  background: white;
+  border-radius: 350px;
+}
+@media only screen and (max-width: 550px) {
+  .header {
+      zoom: 0.8;
+  }
+}

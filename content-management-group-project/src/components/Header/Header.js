@@ -5,6 +5,7 @@ import { getUser, getBlogs, currBlog } from "../../ducks/reducer"; //get user fr
 import Logo from "../../assets/images/logo.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
+import history from "../../history";
 
 class Header extends Component {
   constructor() {
@@ -24,8 +25,7 @@ class Header extends Component {
     this.props.currBlog(i);
   }
   render() {
-    console.log(this.props.id);
-    console.log(this.props.blogs);
+    console.log('history', history);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -48,6 +48,7 @@ class Header extends Component {
           <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
+          <img className="backButton" src="https://d30y9cdsu7xlg0.cloudfront.net/png/890787-200.png" onClick={() => history.goBack()} ></img>
           <div className="nav">
             <Link
               to={`/Home/${this.props.myBlog.blog_name}/${

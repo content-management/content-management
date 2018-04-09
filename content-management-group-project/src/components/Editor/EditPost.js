@@ -3,6 +3,7 @@ import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
 import swal from "sweetalert";
+import "../../styles/css/EditPost.css";
 
 class TextEditor extends React.Component {
   constructor() {
@@ -61,7 +62,7 @@ class TextEditor extends React.Component {
     return (
       <div>
         <Header />
-        <div>
+        <div className="editPostPage">
           <input
             type="text"
             value={title}
@@ -72,7 +73,7 @@ class TextEditor extends React.Component {
             }
           />
         </div>
-        <input
+        <input className="editTitle"
           id="my-file"
           type="file"
           name="my-file"

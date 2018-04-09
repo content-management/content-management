@@ -42,6 +42,7 @@ h1{
     background-color: lightgrey;
     opacity: .7;
     margin: auto;
+    padding-right: 40px;
 }
 
 span.list {

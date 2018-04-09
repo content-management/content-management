@@ -10,6 +10,7 @@ import NewPost from "./components/Editor/NewPost";
 import EditPost from "./components/Editor/EditPost";
 import Posts from "./components/Posts/Posts";
 
+
 export default (
   <Switch>
     <Route exact path="/" component={Splash} />
