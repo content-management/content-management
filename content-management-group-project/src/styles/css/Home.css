@@ -8,7 +8,7 @@
 
 .header-container {
   font-family: "Allerta", sans-serif;
-  width: 50%;
+  width: 53%;
   position: relative;
   margin: 0 auto;
   text-align: center;
@@ -19,9 +19,20 @@
   display: inline-block;
   background-color: #184bf193;
   position: relative;
-  font-size: 1.5rem;
+  letter-spacing: -3px;
+  font-size: 2.5rem;
   padding:2px;
+  color:#0713386b;
   width: 95%;
+  transition: .2s ease all;
+}
+
+.header-container h1:hover{
+  transition: .2s ease all;
+  letter-spacing: -2px;
+  color: black;
+  font-weight: bold;
+  text-shadow: -12px 10px 4px #0000005d;
 }
 
 /*** SIDESCROLL THANGS ***/
@@ -52,12 +63,12 @@
   position: absolute;
   background: #1a1f20c2;
   align-content: top;
-  width:150px; 
+  width: 165px; 
   height: 400%;
   margin: 20px auto;
   margin-top: 30px;
+  overflow: hidden;
   outline: 2px solid black;
-  overflow: auto;
   transform: rotate(-90deg) translateY(-80px);
   transform-origin: right top;
 }
@@ -68,9 +79,8 @@
   position: relative;
   margin: 0 auto;
   background: white;
-  left: 35px;
   z-index: 100;
-  border-radius: 25px;
+  border-radius: 5px;
   z-index: 90;
 }
 .iframy > * {
@@ -82,19 +92,18 @@
 
 .rectangles div {
   position: relative;
-  top: 10px;
-  right: 20px;
-  max-width: 120px;
-  min-width: 120px;
-  height: 130px;
+  top: 30px;
+  left: 70px;
+  width: 125px;
+  height: 112px;
   padding: 15px;
-  margin: 2px;
+  margin: 6px;
   margin-top: 15px;
   transform: rotate(90deg) translateY(70px);
   transform-origin: bottom-left;
-  transition: 0.2s ease-out;
   border: solid thin;
   z-index: 101;
+  transition: 0.2s ease-out;
 }
 
 .rectangles div:hover {
@@ -103,7 +112,7 @@
   position: relative;
   /* background: #ffa600a4; */
   box-shadow: -15px 17px 1px #0f1618b4;
-  height: 133px;
+  height: 115px;
 }
 
 .rectangles div p:hover {
@@ -138,7 +147,7 @@
   height: 60px;
   line-height: 60px;
   min-width: 100px;
-  max-width: 250px;
+  max-width: 110px;
   border: 0px solid #000000;
   border-radius: 5px;
   font-family: "Allerta", sans-serif;
@@ -150,6 +159,6 @@
   transition: .3s ease all;
   cursor: pointer;  
   background: #9f9fffbe;
-  box-shadow: -15px 17px 1px #1b1b2cab;
+  box-shadow: -13px 16px 1px #1b1b2cab;
 }
 
