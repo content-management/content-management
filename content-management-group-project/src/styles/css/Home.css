@@ -53,7 +53,7 @@
   background: #1a1f20c2;
   align-content: top;
   width:150px; 
-  height: 400%;
+  height: 600%;
   margin: 20px auto;
   margin-top: 30px;
   outline: 2px solid black;
@@ -92,13 +92,13 @@
   margin-top: 15px;
   transform: rotate(90deg) translateY(70px);
   transform-origin: bottom-left;
-  transition: 0.2s ease-out;
   border: solid thin;
   z-index: 101;
+  transition: 0.1s ease-out;
 }
 
 .rectangles div:hover {
-  transition: 0.2s ease all;
+  transition: 0.1s ease all;
   display: block;
   position: relative;
   /* background: #ffa600a4; */
@@ -122,6 +122,7 @@
   margin: 0 auto;
   padding: 2px;
   min-width: 40%;
+  
   width: 50%;
   height: 80px;
   text-align: center;
@@ -150,6 +151,6 @@
   transition: .3s ease all;
   cursor: pointer;  
   background: #9f9fffbe;
-  box-shadow: -15px 17px 1px #1b1b2cab;
+  box-shadow: -13px 16px 1px #1b1b2cab;
 }
 
