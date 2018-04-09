@@ -28,8 +28,8 @@
   color: black;
 }
 .postIframe {
-  width: 90%;
-  height: 95%;
+  width: 95%;
+  height: 350px;
   background: white;
   border-radius: 20px;
 }

@@ -21,11 +21,10 @@ class Header extends Component {
       .catch(console.log());
   }
   setBlog(i) {
- 
     this.props.currBlog(i);
   }
   render() {
-    console.log('history', history);
+    console.log("history", history);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -48,7 +47,9 @@ class Header extends Component {
           <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
-          <img className="backButton" src="https://d30y9cdsu7xlg0.cloudfront.net/png/890787-200.png" onClick={() => history.goBack()} ></img>
+          <p className="backButton" onClick={() => history.goBack()}>
+            Back
+          </p>
           <div className="nav">
             <Link
               to={`/Home/${this.props.myBlog.blog_name}/${

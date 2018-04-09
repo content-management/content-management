@@ -1,9 +1,9 @@
-  /*** HEADER THANGS ***/
+/*** HEADER THANGS ***/
 
 .header {
   display: flex;
   position: fixed;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
   top: 0;
   justify-content: space-between;
   border: none;
@@ -14,15 +14,15 @@
   z-index: 1000;
 }
 
-.header:hover{
-  transition: .3s ease all;
+.header:hover {
+  transition: 0.3s ease all;
   background: #d3d3d3;
 }
 
-  /*** LOGO THANGS ***/
+/*** LOGO THANGS ***/
 
-.logo-container{
-  display:block;
+.logo-container {
+  display: block;
   position: relative;
   margin: 4px;
 }
@@ -30,10 +30,10 @@
 .logo {
   height: 100px;
   width: 100px;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 }
-.logo:hover{
-  transition: .4s ease all;
+.logo:hover {
+  transition: 0.4s ease all;
   box-shadow: -4px 5px 1px #414040;
 }
 
@@ -51,22 +51,22 @@
 }
 
 .links {
-  display:inline-block;
-  transition: .3s ease all;
+  display: inline-block;
+  transition: 0.3s ease all;
   padding: 4px;
-  margin: 2px; 
-  filter: blur(.4px);
+  margin: 2px;
+  filter: blur(0.4px);
   letter-spacing: -2.1px;
   /* color: #00168a; */
   font-size: 1.25rem;
-  color: #00178a8c
+  color: #00178a8c;
 }
 
-.links:hover{
-  transition: .3s ease all;
+.links:hover {
+  transition: 0.3s ease all;
   color: #00168a;
   letter-spacing: -2px;
-  filter:blur(0px);
+  filter: blur(0px);
 }
 
 .dropdown {
@@ -81,14 +81,14 @@
   display: none;
   position: absolute;
   background-color: #d3d3d3af;
-  padding:6px;
+  padding: 6px;
   min-width: 100px;
   text-align: left;
   overflow: auto;
   z-index: 1100;
 }
 
-.dropdown:hover{
+.dropdown:hover {
   color: #00168a;
 }
 
@@ -96,9 +96,9 @@
   display: block;
   position: relative;
   width: 100%;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
   margin: 0 auto;
-  float:left;
+  float: left;
   /* background-color: blue; */
   color: #00168a;
   padding: 2px;
@@ -107,32 +107,36 @@
   text-align: left;
 }
 .dropdown-content a:hover {
-  display:block;
+  display: block;
   position: relative;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
   width: 100%;
   color: #d3d3d3;
-  background-color: #00178a6b
-  
+  background-color: #00178a6b;
 }
 
- .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
   display: block;
- }
- .backButton {
-   position: absolute;
-   left: 110px;
-   top: 20px;
-   height: 75px;
-   border-radius: 350px;
- }
- .backButton:hover {
-  background: white;
-  transition: .4s ease all;
-  box-shadow: -4px 5px 1px #414040;
 }
+.backButton {
+  position: absolute;
+  left: 110px;
+  top: 70px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-family: "Allerta", sans-serif;
+  color: black;
+}
+
+.backButton:hover {
+  color: #00168a;
+}
+
+
 @media only screen and (max-width: 550px) {
   .header {
-      zoom: 0.8;
+    zoom: 0.8;
   }
 }
