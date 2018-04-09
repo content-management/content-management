@@ -44,6 +44,7 @@
   overflow-y: auto;
   /* border: 2px solid orange; */
   width: 90%;
+  z-index: 1;
 }
 
 .horizontal-scroll-wrapper {
@@ -68,6 +69,7 @@
   margin-left: 55px;
   z-index: 100;
   border-radius: 25px;
+  z-index: 90;
 }
 .iframy > * {
   zoom: 0.4;
@@ -90,6 +92,7 @@
   transform-origin: bottom-left;
   transition: 0.3s ease-out;
   border: solid thin;
+  z-index: 101;
 }
 
 .rectangles p {
