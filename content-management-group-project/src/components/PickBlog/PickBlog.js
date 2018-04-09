@@ -14,11 +14,16 @@ class PickBlog extends Component {
       blogs: "",
       pages: "",
       addBlog: false,
+      addPage: false,
       currentBlog: "",
-      blogName: ""
+      blogName: "",
+      pageName: "",
     };
     this.addBlogClicked = this.addBlogClicked.bind(this);
+    this.addPageClicked = this.addPageClicked.bind(this);
     this.addBlog = this.addBlog.bind(this);
+    this.addPage = this.addPage.bind(this);
+    
   }
 
   componentDidMount() {
@@ -28,17 +33,19 @@ class PickBlog extends Component {
         .then(response => {
           this.props.getBlogs(response.data);
         })
-        .catch(console.log())
+        .catch(console.log());
 
-        axios.get(`/api/pages/${this.props.user.id}`)
-        .then(response => {
-          this.setState({pages: response.data})
-        })
+      axios.get(`/api/pages/${this.props.user.id}`).then(response => {
+        this.setState({ pages: response.data });
+      });
     });
   }
 
   addBlogClicked() {
     this.setState({ addBlog: true });
+  }
+  addPageClicked() {
+    this.setState({ addPage: true });
   }
   addBlog() {
     let body = {
@@ -53,10 +60,24 @@ class PickBlog extends Component {
       )
       .then(this.setState({ addBlog: false }));
   }
+  addPage() {
+    let body = {
+      name: this.state.pageName
+    };
+    console.log(body.name)
+    axios
+      .post(`/api/newPage/${this.props.user.id}`, body)
+      .then(
+        axios.get(`/api/pages/${this.props.user.id}`).then(response => {
+          this.setState({pages: response.data});
+        })
+      )
+      .then(this.setState({ addPage: false }));
+  }
 
-  setBlog(i){
-console.log(i);
-this.props.currBlog(i);
+  setBlog(i) {
+    console.log(i);
+    this.props.currBlog(i);
   }
 
   deleteBlog(i) {
@@ -93,7 +114,36 @@ this.props.currBlog(i);
       );
   }
 
+  deletePage(i) {
+    swal({
+      title: "Are you sure?",
+      text: "This will delete the entire Page including all content!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true
+    }).then(willDelete => {
+      if (willDelete) {
+        axios
+          .delete(`/api/deletePage/${i}`)
+          .then(
+            axios.get(`/api/pages/${this.props.user.id}`).then(response => {
+              this.setState({ pages: response.data });
+            })
+          )
+          .catch(console.log())
+          .then(
+            swal("Page Deleted!", {
+              icon: "success"
+            })
+          );
+      } else {
+        swal("Your Page is safe!");
+      }
+    });
+  }
+
   render() {
+    console.log(this.state.pageName)
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -104,33 +154,44 @@ this.props.currBlog(i);
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                <span className="list" onClick={(() => this.setBlog(obj))}> {obj.blog_name}</span>
+                <span className="list" onClick={() => this.setBlog(obj)}>
+                  {" "}
+                  {obj.blog_name}
+                </span>
               </Link>
-              <button className="postsButtons" onClick={() => this.deleteBlog(obj.blog_id)}>
+              <button
+                className="postsButtons"
+                onClick={() => this.deleteBlog(obj.blog_id)}
+              >
                 Delete Blog
               </button>
             </ul>
           </div>
         );
       });
-          let pages = this.state.pages && this.state.pages.map(
-              (obj, i) => {
-                return <div key={i}>
-                    <ul className="pageList">
-                      <Link className="pageLinks" to={`/EditPage/${this.props.user.id}`}>
-                        <span className="list">
-                          {obj.page_name}
-                        </span>
-                      </Link>
-                      <button className="pageButtons">
-                        Delete Page
-                      </button>
-                    </ul>
-                  </div>;
-              }
-            );
-    return (
-      <div>
+    let pages =
+      this.state.pages &&
+      this.state.pages.map((obj, i) => {
+        return (
+          <div key={i}>
+            <ul className="pageList">
+              <Link
+                className="pageLinks"
+                to={`/EditPage/${this.props.user.id}`}
+              >
+                <span className="list">{obj.page_name}</span>
+              </Link>
+              <button
+                className="pageButtons"
+                onClick={() => this.deletePage(obj.page_id)}
+              >
+                Delete Page
+              </button>
+            </ul>
+          </div>
+        );
+      });
+    return <div>
         <Header />
         <div className="pickBlogPage">
           <div>
@@ -143,21 +204,30 @@ this.props.currBlog(i);
             Create New Blog
           </button>
 
-          {this.state.addBlog === true ? (
-            <div>
-              <input
-                type="text"
-                placeholder="Your blog name"
-                onChange={e => this.setState({ blogName: e.target.value })}
-              />
-              <button className="postsButtons" onClick={() => this.addBlog()}>Submit</button>
-            </div>
-          ) : null}
+          {this.state.addBlog === true ? <div>
+              <input type="text" placeholder="Your blog name" onChange={e => this.setState(
+                    { blogName: e.target.value }
+                  )} />
+              <button className="postsButtons" onClick={() => this.addBlog()}>
+                Submit
+              </button>
+            </div> : null}
           <h2>Pages</h2>
           {pages}
+          <button className="postsButtons" onClick={this.addPageClicked}>
+            Create New Page
+          </button>
+
+          {this.state.addPage === true ? <div>
+              <input type="text" placeholder="Your Page name" onChange={e => this.setState(
+                    { pageName: e.target.value }
+                  )} />
+              <button className="postsButtons" onClick={() => this.addPage()}>
+                Submit
+              </button>
+            </div> : null}
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
