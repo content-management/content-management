@@ -6,7 +6,7 @@
   z-index: 1;
 }
 
-.home-greeting {
+.header-container {
   font-family: "Allerta", sans-serif;
   width: 50%;
   position: relative;
@@ -15,11 +15,13 @@
   overflow: auto;
 }
 
-.home-greeting h1 {
+.header-container h1 {
   display: inline-block;
   background-color: #184bf193;
   position: relative;
-  width: 90%;
+  font-size: 1.5rem;
+  padding:2px;
+  width: 95%;
 }
 
 /*** SIDESCROLL THANGS ***/
@@ -34,38 +36,38 @@
 }
 
 .scroll-container {
-  /* display: block; */
+  display: block;
   position: relative;
-  /* padding: 20px; */
   position: relative;
   margin: 20px auto;
   height: 220px;
   background: transparent;
   overflow-y: auto;
-  /* border: 2px solid orange; */
+  border: 2px solid orange;
   width: 90%;
 }
 
 .horizontal-scroll-wrapper {
-  /* position: absolute; */
-  /* display: block; */
-  max-width: 250px;
-  /* margin: 20px auto; */
-  background: transparent;
-  /* outline: 2px solid black; */
-  overflow: scroll;
+  position: absolute;
+  background: #1a1f20c2;
+  align-content: top;
+  width:150px; 
+  height: 400%;
+  margin: 20px auto;
+  margin-top: 30px;
+  outline: 2px solid black;
+  overflow: auto;
   transform: rotate(-90deg) translateY(-80px);
   transform-origin: right top;
 }
 
-.rectangles {
-  /* display: inline-block; */
-  /* padding: 10px; */
-}
 .iframy {
   overflow: hidden;
+  display: block;
+  position: relative;
+  margin: 0 auto;
   background: white;
-  margin-left: 55px;
+  left: 35px;
   z-index: 100;
   border-radius: 25px;
 }
@@ -75,41 +77,30 @@
   background: white;
   z-index: 101;
 }
+
 .rectangles div {
   position: relative;
   top: 10px;
   right: 20px;
-  max-width: 180px;
-  min-width: 140px;
-  width: 70%;
-  height: 190px;
-  /* margin: 50px 020px; */
+  max-width: 120px;
+  min-width: 120px;
+  height: 130px;
   padding: 15px;
-  /* background: lightblue; */
+  margin: 2px;
+  margin-top: 15px;
   transform: rotate(90deg) translateY(70px);
   transform-origin: bottom-left;
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
   border: solid thin;
 }
 
-.rectangles p {
+.rectangles div:hover {
+  transition: 0.2s ease all;
   display: block;
   position: relative;
-  padding: 3px;
   /* background: #ffa600a4; */
-  /* margin: 25px auto; */
-  letter-spacing: -1.5px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.2s ease-out;
-  font-size: 1rem;
-}
-
-.rectangles div:hover {
-  transition: 0.3s ease all;
-  /* background: #ffa600a4; */
-  width: 230px;
-  height: 290px;
+  box-shadow: -15px 17px 1px #0f1618b4;
+  height: 133px;
 }
 
 .rectangles div p:hover {
@@ -119,34 +110,43 @@
   font-size: 1.08rem;
 }
 
-/*** CARD THANGS ***/
+/*** BUTTONS ***/
 
-.cards-container {
+.buttons-container {
+  background: lightgreen;
   display: block;
-  text-align: center;
-  width: 90%;
-  min-width: 40%;
+  position: relative;
+  margin: 0 auto;
   padding: 2px;
-  margin: 5%;
+  min-width: 40%;
+  width: 50%;
+  height: 80px;
+  text-align: center;
 }
 
-.cards {
-  background: #a5a5f599;
+.buttons-item {
+  background: #8080ece7;
+  color: #3a3a3a;
   display: inline-block;
   position: relative;
   margin: 0 auto;
-  height: 180px;
-  width: 20%;
-  min-width: 200px;
-  border-radius: 11px 11px 11px 11px;
-  -moz-border-radius: 11px 11px 11px 11px;
-  -webkit-border-radius: 11px 11px 11px 11px;
+  margin: 8px;
+  padding: 4px;
+  height: 60px;
+  line-height: 60px;
+  min-width: 100px;
+  max-width: 250px;
   border: 0px solid #000000;
-  margin: 5%;
+  border-radius: 5px;
   font-family: "Allerta", sans-serif;
-  font-size: 20px;
+  font-size: 1.25rem;
+  transition: .3s ease all;
 }
 
-.cards:hover {
-  cursor: pointer;
+.buttons-item:hover {
+  transition: .3s ease all;
+  cursor: pointer;  
+  background: #9f9fffbe;
+  box-shadow: -15px 17px 1px #1b1b2cab;
 }
+
