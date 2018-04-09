@@ -117,6 +117,11 @@ app.post("/api/post/:id", mc.createPost); //create post
 app.put("/api/put/:id", mc.updatePost); //update post
 app.delete("/api/delete/:id", mc.deletePost); //delete post
 
+//get pages
+app.get("/api/pages/:id", mc.getPages);
+app.put("/api/updatePage/:id", mc.updatePage); //update post
+
+
 // app.post("/api/Subject", getSubject);
 
 app.listen(port, () => {
