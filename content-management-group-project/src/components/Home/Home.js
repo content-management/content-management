@@ -23,14 +23,14 @@ class Home extends Component {
       axios
         .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
-          console.log("response", response.data);
+ 
           this.setState({ posts: response.data });
         })
         .catch(console.log())
     );
   }
   render() {
-    console.log(this.state.posts)
+
    
     let myPost =
       this.state.posts &&
@@ -45,7 +45,7 @@ class Home extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         let iframeHTML = renderHTML(obj.content);
-        console.log("postID", obj.post_id);
+     
         return (
           <div
             
@@ -68,14 +68,22 @@ class Home extends Component {
         } 
         else week.push(date.toLocaleDateString());
       }
-      console.log(week);
+    
 
-      // this.state.posts && this.state.post.map((obj, i) => {
-      //   if (obj.date === week[0] || obj.date == week[1] || obj.date == week[2] || obj.date == week[3] || obj.date == week[4] || obj.date == week[5] || obj.date == week[6]) 
-      //   this.setState({thisWeek: obj})
-      // });
-
-      // console.log(this.state.thisWeek);
+      let temp3 = [];
+      this.state.posts && this.state.posts.map((obj, i) => {
+        if (obj.date === week[0] || obj.date == week[1] || obj.date == week[2] || obj.date == week[3] || obj.date == week[4] || obj.date == week[5] || obj.date == week[6]) 
+        temp3.push(obj);
+    
+      });
+      let thisWeek = temp3.map((obj, i) => {
+        let iframeHTML2 = renderHTML(obj.content);
+        return(
+          <div className="iframy" key={i}>
+            {iframeHTML2}
+          </div>
+        )
+      })
  
 
     return (
@@ -117,7 +125,8 @@ class Home extends Component {
             <div className="cards">Media</div>
             <h3>Number of posts</h3>
               {this.state.posts.length}
-              <h3>Post This Week</h3>
+              <h3>Post This Week {temp3.length}</h3>
+              {thisWeek}
               <h3>Post this month</h3>
           </div>
         </div>
