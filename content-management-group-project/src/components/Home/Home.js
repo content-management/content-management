@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
 import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import axios from "axios";
 import Posts from "../Posts/Posts";
 import "../../styles/css/Home.css";
@@ -51,7 +52,7 @@ class Home extends Component {
             className="iframy"
             key={i}
           >
-            <Link to={`/EditPost/${obj.post_id}`}>{iframeHTML}</Link>
+            <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
       });
@@ -84,13 +85,21 @@ class Home extends Component {
           id2={this.props.match.params.id2}
         />
         <div className="home-body">
-          <div className="home-greeting">
-            {/* {!this.props.isLoading && (
-              <h1>Welcome back, {this.props.user.name} !</h1>
-            )} */}
-            <h2>{this.props.myBlog.blog_name}</h2>
+          <div className="header-container">
+            <h1>{this.props.myBlog.blog_name}</h1>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
+
+          <div className="buttons-container">          
+          <Link to={`/Posts/${this.props.match.params.id}/${
+              this.props.match.params.id2}`}>          
+              <button className="buttons-item">History</button>
+          </Link>     
+          <Link to={`/NewPost/${this.props.match.params.id}`}> 
+              <button className="buttons-item" id="newPost">New</button> 
+          </Link>                 
+        </div>
+
           <div className="scroll-container">
             <div className="horizontal-scroll-wrapper rectangles">
               {myContent}

@@ -27,6 +27,7 @@ class PickBlog extends Component {
   }
 
   componentDidMount() {
+    swal("Welcome to Contentum")
     this.props.getUser().then(() => {
       axios
         .get(`/api/blogs/${this.props.user.id}`)
