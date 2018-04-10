@@ -205,11 +205,11 @@ class PickBlog extends Component {
             Create New Blog
           </button></div>
 
-          {this.state.addBlog === true ? <div>
+          {this.state.addBlog === true ? <div className ='newBlog'>
               <input type="text" placeholder="Your blog name" onChange={e => this.setState(
                     { blogName: e.target.value }
                   )} />
-              <button className="postsButtons" onClick={() => this.addBlog()}>
+              <button className="submitButtons" onClick={() => this.addBlog()}>
                 Submit
               </button>
             </div> : null} 
@@ -220,11 +220,11 @@ class PickBlog extends Component {
             Create New Page
           </button></div></div>
 
-          {this.state.addPage === true ? <div>
+          {this.state.addPage === true ? <div className="newPage">
               <input type="text" placeholder="Your Page name" onChange={e => this.setState(
                     { pageName: e.target.value }
                   )} />
-              <button className="postsButtons" onClick={() => this.addPage()}>
+              <button className="submitButtons" onClick={() => this.addPage()}>
                 Submit
               </button>
             </div> : null}

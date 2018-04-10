@@ -18,7 +18,7 @@ h2 {
     font-family: "Allerta", sans-serif;
     color: black;
     display: flex;
-   
+
 }
 
 .pickBlogPage:hover {
@@ -111,4 +111,17 @@ span.list {
   .postsButtons:hover {
     background: rgb(0, 22, 138, 0.5);
     color: black;
+  }
+
+  .submitButtons {
+    padding: 4px;
+    background: rgb(0, 22, 138);
+    border: none;
+    box-shadow: 1px 1px 1px;
+    border-radius: 5px;
+    color: white;
+    margin: 5px;
+    margin-top: 15px;
+    width: 90px;
+    font-size: 0.8em;
   }
