@@ -19,7 +19,6 @@ class EditPage extends React.Component {
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
-    console.log("window", window.tinyMCE);
     axios
          axios.get(`/api/pages/${this.props.user.id}`)
         .then(response => {
@@ -52,7 +51,7 @@ class EditPage extends React.Component {
   }
   render() {
 
-let title = this.state.post.title;
+let title = this.state.pages.title;
     let pageName = this.state.pages.page_name;
     // let content = this.state.post.content;
     let content = this.state.pages.content;
@@ -70,15 +69,6 @@ let title = this.state.post.title;
             }
           />
         </div>
-        <input
-            type="text"
-            placeholder={title}
-            onChange={e =>
-              this.setState({
-                title: e.target.value
-              })
-            }
-          />
         {this.state.pages.content && (
           <Editor
             initialValue={content}

@@ -9,13 +9,18 @@
   overflow: auto;
   text-align: center;
 }
-
+.postIframe {
+  width: 95%;
+  height: 350px;
+  background: white;
+  border-radius: 20px;
+}
 .postsButtons {
   padding: 10px;
   background: rgb(0, 22, 138);
-  border: none;
+  border: transparent;
   box-shadow: 1px 1px 1px;
-  border-radius: 25px;
+  border-radius: 5px;
   color: white;
   margin: 5px;
   width: 90px;
@@ -27,12 +32,7 @@
   background: rgb(0, 22, 138, 0.5);
   color: black;
 }
-.postIframe {
-  width: 95%;
-  height: 350px;
-  background: white;
-  border-radius: 20px;
-}
+
 
 .newPostButton {
   position: fixed;
@@ -42,7 +42,7 @@
   background: rgb(0, 22, 138);
   border: none;
   box-shadow: 1px 1px 1px;
-  border-radius: 25px;
+  border-radius: 5px;
   color: white;
   width: 90px;
 }
