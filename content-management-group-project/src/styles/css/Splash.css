@@ -1,11 +1,12 @@
 .splash-body{
-  display: flex;
-  height: 1100px;
-  width: 100%;
+  position: fixed;
+  left: 0px;
+  height: 102%;
+  width: 102%;
   background-image: url('../../assets/images/backgroudphoto.jpg');
   background-attachment: scroll;
   background-size: cover;
-  zoom: .9;
+  overflow: hidden;
 }
 
 .button-container{
