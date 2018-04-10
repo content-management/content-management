@@ -3,13 +3,11 @@ import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
 import { connect } from "react-redux"; //connect to redux
-import {  currBlog } from "../../ducks/reducer"; //get user from redux
+import { currBlog } from "../../ducks/reducer"; //get user from redux
 import { Link, withRouter } from "react-router-dom";
 import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
 import { Redirect } from "react-router";
-
-
 
 class TextEditor extends React.Component {
   constructor() {
@@ -19,13 +17,11 @@ class TextEditor extends React.Component {
       title: "",
       tinyID: "",
       dateTime: "",
-      categories: [],
-      newCat: ""
+      favorite: "no"
     };
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
-    this.checkbox = this.checkbox.bind(this);
-    
+    this.addFavorite = this.addFavorite.bind(this);
   }
 
   handleEditorChange = e => {
@@ -33,7 +29,12 @@ class TextEditor extends React.Component {
     this.setState({
       content: e.target.getContent()
     });
-  };
+  }
+  addFavorite() {
+  
+    alert('added to favorites')   
+    this.setState({ favorite: "yes" });
+  }
   saveContent() {
     console.log(this.state.content.length);
     if (this.state.content.length > 3000000) {
@@ -50,59 +51,65 @@ class TextEditor extends React.Component {
       // console.log(temp);
 
       let dateTime = new Date();
-      let categories = this.state.categories.join();
-  
+   
+
       let body = {
         title: this.state.title,
         content: temp,
         date: dateTime.toLocaleDateString(),
         time: dateTime.toLocaleTimeString(),
-        categories: categories
-        
+        favorites: this.state.favorite
       };
       axios
         .post(`/api/post/${this.props.match.params.id}`, body)
         .then(results => {
           swal("New post added");
-        })
-        // .then(window.history.back());
+        });
+      // .then(window.history.back());
     }
   }
-  checkbox(event){
-    if (event.target.checked === true){
-      console.log(event.target.checked);
-      this.state.categories.push(event.target.name);
-    } else if(event.target.checked === false){
-      this.state.categories.splice(event.target.name, 1)
-    }
-     console.log(this.state.categories);
-  }
-  addCheckbox(){
-  
-    this.state.categories.push(this.state.newCat);
-     console.log(this.state.categories.join(" "));
-    
-  }
+
   render() {
+  console.log(this.state.favorite)
 
-    // if (this.state.redirect) {
-    //   return <Redirect push to="/" />;
-    // }
-    console.log(this.props.match.params.id);
-
-    return <div className="new-post-container">
+    return (
+      <div className="new-post-container">
         <Header />
 
         <div className="title-button">
-          <input type="text" placeholder="Add Title Here" onChange={e => this.setState(
-                { title: e.target.value }
-              )} />
+          <input
+            type="text"
+            placeholder="Add Title Here"
+            onChange={e => this.setState({ title: e.target.value })}
+          />
         </div>
 
-        <input id="my-file" type="file" name="my-file" style={{ display: "none" }} onChange="" />
+        <input
+          id="my-file"
+          type="file"
+          name="my-file"
+          style={{ display: "none" }}
+          onChange=""
+        />
 
         <div className="new-post-editor">
-          <Editor initialValue="" init={{ selector: "textarea", height: 500, plugins: ["advlist autolink lists link image code charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste imagetools wordcount", "fullpage", "save"], toolbar: "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ", content_css: "//www.tinymce.com/css/codepen.min.css", file_browser_callback_types: "image", file_picker_callback: function(callback, value, meta) {
+          <Editor
+            initialValue=""
+            init={{
+              selector: "textarea",
+              height: 500,
+              plugins: [
+                "advlist autolink lists link image code charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste imagetools wordcount",
+                "fullpage",
+                "save"
+              ],
+              toolbar:
+                "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ",
+              content_css: "//www.tinymce.com/css/codepen.min.css",
+              file_browser_callback_types: "image",
+              file_picker_callback: function(callback, value, meta) {
                 if (meta.filetype == "image") {
                   var input = document.getElementById("my-file");
                   input.click();
@@ -116,39 +123,29 @@ class TextEditor extends React.Component {
                     reader.readAsDataURL(file);
                   };
                 }
-              }, paste_data_images: true }} onChange={this.handleEditorChange} />
+              },
+              paste_data_images: true
+            }}
+            onChange={this.handleEditorChange}
+          />
         </div>
-        <Link to={`/Posts/${this.props.myBlog.blog_name}/${this.props.myBlog.blog_id}`}>
+        <Link
+          to={`/Posts/${this.props.myBlog.blog_name}/${
+            this.props.myBlog.blog_id
+          }`}
+        >
           <button className="savebutton" onClick={this.saveContent}>
             Save
           </button>
         </Link>
-
-        <h2>Add Category</h2>
-        <div className="checkbox-container">
-
-   
-           <label className="label">
-            Favorites
-            <input type="checkbox" name="Favorites" onChange={this.checkbox} />
-            <div className="control__indicator" />
-          </label>
-          <label className="label">
-            Funny
-            <input type="checkbox" name="Funny" onChange={this.checkbox} />
-            <div className="control__indicator" />
-          </label> 
-          <input type="text" placeholder="Add Category" onChange={e => this.setState(
-                { newCat: e.target.value }
-              )} />
-          <button onClick={() => this.addCheckbox()}>Add</button>
+          <div>
+        <button onClick={this.addFavorite}>Add to favorites</button>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { currBlog })(
-  TextEditor
-);
+export default connect(mapStateToProps, { currBlog })(TextEditor);
