@@ -31,7 +31,8 @@ module.exports = {
         body.content,
         body.date,
         body.time,
-        body.categories
+        body.favorites
+   
       ])
       .then(() => res.status(200).json())
       .catch(err => res.status(500).console.log(err)); //.json());
