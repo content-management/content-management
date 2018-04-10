@@ -62,28 +62,25 @@ class Home extends Component {
           id2={this.props.match.params.id2}
         />
         <div className="home-body">
-          <div className="home-greeting">
-            {/* {!this.props.isLoading && (
-              <h1>Welcome back, {this.props.user.name} !</h1>
-            )} */}
-            <h2>{this.props.myBlog.blog_name}</h2>
+          <div className="header-container">
+            <h1>{this.props.myBlog.blog_name}</h1>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
+
+          <div className="buttons-container">          
+          <Link to={`/Posts/${this.props.match.params.id}/${
+              this.props.match.params.id2}`}>          
+              <button className="buttons-item">History</button>
+          </Link>     
+          <Link to={`/NewPost/${this.props.match.params.id}`}> 
+              <button className="buttons-item" id="newPost">New</button> 
+          </Link>                 
+        </div>
+
           <div className="scroll-container">
             <div className="horizontal-scroll-wrapper rectangles">
               {myContent}
             </div>
-          </div>
-          <div className="cards-container">
-            <Link
-              to={`/Posts/${this.props.match.params.id}/${
-                this.props.match.params.id2
-              }`}
-            >
-              <div className="cards">Posts</div>
-            </Link>
-            <div className="cards">Pages</div>
-            <div className="cards">Media</div>
           </div>
         </div>
       </div>

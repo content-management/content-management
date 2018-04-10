@@ -36,6 +36,54 @@
   transition: 0.4s ease all;
   box-shadow: -4px 5px 1px #414040;
 }
+  /*** BACK BUTTON ***/
+
+  .backButton-container{
+    display: inline-block;
+    position: relative;
+    background: #80ecd1e7;
+  }
+
+.backButton {
+  background: #8080ece7;
+  color: #3a3a3a;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin: 8px;
+  top: 120px;
+  padding: 4px;
+  height: 40px;
+  line-height: 60px;
+  min-width: 80px;
+  max-width: 150px;
+  border: 0px solid #000000;
+  border-radius: 5px;
+  font-family: "Allerta", sans-serif;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.05rem;
+  transition: .3s ease all;
+  /* position: absolute;
+  left: 110px;
+  top: 70px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-family: "Allerta", sans-serif;
+  color: black; */
+}
+.backButton:hover {
+  transition: .3s ease all;
+  background: #9292f5e7;
+  color: #00168a;
+  box-shadow: -11px 8px 1px #1b1b2cab;
+}
+
+
+
+ /*** NAV THINGS ***/
 
 .nav {
   display: flex;
@@ -117,21 +165,6 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-.backButton {
-  position: absolute;
-  left: 110px;
-  top: 70px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  font-size: 1em;
-  font-family: "Allerta", sans-serif;
-  color: black;
-}
-
-.backButton:hover {
-  color: #00168a;
 }
 
 
