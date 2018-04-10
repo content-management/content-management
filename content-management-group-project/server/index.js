@@ -111,9 +111,9 @@ app.get("/logout", (req, res) => {
 //EndPoints
 
 //get blogs
-app.get("/api/blogs/:id", mc.getBlogs);
-app.post("/api/blog/:id", mc.createBlog); //create blog
-app.delete("/api/deleteblog/:id", mc.deleteBlog); //delete post
+app.get("/api/blogs/:id", bc.getBlogs);
+app.post("/api/blog/:id", bc.createBlog); //create blog
+app.delete("/api/deleteblog/:id", bc.deleteBlog); //delete post
 
 
 //get posts
