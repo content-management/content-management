@@ -175,7 +175,7 @@ class PickBlog extends Component {
             <ul className="blogList">
               <Link
                 className="blogLinks"
-                to={`/EditPage/${this.props.user.id}`}
+                to={`/EditPage/${obj.page_id}`}
               >
                 <span className="list">{obj.page_name}</span>
               </Link>

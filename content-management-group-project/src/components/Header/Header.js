@@ -52,7 +52,7 @@ class Header extends Component {
             <ul>
               <Link
                 
-                to={`/Home/${obj.page_name}`}
+                to={`/EditPage/${obj.page_id}`}
               >
                 <div className="blogLinks" onClick={() => this.setPage(obj)}>{obj.page_name}</div>
               </Link>
@@ -68,16 +68,16 @@ class Header extends Component {
           </div>
           <div className="nav">
             <Link
-              to={`/Home/${this.props.myBlog.blog_name}/${
+              to={`/EditPage/${this.props.myBlog.blog_name}/${
                 this.props.myBlog.blog_id
               }`}
             >
               <div className="links">Dashboard</div>
             </Link>
-            <div className="links dropdown">
+            <Link to={`/pickblog/${this.props.user.name}`} className="links dropdown">
               Switch Sites
               {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
-            </div>
+            </Link>
             <a href={`/`}>
               <div className="links" onClick={this.logout}>
                 Logout
