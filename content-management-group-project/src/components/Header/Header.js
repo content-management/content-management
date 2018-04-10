@@ -47,9 +47,6 @@ class Header extends Component {
           <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
-          <p className="backButton" onClick={() => history.goBack()}>
-            Back
-          </p>
           <div className="nav">
             <Link
               to={`/Home/${this.props.myBlog.blog_name}/${
@@ -69,6 +66,9 @@ class Header extends Component {
             </a>
           </div>
         </div>
+          <button className="backButton" onClick={() => history.goBack()}>
+              Back
+          </button>
       </div>
     );
   }
