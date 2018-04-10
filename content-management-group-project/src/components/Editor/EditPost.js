@@ -20,7 +20,6 @@ class TextEditor extends React.Component {
     axios
       .get(`/api/post/${this.props.match.params.id}`)
       .then(response => {
-        console.log("response", response.data[0].content);
 
         this.setState({ post: response.data[0] });
         this.setState({
@@ -50,9 +49,10 @@ class TextEditor extends React.Component {
       .then(window.history.back());
   }
   render() {
-    console.log(this.props.match.params.id);
+    console.log(this.state.title);
+    // console.log(this.props.match.params.id);
     // console.log(this.state.post);
-    console.log(this.state.content);
+    // console.log(this.state.content);
     // console.log(typeof(this.state.post.content));
     // console.log(this.state.post.title);
 
@@ -65,7 +65,7 @@ class TextEditor extends React.Component {
         <div className="editPostPage">
           <input
             type="text"
-            value={title}
+            placeholder={title}
             onChange={e =>
               this.setState({
                 title: e.target.value
@@ -73,13 +73,6 @@ class TextEditor extends React.Component {
             }
           />
         </div>
-        <input className="editTitle"
-          id="my-file"
-          type="file"
-          name="my-file"
-          style={{ display: "none" }}
-          onChange=""
-        />
         {this.state.post.content && (
           <Editor
             initialValue={content}
