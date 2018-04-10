@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog, getBlogs, getPages } from "../../ducks/reducer"; //get user from redux
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import Header from "../Header/Header";
@@ -12,7 +12,6 @@ class PickBlog extends Component {
     super(props);
     this.state = {
       blogs: "",
-      pages: "",
       addBlog: false,
       addPage: false,
       currentBlog: "",
@@ -37,9 +36,10 @@ class PickBlog extends Component {
         .catch(console.log());
 
       axios.get(`/api/pages/${this.props.user.id}`).then(response => {
-        this.setState({ pages: response.data });
+        this.props.getPages(response.data);
       });
     });
+    
   }
 
   addBlogClicked() {
@@ -144,7 +144,7 @@ class PickBlog extends Component {
   }
 
   render() {
-    console.log(this.state.pageName)
+    console.log("props", this.props.pages);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -171,19 +171,19 @@ class PickBlog extends Component {
         );
       });
     let pages =
-      this.state.pages &&
-      this.state.pages.map((obj, i) => {
+      this.props.pages &&
+      this.props.pages.map((obj, i) => {
         return (
           <div key={i}>
-            <ul className="pageList">
+            <ul className="blogList">
               <Link
-                className="pageLinks"
+                className="blogLinks"
                 to={`/EditPage/${this.props.user.id}`}
               >
                 <span className="list">{obj.page_name}</span>
               </Link>
               <button
-                className="pageButtons"
+                className="postsButtons"
                 onClick={() => this.deletePage(obj.page_id)}
               >
                 Delete Page
@@ -235,6 +235,6 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog, getBlogs })(
+export default connect(mapStateToProps, { getUser, currBlog, getBlogs, getPages })(
   PickBlog
 );
