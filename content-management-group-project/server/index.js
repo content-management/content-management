@@ -9,7 +9,11 @@ const cors = require("cors");
 const massive = require("massive");
 const path = require("path");
 
-const mc = require(`${__dirname}/controllers/mainCtrl`);
+const poc = require(`${__dirname}/controllers/postCtrl`);
+const pac = require(`${__dirname}/controllers/pageCtrl`);
+const bc = require(`${__dirname}/controllers/blogCtrl`);
+
+
 
 const port = 3001;
 
@@ -107,23 +111,23 @@ app.get("/logout", (req, res) => {
 //EndPoints
 
 //get blogs
-app.get("/api/blogs/:id", mc.getBlogs);
-app.post("/api/blog/:id", mc.createBlog); //create blog
-app.delete("/api/deleteblog/:id", mc.deleteBlog); //delete post
+app.get("/api/blogs/:id", bc.getBlogs);
+app.post("/api/blog/:id", bc.createBlog); //create blog
+app.delete("/api/deleteblog/:id", bc.deleteBlog); //delete post
 
 
 //get posts
-app.get("/api/posts/:id", mc.getPosts); //Get All Post
-app.get("/api/post/:id", mc.getPost); //Get One Post
-app.post("/api/post/:id", mc.createPost); //create post
-app.put("/api/put/:id", mc.updatePost); //update post
-app.delete("/api/delete/:id", mc.deletePost); //delete post
+app.get("/api/posts/:id", poc.getPosts); //Get All Post
+app.get("/api/post/:id", poc.getPost); //Get One Post
+app.post("/api/post/:id", poc.createPost); //create post
+app.put("/api/put/:id", poc.updatePost); //update post
+app.delete("/api/delete/:id", poc.deletePost); //delete post
 
 //get pages
-app.get("/api/pages/:id", mc.getPages);
-app.put("/api/updatePage/:id", mc.updatePage); //update page
-app.post("/api/newPage/:id", mc.createPage); //create page
-app.delete("/api/deletePage/:id", mc.deletePage); //delete page
+app.get("/api/pages/:id", pac.getPages);
+app.put("/api/updatePage/:id", pac.updatePage); //update page
+app.post("/api/newPage/:id", pac.createPage); //create page
+app.delete("/api/deletePage/:id", pac.deletePage); //delete page
 
 
 

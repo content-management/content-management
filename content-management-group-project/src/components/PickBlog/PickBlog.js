@@ -158,7 +158,7 @@ class PickBlog extends Component {
                 </span>
               </Link>
               <button
-                className="postsButtons"
+                className="deleteButtons"
                 onClick={() => this.deleteBlog(obj.blog_id)}
               >
                 Delete Blog
@@ -180,7 +180,7 @@ class PickBlog extends Component {
                 <span className="list">{obj.page_name}</span>
               </Link>
               <button
-                className="postsButtons"
+                className="deleteButtons"
                 onClick={() => this.deletePage(obj.page_id)}
               >
                 Delete Page
@@ -192,16 +192,18 @@ class PickBlog extends Component {
     return <div>
         <Header />
         
-        <div className="pickBlogPage">
+        <div className="pickHeader">
           <div>
             <h1>Hello, {this.props.user.name}</h1>
           </div>
-          <h1>Which website are you working on?</h1>
-          <h2>Blogs</h2>
+          <h1>Which website are you working on?</h1></div>
+          
+          <div className="pickBlogPage">
+          <div><h2>Blogs</h2>
           {blogs}
           <button className="postsButtons" onClick={this.addBlogClicked}>
             Create New Blog
-          </button>
+          </button></div>
 
           {this.state.addBlog === true ? <div>
               <input type="text" placeholder="Your blog name" onChange={e => this.setState(
@@ -210,12 +212,13 @@ class PickBlog extends Component {
               <button className="postsButtons" onClick={() => this.addBlog()}>
                 Submit
               </button>
-            </div> : null}
-          <h2>Pages</h2>
+            </div> : null} 
+
+          <div><h2>Pages</h2>
           {pages}
           <button className="postsButtons" onClick={this.addPageClicked}>
             Create New Page
-          </button>
+          </button></div></div>
 
           {this.state.addPage === true ? <div>
               <input type="text" placeholder="Your Page name" onChange={e => this.setState(
@@ -225,7 +228,7 @@ class PickBlog extends Component {
                 Submit
               </button>
             </div> : null}
-        </div>
+                  
       </div>;
   }
 }

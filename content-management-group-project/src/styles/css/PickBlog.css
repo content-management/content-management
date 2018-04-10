@@ -3,16 +3,35 @@ h1{
     text-align: center;
     
 }
+h2 {
+    margin-left: 25%;
+}
 
+.pickHeader {
+    font-family: "Allerta", sans-serif;
+    color: black;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column; 
+}
 .pickBlogPage{
     font-family: "Allerta", sans-serif;
     color: black;
-    padding: 150px;
-    
+    display: flex;
+   
 }
 
 .pickBlogPage:hover {
     color: #00168a;
+}
+
+.pickBlogPage>div{
+    width: 50%;
+    padding: 10px;
+}
+
+.pickBlogPage>div:first-child {
+    margin-right: 20px;
 }
 
 .blogLinks {
@@ -20,6 +39,7 @@ h1{
     color: black;
     width: 250px;
     line-height: 55px;
+    flex-direction: row
 }
 
 .blogLinks:hover{
@@ -39,13 +59,14 @@ h1{
 .blogList {
     width: 300px;
     height: 130px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 5px;
     background-color: rgb(211, 211, 211, 0.7);
     text-align: center;
-
-    
     padding-right: 40px;
+    margin-left: 25%;
 }
+
 .blogList:hover {
     zoom: 1.1;
 }
@@ -59,6 +80,20 @@ span.list {
 }
 
 .postsButtons {
+    padding: 4px;
+    background: rgb(0, 22, 138);
+    border: none;
+    box-shadow: 1px 1px 1px;
+    border-radius: 5px;
+    color: white;
+    margin: 5px;
+    margin-top: 15px;
+    margin-left: 25%;
+    width: 90px;
+    font-size: 0.8em;
+  }
+
+  .deleteButtons {
     padding: 4px;
     background: rgb(0, 22, 138);
     border: none;
