@@ -4,6 +4,7 @@ import axios from "axios";
 const GET_USER = "GET_USER";
 const CURR_BLOG = "CURRBLOG";
 const GET_BLOGS = "GET_BLOGS";
+const GET_PAGES = "GET_PAGES";
 
 // ACTION CREATORS
 export function getUser() {
@@ -28,6 +29,12 @@ export function getBlogs(e) {
     payload: e
   };
 }
+export function getPages(e) {
+  return {
+    type: GET_PAGES,
+    payload: e
+  };
+}
 
 //INITIAL STATE
 
@@ -37,7 +44,8 @@ const initialState = {
   didErr: false,
   errMessage: null,
   blogs: "",
-  myBlog: ""
+  myBlog: "",
+  pages: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -58,6 +66,9 @@ export default function reducer(state = initialState, action) {
 
     case GET_BLOGS:
       return Object.assign({}, state, { blogs: action.payload });
+
+      case GET_PAGES:
+      return Object.assign({}, state, { pages: action.payload });
 
     default:
       return state;
