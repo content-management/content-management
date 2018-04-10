@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //connect to redux
-import { getUser, getBlogs, currBlog } from "../../ducks/reducer"; //get user from redux
+import { getUser, getBlogs, currBlog, getPages } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
@@ -76,6 +76,6 @@ class Header extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, getBlogs, currBlog })(
+export default connect(mapStateToProps, { getUser, getBlogs, currBlog, getPages })(
   Header
 );
