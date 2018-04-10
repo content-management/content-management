@@ -22,22 +22,14 @@ class PickBlog extends Component {
     this.addPageClicked = this.addPageClicked.bind(this);
     this.addBlog = this.addBlog.bind(this);
     this.addPage = this.addPage.bind(this);
-    
+    this.getDaStuffs = this.getDaStuffs.bind(this);
   }
 
   componentDidMount() {
-    swal("Welcome to Contentum")
     this.props.getUser().then(() => {
-      axios
-        .get(`/api/blogs/${this.props.user.id}`)
-        .then(response => {
-          this.props.getBlogs(response.data);
-        })
-        .catch(console.log());
-
       axios.get(`/api/pages/${this.props.user.id}`).then(response => {
         this.props.getPages(response.data);
-      });
+      }).then(this.getDaStuffs());
     });
     
   }
@@ -73,8 +65,9 @@ class PickBlog extends Component {
           this.setState({pages: response.data});
         })
       )
-      .then(this.setState({ addPage: false }));
-  }
+      .then(this.setState({ addPage: false })).then(this.getDaStuffs())
+      }
+  
 
   setBlog(i) {
     console.log(i);
@@ -107,12 +100,7 @@ class PickBlog extends Component {
         } else {
           swal("Your blog is safe!");
         }
-      })
-      .then(
-        axios.get(`/api/blogs/${this.props.user.id}`).then(response => {
-          this.props.getBlogs(response.data);
-        })
-      );
+      }).then(this.getDaStuffs())
   }
 
   deletePage(i) {
@@ -126,21 +114,30 @@ class PickBlog extends Component {
       if (willDelete) {
         axios
           .delete(`/api/deletePage/${i}`)
-          .then(
-            axios.get(`/api/pages/${this.props.user.id}`).then(response => {
-              this.setState({ pages: response.data });
-            })
-          )
           .catch(console.log())
           .then(
             swal("Page Deleted!", {
               icon: "success"
             })
-          );
+          ).then(axios.get(`/api/pages/${this.props.user.id}`).then(response => {
+            this.setState({ pages: response.data });
+          })
+        );
       } else {
         swal("Your Page is safe!");
       }
-    });
+    }).then(this.getDaStuffs())
+  }
+//below function written by Logan
+  getDaStuffs(){
+    axios.get(`/api/pages/${this.props.user.id}`).then(response => {
+      this.props.getPages(response.data);
+    }).then(axios
+      .get(`/api/blogs/${this.props.user.id}`)
+      .then(response => {
+        this.props.getBlogs(response.data);
+      })
+      .catch(console.log()))
   }
 
   render() {

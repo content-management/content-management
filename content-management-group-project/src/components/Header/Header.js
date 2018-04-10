@@ -23,6 +23,9 @@ class Header extends Component {
   setBlog(i) {
     this.props.currBlog(i);
   }
+  setPage(i) {
+    this.props.currPage(i);
+  }
   render() {
     console.log("history", history);
     let blogs =
@@ -32,10 +35,26 @@ class Header extends Component {
           <div key={i}>
             <ul>
               <Link
-                className="blogLinks"
+                
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                <span onClick={() => this.setBlog(obj)}>{obj.blog_name}</span>
+                <div className="blogLinks" onClick={() => this.setBlog(obj)}>{obj.blog_name}</div>
+              </Link>
+            </ul>
+          </div>
+        );
+      });
+      let pages =
+      this.props.pages &&
+      this.props.pages.map((obj, i) => {
+        return (
+          <div key={i}>
+            <ul>
+              <Link
+                
+                to={`/Home/${obj.page_name}`}
+              >
+                <div className="blogLinks" onClick={() => this.setPage(obj)}>{obj.page_name}</div>
               </Link>
             </ul>
           </div>
@@ -57,7 +76,7 @@ class Header extends Component {
             </Link>
             <div className="links dropdown">
               Switch Sites
-              <div className="dropdown-content">{blogs}</div>
+              {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
             </div>
             <a href={`/`}>
               <div className="links" onClick={this.logout}>

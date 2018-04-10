@@ -61,7 +61,7 @@ passport.use(
       callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      console.log("1.", accessToken, "2.", refreshToken, "3.", extraParams, "4.", profile);
+      // console.log("1.", accessToken, "2.", refreshToken, "3.", extraParams, "4.", profile);
       app
         .get("db")
         .getUserByAuthId([profile.id])
