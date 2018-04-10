@@ -61,6 +61,7 @@ passport.use(
       callbackURL: "/login"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
+      console.log("1.", accessToken, "2.", refreshToken, "3.", extraParams, "4.", profile);
       app
         .get("db")
         .getUserByAuthId([profile.id])
@@ -70,6 +71,7 @@ passport.use(
               .get("db")
               .createUserByAuthId([profile.id, profile.displayName])
               .then(created => done(null, created[0]));
+
           } else {
             return done(null, response[0]);
           }

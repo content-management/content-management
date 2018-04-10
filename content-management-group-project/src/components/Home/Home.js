@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
 import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import axios from "axios";
 import Posts from "../Posts/Posts";
 import "../../styles/css/Home.css";
@@ -49,7 +50,7 @@ class Home extends Component {
             className="iframy"
             key={i}
           >
-            <Link to={`/EditPost/${obj.post_id}`}>{iframeHTML}</Link>
+            <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
       });

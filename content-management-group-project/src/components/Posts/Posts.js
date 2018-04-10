@@ -65,7 +65,7 @@ class Posts extends Component {
         num -= 1;
         return (
           <div className="postResultsWrapper" key={i}>
-            <div style={{ height: "80%" }}>
+            <div id={obj.post_id} style={{ height: "80%" }}>
               <div>{obj.blog_name}</div>
               <div>{obj.title}</div>
               <div>{obj.date} </div>
