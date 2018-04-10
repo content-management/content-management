@@ -45,8 +45,8 @@
   }
 
 .backButton {
-  background: #8080ece7;
-  color: #3a3a3a;
+  background: rgb(0, 22, 138);
+  color: white;
   display: inline-block;
   position: relative;
   margin: 0 auto;
@@ -101,7 +101,7 @@
 .links {
   display: inline-block;
   transition: 0.3s ease all;
-  padding: 4px;
+ padding-right: 4px;
   margin: 2px;
   filter: blur(0.4px);
   letter-spacing: -2.1px;
@@ -120,7 +120,7 @@
 .dropdown {
   float: left;
   overflow: hidden;
-  /* color: #00168a; */
+  /* color: #00168a; #00178a8c; */ 
   color: #00178a8c;
   padding: 0px 10px 0px 10px;
   margin: 0 auto;
@@ -129,7 +129,8 @@
   display: none;
   position: absolute;
   background-color: #d3d3d3af;
-  padding: 6px;
+  /* padding: 6px; */
+  padding: 0px;
   min-width: 100px;
   text-align: left;
   overflow: auto;
@@ -141,7 +142,6 @@
 }
 
 .dropdown-content a {
-  display: block;
   position: relative;
   width: 100%;
   transition: 0.4s ease all;
@@ -149,23 +149,29 @@
   float: left;
   /* background-color: blue; */
   color: #00168a;
-  padding: 2px;
+  /* padding: 2px; */
   display: block;
   text-decoration: none;
   text-align: left;
+  padding-left: 0px;
 }
-.dropdown-content a:hover {
-  display: block;
+/* .dropdown-content a:hover {
+  display: inline-flex;
   position: relative;
   transition: 0.4s ease all;
   width: 100%;
   color: #d3d3d3;
   background-color: #00178a6b;
-}
+  background-size: contain;
+  align-content: left;
+} */
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+/* .blogLinks {
+  line-height: 30px;
+} */
 
 
 @media only screen and (max-width: 550px) {

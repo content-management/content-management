@@ -23,6 +23,9 @@ class Header extends Component {
   setBlog(i) {
     this.props.currBlog(i);
   }
+  setPage(i) {
+    this.props.currPage(i);
+  }
   render() {
     console.log("history", history);
     let blogs =
@@ -32,10 +35,26 @@ class Header extends Component {
           <div key={i}>
             <ul>
               <Link
-                className="blogLinks"
+                
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
               >
-                <span onClick={() => this.setBlog(obj)}>{obj.blog_name}</span>
+                <div className="blogLinks" onClick={() => this.setBlog(obj)}>{obj.blog_name}</div>
+              </Link>
+            </ul>
+          </div>
+        );
+      });
+      let pages =
+      this.props.pages &&
+      this.props.pages.map((obj, i) => {
+        return (
+          <div key={i}>
+            <ul>
+              <Link
+                
+                to={`/EditPage/${obj.page_id}`}
+              >
+                <div className="blogLinks" onClick={() => this.setPage(obj)}>{obj.page_name}</div>
               </Link>
             </ul>
           </div>
@@ -49,16 +68,16 @@ class Header extends Component {
           </div>
           <div className="nav">
             <Link
-              to={`/Home/${this.props.myBlog.blog_name}/${
+              to={`/EditPage/${this.props.myBlog.blog_name}/${
                 this.props.myBlog.blog_id
               }`}
             >
               <div className="links">Dashboard</div>
             </Link>
-            <div className="links dropdown">
+            <Link to={`/pickblog/${this.props.user.name}`} className="links dropdown">
               Switch Sites
-              <div className="dropdown-content">{blogs}</div>
-            </div>
+              {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
+            </Link>
             <a href={`/`}>
               <div className="links" onClick={this.logout}>
                 Logout
