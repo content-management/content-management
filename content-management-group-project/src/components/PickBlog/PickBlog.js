@@ -193,6 +193,7 @@ class PickBlog extends Component {
       });
     return <div>
         <Header />
+        
         <div className="pickBlogPage">
           <div>
             <h1>Hello, {this.props.user.name}</h1>

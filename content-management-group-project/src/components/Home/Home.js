@@ -13,7 +13,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: ""
+      posts: "",
+      thisWeek: [],
     };
   }
   componentDidMount() {
@@ -28,7 +29,8 @@ class Home extends Component {
     );
   }
   render() {
-    console.log(this.props.myBlog)
+    console.log(this.state.posts)
+   
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
@@ -53,6 +55,27 @@ class Home extends Component {
           </div>
         );
       });
+      //Post for the current week
+      let date = new Date();
+      let day = date.getDay();
+      let week = [];
+      for (let i = 0; i < 7; i++) {
+        if (i - day != 0) {
+          let days = i - day;
+          let newDate = new Date(date.getTime() + days * 24 * 60 * 60 * 1000).toLocaleDateString();
+          week.push(newDate);
+        } 
+        else week.push(date.toLocaleDateString());
+      }
+      console.log(week);
+
+      // this.state.posts && this.state.post.map((obj, i) => {
+      //   if (obj.date === week[0] || obj.date == week[1] || obj.date == week[2] || obj.date == week[3] || obj.date == week[4] || obj.date == week[5] || obj.date == week[6]) 
+      //   this.setState({thisWeek: obj})
+      // });
+
+      // console.log(this.state.thisWeek);
+ 
 
     return (
       <div>
@@ -83,6 +106,10 @@ class Home extends Component {
             </Link>
             <div className="cards">Pages</div>
             <div className="cards">Media</div>
+            <h3>Number of posts</h3>
+              {this.state.posts.length}
+              <h3>Post This Week</h3>
+              <h3>Post this month</h3>
           </div>
         </div>
       </div>
