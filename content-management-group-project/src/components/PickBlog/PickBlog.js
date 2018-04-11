@@ -202,47 +202,53 @@ class PickBlog extends Component {
           </div>
         );
       });
-    return <div>
+    return( 
+      <div className="pickBlog-body">
+      
         <Header />
         
         <div className="pickHeader">
-          <div>
+          <div className="pickBlog-greeting">
             <h1>Hello, {this.props.user.name}</h1>
           </div>
-          <h1>Which website are you working on?</h1></div>
+          <span>Which website are you working on?</span>
+        </div>
           
-          <div className="pickBlogPage">
-          <div><h2>Blogs</h2>
-          {blogs}
-          <button className="postsButtons" onClick={this.addBlogClicked}>
-            Create New Blog
-          </button></div>
-
-          {this.state.addBlog === true ? <div className ='newBlog'>
-              <input type="text" placeholder="Your blog name" onChange={e => this.setState(
-                    { blogName: e.target.value }
-                  )} />
-              <button className="submitButtons" onClick={() => this.addBlog()}>
-                Submit
+        <div className="pickBlogPage">
+          <div>
+              <h2>Blogs</h2>
+              {blogs}
+              <button className="postsButtons" onClick={this.addBlogClicked}>
+              Create New Blog
               </button>
-            </div> : null} 
+            </div>
 
-          <div><h2>Pages</h2>
-          {pages}
-          <button className="postsButtons" onClick={this.addPageClicked}>
-            Create New Page
-          </button></div></div>
+            {this.state.addBlog === true ? 
+              <div className ='newBlog'>
+                <input type="text" placeholder="Your blog name" onChange={e => this.setState({ blogName: e.target.value })}/>
+                <button className="submitButtons" onClick={() => this.addBlog()}>
+                  Submit
+                </button>
+              </div> : null} 
 
-          {this.state.addPage === true ? <div className="newPage">
-              <input type="text" placeholder="Your Page name" onChange={e => this.setState(
-                    { pageName: e.target.value }
-                  )} />
-              <button className="submitButtons" onClick={() => this.addPage()}>
+            <div>
+              <h2>Pages</h2>
+                {pages}
+                <button className="postsButtons" onClick={this.addPageClicked}>
+                Create New Page
+                </button>
+            </div>
+        </div>
+
+          {this.state.addPage === true ? 
+            <div className="newPage">
+                <input type="text" placeholder="Your Page name" onChange={e => this.setState({ pageName: e.target.value })} />
+                <button className="submitButtons" onClick={() => this.addPage()}>
                 Submit
               </button>
             </div> : null}
                   
-      </div>;
+      </div>)
   }
 }
 
