@@ -1,3 +1,14 @@
+/* site-wide colors:{
+  blue: #00168a
+  HiLiteBlue: #00178a8c
+
+  grey: #afafaf
+  darkGrey/shadow: #0713386b;
+  HiLiteGrey: #d3d3d3
+
+  white : #fafafa
+} */
+
 .home-body {
   display: block;
   margin: 0 auto;

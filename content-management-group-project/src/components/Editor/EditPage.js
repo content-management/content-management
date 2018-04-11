@@ -20,7 +20,7 @@ class EditPage extends React.Component {
   }
   componentDidMount() {
     axios
-         axios.get(`/api/pages/${this.props.user.id}`)
+         axios.get(`/api/page/${this.props.match.params.id}`)
         .then(response => {
           this.setState({pages: response.data[0]})
         this.setState({

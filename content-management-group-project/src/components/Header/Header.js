@@ -46,9 +46,9 @@ class Header extends Component {
   setBlog(i) {
     this.props.currBlog(i);
   }
-  setPage(i) {
-    this.props.currPage(i);
-  }
+  // setPage(i) {
+  //   this.props.currPage(i);
+  // }
   render() {
     let blogs =
       this.props.blogs &&
@@ -76,7 +76,7 @@ class Header extends Component {
                 
                 to={`/EditPage/${obj.page_id}`}
               >
-                <div className="blogLinks" onClick={() => this.setPage(obj)}>{obj.page_name}</div>
+                <div className="blogLinks" >{obj.page_name}</div>
               </Link>
             </ul>
           </div>
@@ -90,7 +90,7 @@ class Header extends Component {
           </div>
           <div className="nav">
             <Link
-              to={`/EditPage/${this.props.myBlog.blog_name}/${
+              to={`/Home/${this.props.myBlog.blog_name}/${
                 this.props.myBlog.blog_id
               }`}
             >

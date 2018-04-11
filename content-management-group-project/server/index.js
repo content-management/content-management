@@ -128,6 +128,7 @@ app.delete("/api/delete/:id", poc.deletePost); //delete post
 
 //get pages
 app.get("/api/pages/:id", pac.getPages);
+app.get("/api/page/:id", pac.getPage);
 app.put("/api/updatePage/:id", pac.updatePage); //update page
 app.post("/api/newPage/:id", pac.createPage); //create page
 app.delete("/api/deletePage/:id", pac.deletePage); //delete page
