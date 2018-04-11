@@ -79,6 +79,7 @@ class TextEditor extends React.Component {
       <div>
         <Header />
         <div className="editPostPage">
+          <div className="title-button">
           <input
             type="text"
             placeholder={title}
@@ -88,7 +89,9 @@ class TextEditor extends React.Component {
               })
             }
           />
+          </div>
         </div>
+        <div className="new-post-editor">
         {this.state.post.content && (
           <Editor
             initialValue={content}
@@ -126,10 +129,11 @@ class TextEditor extends React.Component {
             onChange={this.handleEditorChange}
           />
         )}
-        <button onClick={this.saveContent}>Save</button>
+        <button onClick={this.saveContent} className="savebutton">Save</button>
         {this.state.post.favorites === 'yes' ?
-        <button onClick={this.deleteFavorite}>Delete from Favorites</button>
-      : <button onClick={this.addFavorite}>Add to Favorites</button>}
+        <button onClick={this.deleteFavorite}className="favoritesButton">Delete from Favorites</button>
+      : <button onClick={this.addFavorite} className='favoritesButton'>Add to Favorites</button>}
+      </div>
       </div>
     );
   }
