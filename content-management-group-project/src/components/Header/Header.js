@@ -14,6 +14,11 @@ class Header extends Component {
     super();
     this.logout = this.logout.bind(this);
     this.changeProfile = this.changeProfile.bind(this);
+    // this.getDaUser = this.getDaUser.bind(this);
+  }
+  componentDidMount(){
+    this.props.getUser();
+    console.log(this.props);
   }
   logout(event) {
     axios
@@ -36,14 +41,17 @@ class Header extends Component {
         let body = {
           name: value
         }
-        axios.put(`/api/changeName/${this.props.user.id}`, body)
+        axios.put(`/api/changeName/${this.props.user.id}`, body).then(this.props.getUser());
       swal(`Your Display Name Has Been Changed to: ${value}`);
-      this.props.getUser().then(console.log("checking2", this.props.user.name));
+      
       }else{
         swal('Your Display Name Has Not Been Changed')
       }
-    })
+    }).then(this.props.getUser());
   }
+  // getDaUser(){
+  //   this.props.getUser();
+  // }
   setBlog(i) {
     this.props.currBlog(i);
   }

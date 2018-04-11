@@ -47,9 +47,17 @@ class PickBlog extends Component {
     // this.setState({ addPage: true });
     swal("Blog Title:", {
       content: "input",
+      buttons: true,
+  dangerMode: true,
+
     })
     .then((value) => {
+      if(value){
       this.addPage(value)
+      swal("Your new blog awaits!");
+      }else{
+        swal("Fine, don't make a new blog, see if I care");
+      }
     });
   }
   addBlog(value) {
