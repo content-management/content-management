@@ -3,14 +3,17 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //connect to redux
 import { getUser, getBlogs, currBlog, getPages } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
+import settingsIcon from "../../assets/images/settingsIcon.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
 import history from "../../history";
+import swal from 'sweetalert';
 
 class Header extends Component {
   constructor() {
     super();
     this.logout = this.logout.bind(this);
+    this.changeProfile = this.changeProfile.bind(this);
   }
   logout(event) {
     axios
@@ -19,6 +22,14 @@ class Header extends Component {
         console.log(window.session);
       })
       .catch(console.log());
+  }
+  changeProfile(){
+    swal("Your Display Name Is:" + this.props.user.name, {
+      content: "input",
+    })
+    .then((value) => {
+      swal(`You typed: ${value}`);
+    });
   }
   setBlog(i) {
     this.props.currBlog(i);
@@ -78,14 +89,18 @@ class Header extends Component {
               Switch Sites
               {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
             </Link>
-            <a href={`/`}>
-              <div className="links" onClick={this.logout}>
-                Logout
+            
+              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
+              </img>
+              <div className="dropdown-content alternate">
+                <div className="blogLinks" onClick={this.changeProfile}>Profile</div>
+                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
+
+                </div>
               </div>
-            </a>
           </div>
         </div>
-          <button className="backButton" onClick={() => history.goBack()}>
+          <button className="backButton dropdown" onClick={() => history.goBack()}>
               Back
           </button>
       </div>
