@@ -38,7 +38,6 @@ class Header extends Component {
     this.props.currPage(i);
   }
   render() {
-    console.log("history", history);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
@@ -100,7 +99,7 @@ class Header extends Component {
               </div>
           </div>
         </div>
-          <button className="backButton dropdown" onClick={() => history.goBack()}>
+          <button className="backButton" onClick={() => history.goBack()}>
               Back
           </button>
       </div>
