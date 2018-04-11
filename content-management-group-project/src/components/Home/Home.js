@@ -21,7 +21,7 @@ class Home extends Component {
   componentDidMount() {
     this.props.getUser().then(
       axios
-        .get(`/api/posts/${this.props.match.params.id2}`)
+        .get(`/api/posts/${this.props.myBlog.blog_id}`)
         .then(response => {
  
           this.setState({ posts: response.data });
@@ -30,6 +30,8 @@ class Home extends Component {
     );
   }
   render() {
+    console.log(this.props.match.params.id2);
+    console.log(this.props.myBlog.blog_id)
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
