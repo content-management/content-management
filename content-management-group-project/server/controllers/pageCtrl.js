@@ -8,6 +8,15 @@ module.exports = {
       .then(pages => res.status(200).json(pages))
       .catch(err => res.status(500).console.log(err));
   },
+  getPage: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params } = req;
+
+    dbInstance
+      .get_page([params.id])
+      .then(page => res.status(200).json(page))
+      .catch(() => res.status(500).json());
+  },
   updatePage: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params, body } = req;
