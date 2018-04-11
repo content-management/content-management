@@ -3,15 +3,15 @@
 .header {
   display: flex;
   position: fixed;
-  transition: 0.4s ease all;
-  top: 0;
-  justify-content: space-between;
-  border: none;
   background: #afafaf;
   opacity: 0.7;
+  justify-content: space-between;
+  border: none;
+  top: 0;
   width: 100%;
   margin-bottom: 10px;
   z-index: 1000;
+  transition: 0.4s ease all;
 }
 
 .header:hover {
@@ -45,8 +45,8 @@
   }
 
 .backButton {
-  background: rgb(0, 22, 138);
-  color: white;
+  background:#00168a;
+  color: #d3d3d3;
   display: inline-block;
   position: relative;
   margin: 0 auto;
@@ -57,7 +57,7 @@
   line-height: 60px;
   min-width: 80px;
   max-width: 150px;
-  border: 0px solid #000000;
+  border: 1px solid #00000000;
   border-radius: 5px;
   font-family: "Allerta", sans-serif;
   text-align: center;
@@ -76,7 +76,8 @@
 }
 .backButton:hover {
   transition: .3s ease all;
-  background: #9292f5e7;
+  background: #eeeeeea6;
+  border: 1px solid #0000005e;
   color: #00168a;
   box-shadow: -11px 8px 1px #1b1b2cab;
 }
