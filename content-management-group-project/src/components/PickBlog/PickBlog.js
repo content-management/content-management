@@ -12,8 +12,8 @@ class PickBlog extends Component {
     super(props);
     this.state = {
       blogs: "",
-      addBlog: false,
-      addPage: false,
+      // addBlog: false,
+      // addPage: false,
       currentBlog: "",
       blogName: "",
       pageName: "",
@@ -35,14 +35,27 @@ class PickBlog extends Component {
   }
 
   addBlogClicked() {
-    this.setState({ addBlog: true });
+    // this.setState({ addBlog: true });
+    swal("Blog Title:", {
+      content: "input",
+    })
+    .then((value) => {
+      this.addBlog(value)
+    });
   }
   addPageClicked() {
-    this.setState({ addPage: true });
+    // this.setState({ addPage: true });
+    swal("Blog Title:", {
+      content: "input",
+    })
+    .then((value) => {
+      this.addPage(value)
+    });
   }
-  addBlog() {
+  addBlog(value) {
+    let blogName = value;
     let body = {
-      name: this.state.blogName
+      name: blogName
     };
     axios
       .post(`/api/blog/${this.props.user.id}`, body)
@@ -51,13 +64,13 @@ class PickBlog extends Component {
           this.props.getBlogs(response.data);
         })
       )
-      .then(this.setState({ addBlog: false }));
+      .then(this.getDaStuffs())
   }
-  addPage() {
+  addPage(value) {
+    let pageName = value;
     let body = {
-      name: this.state.pageName
+      name: pageName
     };
-    console.log(body.name)
     axios
       .post(`/api/newPage/${this.props.user.id}`, body)
       .then(
@@ -65,7 +78,7 @@ class PickBlog extends Component {
           this.setState({pages: response.data});
         })
       )
-      .then(this.setState({ addPage: false })).then(this.getDaStuffs())
+      .then(this.getDaStuffs())
       }
   
 
