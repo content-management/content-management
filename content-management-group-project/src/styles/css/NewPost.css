@@ -35,7 +35,22 @@
   border-radius: 5px;
   background-color: #00168a;
   color: white;
-  position: fixed;
-  right: 25px;
+  position: sticky;
+  left: 100%;
+  margin-bottom: 2%;
+  
 }
 
+.favoritesButton {
+  font-family: "Allerta", sans-serif;
+  font-size: 20px;
+  width: 104px;
+  border: none;
+  box-shadow: 1px 1px 1px;
+  border-radius: 5px;
+  background-color: #00168a;
+  color: white;
+  position: sticky;
+  left: 100%;
+  margin-bottom: 150px;
+}

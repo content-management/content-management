@@ -1,7 +1,57 @@
-.editPostPage {
-    margin-top: 120px;
-
-}
-.editTitle {
-
-}
+  .title-button{
+    display: block;
+    position: relative;
+    padding: 4px;
+    align-content: left;
+    width: 15%;
+    height: 20px;
+    top: 110px;
+  }
+  
+  .title-button input{
+    display: block;
+    position: relative;
+    width: 1000px;
+    height: 25px;
+    margin-left: 75%;
+    font-family: "Allerta", sans-serif;
+    font-size: 15px;
+  }
+  
+  .new-post-editor{
+    display: block;
+    position: relative;
+    padding: 4px;
+    margin: 20px auto;
+    top: 100px;
+    width: 80%;
+  }
+  
+  .savebutton{
+    font-family: "Allerta", sans-serif;
+    font-size: 20px;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    border-radius: 5px;
+    background-color: #00168a;
+    color: white;
+    position: sticky;
+    left: 100%;
+    margin-bottom: 2%;
+    
+  }
+  
+  .favoritesButton {
+    font-family: "Allerta", sans-serif;
+    font-size: 20px;
+    width: 104px;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    border-radius: 5px;
+    background-color: #00168a;
+    color: white;
+    position: sticky;
+    left: 100%;
+    margin-bottom: 150px;
+  }
+  
