@@ -38,10 +38,11 @@ class Header extends Component {
         }
         axios.put(`/api/changeName/${this.props.user.id}`, body)
       swal(`Your Display Name Has Been Changed to: ${value}`);
+      this.props.getUser().then(console.log("checking2", this.props.user.name));
       }else{
         swal('Your Display Name Has Not Been Changed')
       }
-    }).then(this.props.getUser());
+    })
   }
   setBlog(i) {
     this.props.currBlog(i);
