@@ -32,7 +32,7 @@ class TextEditor extends React.Component {
   }
   addFavorite() {
   
-    swal('added to favorites')   
+    swal('Added to Favorites')   
     this.setState({ favorite: "yes" });
   }
   saveContent() {
@@ -139,7 +139,7 @@ class TextEditor extends React.Component {
           </button>
         </Link>
           <div>
-        <button onClick={this.addFavorite}>Add to favorites</button>
+        <button onClick={this.addFavorite} className ='favoritesButton'>Add to Favorites</button>
         </div>
       </div>
     );

@@ -90,6 +90,7 @@ span.list {
     margin-top: 15px;
     margin-left: 25%;
     width: 90px;
+    font-family: "Allerta", sans-serif;
     font-size: 0.8em;
   }
 
@@ -103,6 +104,7 @@ span.list {
     margin: 5px;
     margin-top: 15px;
     width: 90px;
+    font-family: "Allerta", sans-serif;
     font-size: 0.8em;
   }
   .postsButtons:active {
@@ -123,5 +125,6 @@ span.list {
     margin: 5px;
     margin-top: 15px;
     width: 90px;
+    font-family: "Allerta", san-serf;
     font-size: 0.8em;
   }
