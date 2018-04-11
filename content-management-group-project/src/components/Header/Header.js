@@ -100,7 +100,7 @@ class Header extends Component {
               </div>
           </div>
         </div>
-          <button className="backButton dropdown" onClick={() => history.goBack()}>
+          <button className="backButton" onClick={() => history.goBack()}>
               Back
           </button>
       </div>
