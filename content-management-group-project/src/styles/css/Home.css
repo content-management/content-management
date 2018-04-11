@@ -161,4 +161,19 @@
   background: #9f9fffbe;
   box-shadow: -13px 16px 1px #1b1b2cab;
 }
+table {
+  background: black;
+  border-radius: 5px;
+}
+th{
+  background: gray;
+  color: white;
+  padding: 5px;
+}
+td, tr {
+  background: white;
+  padding: 5px;
+  text-align: center;
+  /* border-radius: 3px; */
+}
 
