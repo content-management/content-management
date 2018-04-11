@@ -30,8 +30,6 @@ class Home extends Component {
     );
   }
   render() {
-
-   
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
@@ -47,11 +45,7 @@ class Home extends Component {
         let iframeHTML = renderHTML(obj.content);
      
         return (
-          <div
-            
-            className="iframy"
-            key={i}
-          >
+          <div className="iframy" key={i}>
             <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
@@ -108,7 +102,7 @@ class Home extends Component {
           </Link>                 
         </div>
 
-          <div className="scroll-container">
+          <div className="scroll-container">        
             <div className="horizontal-scroll-wrapper rectangles">
               {myContent}
             </div>
@@ -118,18 +112,22 @@ class Home extends Component {
               to={`/Posts/${this.props.match.params.id}/${
                 this.props.match.params.id2
               }`}
-            >
-              <div className="cards">Posts</div>
-            </Link>
-            <div className="cards">Pages</div>
-            <div className="cards">Media</div>
-            <h3>Number of posts</h3>
-              {this.state.posts.length}
-              <h3>Post This Week {temp3.length}</h3>
-              {thisWeek}
-              <h3>Post this month</h3>
+            ></Link>
+            <table>
+              <tr>
+              <th>Number of posts</th>
+              <th>Posts This Week</th>
+              <th>Posts this month</th>
+              </tr>
+              <tr>
+              <td>{this.state.posts.length}</td>
+              <td>{temp3.length}</td>
+              <td>{thisWeek}</td>
+              </tr>
+              </table>
           </div>
         </div>
+
       </div>
     );
   }
