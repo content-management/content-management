@@ -46,9 +46,9 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: {
-      maxAge: 10000000000
-    }
+    // cookie: {
+    //   maxAge: 10000000000
+    // }
   })
 );
 
