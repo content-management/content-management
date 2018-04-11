@@ -45,11 +45,7 @@ class Home extends Component {
         let iframeHTML = renderHTML(obj.content);
         console.log("postID", obj.post_id);
         return (
-          <div
-            
-            className="iframy"
-            key={i}
-          >
+          <div className="iframy" key={i}>
             <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
@@ -77,12 +73,13 @@ class Home extends Component {
           </Link>                 
         </div>
 
-          <div className="scroll-container">
+          <div className="scroll-container">        
             <div className="horizontal-scroll-wrapper rectangles">
               {myContent}
             </div>
           </div>
         </div>
+
       </div>
     );
   }
