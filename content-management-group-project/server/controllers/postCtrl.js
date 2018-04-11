@@ -42,7 +42,7 @@ module.exports = {
     const { params, body } = req;
 
     dbInstance
-      .update_post([params.id, body.title, body.content])
+      .update_post([params.id, body.title, body.content, body.favorites])
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   },
