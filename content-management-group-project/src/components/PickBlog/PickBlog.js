@@ -38,14 +38,21 @@ class PickBlog extends Component {
     // this.setState({ addBlog: true });
     swal("Blog Title:", {
       content: "input",
+      buttons: true,
+      dangerMode: true,
     })
     .then((value) => {
-      this.addBlog(value)
+      if(value){
+      this.addPage(value)
+      swal("Your new blog awaits!");
+      }else{
+        swal("Fine, don't make a new blog, see if I care...");
+      }
     });
   }
   addPageClicked() {
     // this.setState({ addPage: true });
-    swal("Blog Title:", {
+    swal("Page Title:", {
       content: "input",
       buttons: true,
   dangerMode: true,
@@ -54,9 +61,9 @@ class PickBlog extends Component {
     .then((value) => {
       if(value){
       this.addPage(value)
-      swal("Your new blog awaits!");
+      swal("Your new page awaits!");
       }else{
-        swal("Fine, don't make a new blog, see if I care");
+        swal("Fine, don't make a new page, see if I care...");
       }
     });
   }
