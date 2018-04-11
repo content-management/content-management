@@ -1,5 +1,8 @@
+.pickBlog-body{
+  font-family: "Allerta", sans-serif;
+}
+
 h1{
-    font-family: "Allerta", sans-serif;
     text-align: center;
     
 }
@@ -8,17 +11,14 @@ h2 {
 }
 
 .pickHeader {
-    font-family: "Allerta", sans-serif;
     color: black;
     padding-top: 100px;
     display: flex;
     flex-direction: column; 
 }
 .pickBlogPage{
-    font-family: "Allerta", sans-serif;
     color: black;
     display: flex;
-
 }
 
 .pickBlogPage:hover {
@@ -35,7 +35,6 @@ h2 {
 }
 
 .blogLinks {
-    font-family: "Allerta", sans-serif;
     color: black;
     width: 250px;
     line-height: 55px;
@@ -59,9 +58,8 @@ h2 {
 .blogList {
     width: 300px;
     height: 130px;
-    /* border: 1px solid black; */
     border-radius: 5px;
-    background-color: rgb(211, 211, 211, 0.7);
+    background-color: #d3d3d3b3;
     text-align: center;
     padding-right: 40px;
     margin-left: 25%;
@@ -81,7 +79,7 @@ span.list {
 
 .postsButtons {
     padding: 4px;
-    background: rgb(0, 22, 138);
+    background: #00168a;
     border: none;
     box-shadow: 1px 1px 1px;
     border-radius: 5px;
@@ -95,29 +93,34 @@ span.list {
   }
 
   .deleteButtons {
+    background:#00168a;
+    color: #fafafa;
+    display: inline-block;
+    position: relative;
+    margin: 8px auto;
     padding: 4px;
-    background: rgb(0, 22, 138);
-    border: none;
-    box-shadow: 1px 1px 1px;
+    height: 50px;
+    width: 30%;
+    min-width: 80px;
+    max-width: 150px;
+    border: 1px solid #00000000;
     border-radius: 5px;
-    color: white;
-    margin: 5px;
-    margin-top: 15px;
-    width: 90px;
     font-family: "Allerta", sans-serif;
-    font-size: 0.8em;
+    text-align: center;
+    line-height: 20px;
+    font-size: .8rem;
+    transition: .3s ease all;
   }
-  .postsButtons:active {
-    box-shadow: none;
-  }
+  
+  
   .postsButtons:hover {
-    background: rgb(0, 22, 138, 0.5);
+    background: #00168a80;
     color: black;
   }
 
   .submitButtons {
     padding: 4px;
-    background: rgb(0, 22, 138);
+    background: #00168a;
     border: none;
     box-shadow: 1px 1px 1px;
     border-radius: 5px;
