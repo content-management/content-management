@@ -72,11 +72,11 @@ class Home extends Component {
       });
       let thisWeek = temp3.map((obj, i) => {
         let iframeHTML2 = renderHTML(obj.content);
-        return(
-          <div className="iframy" key={i}>
-            {iframeHTML2}
-          </div>
-        )
+        return <div className="iframy" key={i}>
+            <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>
+              {iframeHTML2}
+            </Link>
+          </div>;
       })
  
 
