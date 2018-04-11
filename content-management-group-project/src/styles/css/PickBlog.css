@@ -35,14 +35,16 @@ h2 {
 }
 
 .blogLinks {
-    color: black;
+    color: #00168a;
     width: 250px;
     line-height: 55px;
-    flex-direction: row
+    flex-direction: row;
+    transition: .2s ease all;
 }
 
 .blogLinks:hover{
-    color: #00168a;
+    transition: .2s ease all;
+    color: #fafafa;
 }
 
 .newBlog {
@@ -56,17 +58,24 @@ h2 {
 }
 
 .blogList {
-    width: 300px;
-    height: 130px;
-    border-radius: 5px;
-    background-color: #d3d3d3b3;
-    text-align: center;
-    padding-right: 40px;
-    margin-left: 25%;
+  background: #d3d3d3;
+  width: 300px;
+  height: 130px;
+  border-radius: 5px;
+  text-align: center;
+  padding-right: 40px;
+  margin-left: 25%;
+  transition: .2s ease all;
 }
 
 .blogList:hover {
-    zoom: 1.1;
+  transition: .2s ease all;
+  background: #00178a8c;
+  color: #fafafa;
+  display: block;
+  position: relative;
+  box-shadow: -16px 17px 2px #0f1618b4;
+  height: 131px;
 }
 
 span.list {
@@ -78,56 +87,70 @@ span.list {
 }
 
 .postsButtons {
-    padding: 4px;
-    background: #00168a;
-    border: none;
-    box-shadow: 1px 1px 1px;
-    border-radius: 5px;
-    color: white;
-    margin: 5px;
-    margin-top: 15px;
-    margin-left: 25%;
-    width: 90px;
-    font-family: "Allerta", sans-serif;
-    font-size: 0.8em;
+  background: #00168a;
+  color: #fafafa;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin: 8px;
+  padding: 4px;
+  height: 60px;
+  line-height:20px;
+  min-width: 100px;
+  max-width: 110px;
+  border-radius: 5px;
+  border: 1px solid #00000000;
+  font-family: "Allerta", sans-serif;
+  transition: .3s ease all;
+  }
+
+  .postsButtons:hover{
+    transition: .3s ease all;
+    border: 1px solid #0713386b;
+    height: 61px;
+    background: #fafafa;
+    color: #00168a;
+    box-shadow: -16px 17px 2px #0f1618b4;
   }
 
   .deleteButtons {
-    background:#00168a;
-    color: #fafafa;
-    display: inline-block;
-    position: relative;
-    margin: 8px auto;
-    padding: 4px;
-    height: 50px;
-    width: 30%;
-    min-width: 80px;
-    max-width: 150px;
-    border: 1px solid #00000000;
-    border-radius: 5px;
-    font-family: "Allerta", sans-serif;
-    text-align: center;
-    line-height: 20px;
-    font-size: .8rem;
-    transition: .3s ease all;
-  }
-  
-  
-  .postsButtons:hover {
-    background: #00168a80;
-    color: black;
+  background: #00168a;
+  color: #fafafa;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  margin: 8px;
+  padding: 4px;
+  height: 60px;
+  line-height:50px;
+  min-width: 100px;
+  max-width: 110px;
+  border-radius: 5px;
+  font-family: "Allerta", sans-serif;
+  transition: .3s ease all;
   }
 
+  .deleteButtons:hover {
+    transition: .3s ease all;
+    background: #eeeeee;
+    color: #00168a;
+    /* background: #00168a80;
+    color: #00168a; */
+    cursor: pointer;  
+    box-shadow: -10px 16px 2px #1b1b2cab;
+  }
+  
+
   .submitButtons {
-    padding: 4px;
     background: #00168a;
+    color: white;
+    font-family: "Allerta", san-serf;
     border: none;
     box-shadow: 1px 1px 1px;
     border-radius: 5px;
-    color: white;
+    padding: 4px;
     margin: 5px;
     margin-top: 15px;
     width: 90px;
-    font-family: "Allerta", san-serf;
     font-size: 0.8em;
   }
