@@ -29,7 +29,7 @@ class PickBlog extends Component {
     this.props.getUser().then(() => {
       axios.get(`/api/pages/${this.props.user.id}`).then(response => {
         this.props.getPages(response.data);
-      }).then(this.getDaStuffs());
+      }).then(this.getDaStuffs()).then(console.log("userID", this.props.user.id));
     });
     
   }

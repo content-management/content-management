@@ -169,10 +169,26 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+  right: 0px;
+  padding-top: 37px;
+}
+.alternate {
+  position: fixed;
+  right: 0px;
+
 }
 /* .blogLinks {
   line-height: 30px;
 } */
+
+.settingsIcon {
+  zoom: 0.2;
+}
+.settingsIcon:hover {
+  transform: rotate(180deg);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
+}
 
 
 @media only screen and (max-width: 550px) {

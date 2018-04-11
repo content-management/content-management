@@ -11,8 +11,10 @@ class Posts extends Component {
   constructor() {
     super();
     this.state = {
-      posts: ""
+      posts: "",
+      selectValue: 'all'
     };
+    this.handleSelect = this.handleSelect.bind(this);
   }
   componentDidMount() {
     this.props.getUser().then(
@@ -55,8 +57,12 @@ class Posts extends Component {
       }
     });
   }
+  handleSelect(e){
+    this.setState({selectValue:e.target.value});
+  }
 
   render() {
+    console.log(this.state.selectValue)
     let results = {};
     let num = this.state.posts.length + 1;
     results =
@@ -88,20 +94,59 @@ class Posts extends Component {
           </div>
         );
       });
-    return (
-      <div>
-        <Header
-          id={this.props.match.params.id}
-          id2={this.props.match.params.id2}
-        />
+      let favs = [];
+      this.state.posts && this.state.posts.map((obj, i) => {
+        if (obj.favorites === 'yes'){
+          favs.push(obj);
+        }
+      })
+      let yourFavs = favs.map((obj, i) => {
+        num -= 1;
+        return <div className="postResultsWrapper" key={i}>
+            <div id={obj.post_id} style={{ height: "80%" }}>
+              <div>{obj.blog_name}</div>
+              <div>{obj.title}</div>
+              <div>{obj.date} </div>
+              {/* <h4> {obj.time}</h4> */}
+
+              <iframe className="postIframe" srcdoc={obj.content} />
+
+              <div>Post: {num}</div>
+              <div>PostId: {obj.post_id}</div>
+            </div>
+            <Link to={`/EditPost/${obj.post_id}`}>
+              <button className="postsButtons">Edit Post</button>
+            </Link>
+            <button className="postsButtons" onClick={() => this.deletePost(obj.post_id)}>
+              Delete Post
+            </button>
+          </div>;
+      });
+    return <div>
+        <Header id={this.props.match.params.id} id2={this.props.match.params.id2} />
+        <div className="filter">
+          <h3>Filter</h3>
+          <select value={this.state.selectValue} onChange={this.handleSelect} className="filter-bar">
+            <option value="all">All</option>
+            <option value="favs">Favorites</option>
+          </select>
+        </div>
+        
+        { this.state.selectValue === 'all' ?<div>
         <Link to={`/Home/${this.props.user.name}`} />
         <div style={{ height: "100px" }} />
         {results}
         <Link to={`/NewPost/${this.props.match.params.id2}`}>
           <button className="newPostButton">New Post</button>
-        </Link>
-      </div>
-    );
+        </Link></div> : <div>
+
+        <Link to={`/Home/${this.props.user.name}`} />
+        <div style={{ height: "100px" }} />
+        {yourFavs}
+        <Link to={`/NewPost/${this.props.match.params.id2}`}>
+          <button className="newPostButton">New Post</button>
+        </Link> </div>}
+      </div>;
   }
 }
 
