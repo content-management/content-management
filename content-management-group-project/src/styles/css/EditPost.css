@@ -35,8 +35,8 @@
     border-radius: 5px;
     background-color: #00168a;
     color: white;
-    position: sticky;
-    left: 100%;
+    /* position: sticky; */
+    left: 0px;
     margin-bottom: 2%;
     
   }

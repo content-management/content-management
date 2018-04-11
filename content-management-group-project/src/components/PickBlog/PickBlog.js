@@ -217,6 +217,7 @@ class PickBlog extends Component {
           </div>
         );
       });
+      // console.log("asdf", this.props.user);
     return( 
       <div className="pickBlog-body">
       
