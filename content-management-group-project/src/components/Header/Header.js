@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux"; //connect to redux
 import { getUser, getBlogs, currBlog, getPages } from "../../ducks/reducer"; //get user from redux
 import Logo from "../../assets/images/logo.png";
+import settingsIcon from "../../assets/images/settingsIcon.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
 import history from "../../history";
@@ -79,13 +80,14 @@ class Header extends Component {
               {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
             </Link>
             <a href={`/`}>
-              <div className="links" onClick={this.logout}>
-                Logout
+              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" onClick={this.logout}>
+              </img>
+              <div className="dropdown-content alternate">Change Profile <br/>Logout</div>
               </div>
             </a>
           </div>
         </div>
-          <button className="backButton" onClick={() => history.goBack()}>
+          <button className="backButton dropdown" onClick={() => history.goBack()}>
               Back
           </button>
       </div>
