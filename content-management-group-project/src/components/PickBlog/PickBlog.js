@@ -43,7 +43,7 @@ class PickBlog extends Component {
     })
     .then((value) => {
       if(value){
-      this.addPage(value)
+      this.addBlog(value)
       swal("Your new blog awaits!");
       }else{
         swal("Fine, don't make a new blog, see if I care...");
@@ -217,6 +217,7 @@ class PickBlog extends Component {
           </div>
         );
       });
+      // console.log("asdf", this.props.user);
     return( 
       <div className="pickBlog-body">
       
