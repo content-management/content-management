@@ -53,3 +53,10 @@
   background: rgb(0, 22, 138, 0.5);
   color: black;
 }
+.filter{
+  margin: 5% 0 0 50%;
+  width: 200px;
+}
+.filter-bar{
+  width: 250px;
+}
