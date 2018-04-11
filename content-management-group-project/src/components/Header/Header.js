@@ -7,7 +7,7 @@ import settingsIcon from "../../assets/images/settingsIcon.png";
 import "../../styles/css/Header.css";
 import axios from "axios";
 import history from "../../history";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 class Header extends Component {
   constructor() {
@@ -15,6 +15,7 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
     this.changeProfile = this.changeProfile.bind(this);
   }
+  componentDidMount() {}
   logout(event) {
     axios
       .get("/logout")
@@ -23,25 +24,28 @@ class Header extends Component {
       })
       .catch(console.log());
   }
-  changeProfile(){
+  changeProfile() {
     swal("Your Display Name Is: " + this.props.user.name, {
       icon: "info",
       content: "input",
       buttons: true,
-  dangerMode: true,
+      dangerMode: true
     })
-    .then((value) => {
-      console.log(value)
-      if(value){
-        let body = {
-          name: value
+      .then(value => {
+        console.log(value);
+        if (value) {
+          let body = { name: value };
+          axios
+            .put(`/api/changeName/${this.props.user.id}`, body)
+            .then((this.props.user.name = body.name));
+
+          console.log(this.props.user);
+          swal(`Your Display Name Has Been Changed to: ${value}`);
+        } else {
+          swal("Your Display Name Has Not Been Changed");
         }
-        axios.put(`/api/changeName/${this.props.user.id}`, body)
-      swal(`Your Display Name Has Been Changed to: ${value}`);
-      }else{
-        swal('Your Display Name Has Not Been Changed')
-      }
-    }).then(this.props.getUser());
+      })
+      .then(this.props.getUser);
   }
   setBlog(i) {
     this.props.currBlog(i);
@@ -56,27 +60,23 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link
-                
-                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
-              >
-                <div className="blogLinks" onClick={() => this.setBlog(obj)}>{obj.blog_name}</div>
+              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`}>
+                <div className="blogLinks" onClick={() => this.setBlog(obj)}>
+                  {obj.blog_name}
+                </div>
               </Link>
             </ul>
           </div>
         );
       });
-      let pages =
+    let pages =
       this.props.pages &&
       this.props.pages.map((obj, i) => {
         return (
           <div key={i}>
             <ul>
-              <Link
-                
-                to={`/EditPage/${obj.page_id}`}
-              >
-                <div className="blogLinks" >{obj.page_name}</div>
+              <Link to={`/EditPage/${obj.page_id}`}>
+                <div className="blogLinks">{obj.page_name}</div>
               </Link>
             </ul>
           </div>
@@ -96,24 +96,37 @@ class Header extends Component {
             >
               <div className="links">Dashboard</div>
             </Link>
-            <Link to={`/pickblog/${this.props.user.name}`} className="links dropdown">
+            <Link
+              to={`/pickblog/${this.props.user.name}`}
+              className="links dropdown"
+            >
               Switch Sites
-              {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
-            </Link>
-            
-              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
-              </img>
-              <div className="dropdown-content alternate">
-                <div className="blogLinks" onClick={this.changeProfile}>Profile</div>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
-
+              {blogs && (
+                <div className="dropdown-content">
+                  Blogs {blogs}
+                  <hr />Pages {pages}
                 </div>
+              )}
+            </Link>
+
+            <div className="links dropdown">
+              <img src={settingsIcon} className="settingsIcon" />
+              <div className="dropdown-content alternate">
+                <div className="blogLinks" onClick={this.changeProfile}>
+                  Profile
+                </div>
+                <a href="/">
+                  <div className="blogLinks" onClick={this.logout}>
+                    Logout
+                  </div>
+                </a>
               </div>
+            </div>
           </div>
         </div>
-          <button className="backButton" onClick={() => history.goBack()}>
-              Back
-          </button>
+        <button className="backButton" onClick={() => history.goBack()}>
+          Back
+        </button>
       </div>
     );
   }
@@ -121,6 +134,9 @@ class Header extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, getBlogs, currBlog, getPages })(
-  Header
-);
+export default connect(mapStateToProps, {
+  getUser,
+  getBlogs,
+  currBlog,
+  getPages
+})(Header);
