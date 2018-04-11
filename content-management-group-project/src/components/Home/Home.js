@@ -14,7 +14,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: ""
+      posts: "",
+      thisWeek: [],
     };
   }
   componentDidMount() {
@@ -22,14 +23,15 @@ class Home extends Component {
       axios
         .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
-          console.log("response", response.data);
+ 
           this.setState({ posts: response.data });
         })
         .catch(console.log())
     );
   }
   render() {
-    console.log(this.props.myBlog)
+
+   
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
@@ -43,13 +45,42 @@ class Home extends Component {
       this.state.posts &&
       this.state.posts.map((obj, i) => {
         let iframeHTML = renderHTML(obj.content);
-        console.log("postID", obj.post_id);
+     
         return (
           <div className="iframy" key={i}>
             <Link smooth to={`/Posts/${obj.blog_name}/${obj.blog_id}#${obj.post_id}`}>{iframeHTML}</Link>
           </div>
         );
       });
+      //Post for the current week
+      let date = new Date();
+      let day = date.getDay();
+      let week = [];
+      for (let i = 0; i < 7; i++) {
+        if (i - day != 0) {
+          let days = i - day;
+          let newDate = new Date(date.getTime() + days * 24 * 60 * 60 * 1000).toLocaleDateString();
+          week.push(newDate);
+        } 
+        else week.push(date.toLocaleDateString());
+      }
+    
+
+      let temp3 = [];
+      this.state.posts && this.state.posts.map((obj, i) => {
+        if (obj.date === week[0] || obj.date == week[1] || obj.date == week[2] || obj.date == week[3] || obj.date == week[4] || obj.date == week[5] || obj.date == week[6]) 
+        temp3.push(obj);
+    
+      });
+      let thisWeek = temp3.map((obj, i) => {
+        let iframeHTML2 = renderHTML(obj.content);
+        return(
+          <div className="iframy" key={i}>
+            {iframeHTML2}
+          </div>
+        )
+      })
+ 
 
     return (
       <div>
@@ -77,6 +108,22 @@ class Home extends Component {
             <div className="horizontal-scroll-wrapper rectangles">
               {myContent}
             </div>
+          </div>
+          <div className="cards-container">
+            <Link
+              to={`/Posts/${this.props.match.params.id}/${
+                this.props.match.params.id2
+              }`}
+            >
+              <div className="cards">Posts</div>
+            </Link>
+            <div className="cards">Pages</div>
+            <div className="cards">Media</div>
+            <h3>Number of posts</h3>
+              {this.state.posts.length}
+              <h3>Post This Week {temp3.length}</h3>
+              {thisWeek}
+              <h3>Post this month</h3>
           </div>
         </div>
 

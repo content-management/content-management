@@ -3,12 +3,11 @@ import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
 import Header from "../Header/Header";
 import { connect } from "react-redux"; //connect to redux
-import {  currBlog } from "../../ducks/reducer"; //get user from redux
+import { currBlog } from "../../ducks/reducer"; //get user from redux
 import { Link, withRouter } from "react-router-dom";
 import "../../styles/css/NewPost.css";
 import swal from "sweetalert";
 import { Redirect } from "react-router";
-
 
 class TextEditor extends React.Component {
   constructor() {
@@ -17,10 +16,12 @@ class TextEditor extends React.Component {
       content: "",
       title: "",
       tinyID: "",
-      dateTime: ""
+      dateTime: "",
+      favorite: "no"
     };
     this.saveContent = this.saveContent.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
   }
 
   handleEditorChange = e => {
@@ -28,7 +29,12 @@ class TextEditor extends React.Component {
     this.setState({
       content: e.target.getContent()
     });
-  };
+  }
+  addFavorite() {
+  
+    alert('added to favorites')   
+    this.setState({ favorite: "yes" });
+  }
   saveContent() {
     console.log(this.state.content.length);
     if (this.state.content.length > 3000000) {
@@ -45,28 +51,26 @@ class TextEditor extends React.Component {
       // console.log(temp);
 
       let dateTime = new Date();
-  
+   
+
       let body = {
         title: this.state.title,
         content: temp,
         date: dateTime.toLocaleDateString(),
-        time: dateTime.toLocaleTimeString()
-        
+        time: dateTime.toLocaleTimeString(),
+        favorites: this.state.favorite
       };
       axios
         .post(`/api/post/${this.props.match.params.id}`, body)
         .then(results => {
           swal("New post added");
-        })
-        // .then(window.history.back());
+        });
+      // .then(window.history.back());
     }
   }
-  render() {
 
-    // if (this.state.redirect) {
-    //   return <Redirect push to="/" />;
-    // }
-    console.log(this.props.match.params.id);
+  render() {
+  console.log(this.state.favorite)
 
     return (
       <div className="new-post-container">
@@ -125,13 +129,18 @@ class TextEditor extends React.Component {
             onChange={this.handleEditorChange}
           />
         </div>
-         <Link
-              to={`/Posts/${this.props.myBlog.blog_name}/${
-                this.props.myBlog.blog_id
-              }`}
-            >
-        <button className="savebutton" onClick={this.saveContent}>Save</button>
+        <Link
+          to={`/Posts/${this.props.myBlog.blog_name}/${
+            this.props.myBlog.blog_id
+          }`}
+        >
+          <button className="savebutton" onClick={this.saveContent}>
+            Save
+          </button>
         </Link>
+          <div>
+        <button onClick={this.addFavorite}>Add to favorites</button>
+        </div>
       </div>
     );
   }
@@ -139,6 +148,4 @@ class TextEditor extends React.Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { currBlog })(
-  TextEditor
-);
+export default connect(mapStateToProps, { currBlog })(TextEditor);

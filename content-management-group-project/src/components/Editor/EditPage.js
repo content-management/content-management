@@ -13,12 +13,12 @@ class EditPage extends React.Component {
     this.state = {
       pages: "",
       pageNaem: "",
-      content: ""
+      content: "",
+      title: ""
     };
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
-    console.log("window", window.tinyMCE);
     axios
          axios.get(`/api/pages/${this.props.user.id}`)
         .then(response => {
@@ -50,10 +50,8 @@ class EditPage extends React.Component {
       .then(window.history.back());
   }
   render() {
-console.log(this.state.pages);
-console.log(this.state.pageName);
-console.log(this.state.content);
 
+let title = this.state.pages.title;
     let pageName = this.state.pages.page_name;
     // let content = this.state.post.content;
     let content = this.state.pages.content;
@@ -71,14 +69,6 @@ console.log(this.state.content);
             }
           />
         </div>
-        <input
-          className="editTitle"
-          id="my-file"
-          type="file"
-          name="my-file"
-          style={{ display: "none" }}
-          onChange=""
-        />
         {this.state.pages.content && (
           <Editor
             initialValue={content}
