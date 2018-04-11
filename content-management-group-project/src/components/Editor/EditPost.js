@@ -11,9 +11,14 @@ class TextEditor extends React.Component {
     this.state = {
       post: "",
       title: "",
-      content: ""
+      content: "",
+      favorite: ""
     };
     this.saveContent = this.saveContent.bind(this);
+    this.addFavorite = this.addFavorite.bind(this);
+    this.deleteFavorite = this.deleteFavorite.bind(this);
+    
+    
   }
   componentDidMount() {
     console.log("window", window.tinyMCE);
@@ -24,7 +29,8 @@ class TextEditor extends React.Component {
         this.setState({ post: response.data[0] });
         this.setState({
           title: this.state.post.title,
-          content: this.state.post.content
+          content: this.state.post.content,
+          favorite: this.state.post.favorites
         });
       })
       .catch(console.log());
@@ -35,11 +41,21 @@ class TextEditor extends React.Component {
       content: e.target.getContent()
     });
   };
+  addFavorite(){
+    this.setState({favorite: 'yes'});
+    swal("Added to favorites");
+  }
+  deleteFavorite(){
+    this.setState({favorite: 'no'});
+    swal("Deleted from favorites");
+    
+  }
   saveContent() {
     console.log(this.state.content);
     let body = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      favorites: this.state.favorite
     };
     axios
       .put(`/api/put/${this.props.match.params.id}`, body)
@@ -49,7 +65,7 @@ class TextEditor extends React.Component {
       .then(window.history.back());
   }
   render() {
-    console.log(this.state.title);
+    console.log(this.state.post.favorites);
     // console.log(this.props.match.params.id);
     // console.log(this.state.post);
     // console.log(this.state.content);
@@ -111,6 +127,9 @@ class TextEditor extends React.Component {
           />
         )}
         <button onClick={this.saveContent}>Save</button>
+        {this.state.post.favorites === 'yes' ?
+        <button onClick={this.deleteFavorite}>Delete from Favorites</button>
+      : <button onClick={this.addFavorite}>Add to Favorites</button>}
       </div>
     );
   }

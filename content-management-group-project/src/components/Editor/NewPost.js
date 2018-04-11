@@ -32,7 +32,7 @@ class TextEditor extends React.Component {
   }
   addFavorite() {
   
-    alert('added to favorites')   
+    swal('added to favorites')   
     this.setState({ favorite: "yes" });
   }
   saveContent() {
