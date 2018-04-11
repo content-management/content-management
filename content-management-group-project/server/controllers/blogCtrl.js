@@ -27,5 +27,14 @@ module.exports = {
       .delete_blog([params.id])
       .then(() => res.status(200).json())
       .catch(err => console.log(err));
+  },
+  changeName: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { params, body } = req;
+    console.log(params.id, body); 
+    dbInstance
+    .change_user_name([params.id, body.name])
+    .then(() => res.status(200).json())
+    .catch(err => console.log(err));
   }
 };

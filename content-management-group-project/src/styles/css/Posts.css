@@ -23,6 +23,7 @@
   border-radius: 5px;
   color: white;
   margin: 5px;
+  margin-left: 0px;
   width: 90px;
 }
 .postsButtons:active {

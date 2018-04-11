@@ -196,7 +196,7 @@
 
 .buttons-container:hover{
   transition: .2s ease all;
-  background: #00178a8c;
+  background: rgba(0, 23, 138, 0.549);
   /* box-shadow: -12px 13px 5px #0f1618b4; */
 }
 

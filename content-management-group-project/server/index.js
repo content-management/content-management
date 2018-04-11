@@ -108,7 +108,10 @@ app.get("/logout", (req, res) => {
   });
 });
 
+
 //EndPoints
+//change user name
+app.put("/api/changeName/:id", bc.changeName);
 
 //get blogs
 app.get("/api/blogs/:id", bc.getBlogs);

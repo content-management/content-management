@@ -24,12 +24,24 @@ class Header extends Component {
       .catch(console.log());
   }
   changeProfile(){
-    swal("Your Display Name Is:" + this.props.user.name, {
+    swal("Your Display Name Is: " + this.props.user.name, {
+      icon: "info",
       content: "input",
+      buttons: true,
+  dangerMode: true,
     })
     .then((value) => {
-      swal(`You typed: ${value}`);
-    });
+      console.log(value)
+      if(value){
+        let body = {
+          name: value
+        }
+        axios.put(`/api/changeName/${this.props.user.id}`, body)
+      swal(`Your Display Name Has Been Changed to: ${value}`);
+      }else{
+        swal('Your Display Name Has Not Been Changed')
+      }
+    }).then(this.props.getUser());
   }
   setBlog(i) {
     this.props.currBlog(i);
@@ -38,7 +50,6 @@ class Header extends Component {
   //   this.props.currPage(i);
   // }
   render() {
-    console.log("history", history);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
