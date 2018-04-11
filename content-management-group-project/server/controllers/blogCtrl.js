@@ -30,8 +30,10 @@ module.exports = {
   },
   changeName: (req, res, next) => {
     const dbInstance = req.app.get("db");
+    // console.log("this", req.user);
+    req.user.name = req.body.name;
     const { params, body } = req;
-    console.log(params.id, body); 
+    // console.log(params.id, body); 
     dbInstance
     .change_user_name([params.id, body.name])
     .then(() => res.status(200).json())

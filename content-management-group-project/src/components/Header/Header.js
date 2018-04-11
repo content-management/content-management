@@ -36,17 +36,13 @@ class Header extends Component {
       buttons: true,
       dangerMode: true
     })
-      .then(value => {
-        console.log(value);
-        if (value) {
-          let body = { name: value };
-          axios
-            .put(`/api/changeName/${this.props.user.id}`, body)
-            .then((this.props.user.name = body.name));
-
-          console.log(this.props.user);
-        
-        axios.put(`/api/changeName/${this.props.user.id}`, body).then(this.props.getUser());
+    .then((value) => {
+      // console.log(value)
+      if(value){
+        let body = {
+          name: value
+        }
+        axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
       swal(`Your Display Name Has Been Changed to: ${value}`);
       
       }else{
