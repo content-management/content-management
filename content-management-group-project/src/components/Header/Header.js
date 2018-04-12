@@ -24,7 +24,8 @@ class Header extends Component {
   logout(event) {
     axios
       .get("/logout")
-      .then(response => {})
+      .then(response => {
+      })
       .catch(console.log());
   }
   profileClickedSwal() {
@@ -91,11 +92,10 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link
-                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
-                onClick={this.props.reGetDaStuffs}
-              >
-                <div className="blogLinks">{obj.blog_name}</div>
+              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`} onClick={this.props.reGetDaStuffs}>
+                <div className="blogLinks">
+                  {obj.blog_name}
+                </div>
               </Link>
             </ul>
           </div>
@@ -135,8 +135,11 @@ class Header extends Component {
               {blogs && (
                 <div className="dropdown-content">
                   Blogs {blogs}
-                  <hr />
-                  <Link to={`/pickblog/${this.props.user.name}`}>Pages </Link>
+                  <hr /><Link
+                  to={`/pickblog/${this.props.user.name}`}
+                  
+                >
+                  Pages </Link>
                 </div>
               )}
             </div>

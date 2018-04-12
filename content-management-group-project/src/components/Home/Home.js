@@ -42,6 +42,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(".match.params", this.props.match.params.id2);
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {

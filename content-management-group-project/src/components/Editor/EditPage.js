@@ -32,18 +32,18 @@ class EditPage extends React.Component {
       })
       .catch(console.log());
   }
-  componentWillReceiveProps(nextState) {
-    if (this.state.content !== nextState.content) {
-      axios
-        .get(`/api/page/${this.props.match.params.id}`)
-        .then(response => {
-          this.setState({ pages: response.data[0] });
-          this.setState({
-            pageName: this.state.pages.page_name,
-            content: this.state.pages.content
-          });
-        })
-        .catch(console.log());
+  componentWillReceiveProps(nextState){
+    if(this.state.content !== nextState.content){
+    axios
+      .get(`/api/page/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ pages: response.data[0] });
+        this.setState({
+          pageName: this.state.pages.page_name,
+          content: this.state.pages.content
+        });
+      })
+      .catch(console.log());
     }
   }
   handleEditorChange = e => {
@@ -63,7 +63,7 @@ class EditPage extends React.Component {
       })
       .then(window.history.back());
   }
-  getPage() {
+  getPage(){
     axios
       .get(`/api/page/${this.props.match.params.id}`)
       .then(response => {
@@ -82,7 +82,9 @@ class EditPage extends React.Component {
     let content = this.state.pages.content;
     return (
       <div>
-        <Header getPage={this.getPage} />
+        <Header 
+        getPage = {this.getPage}
+        />
         <div className="editPostPage">
           <input
             type="text"
@@ -126,6 +128,7 @@ class EditPage extends React.Component {
                     var file = input.files[0];
                     var reader = new FileReader();
                     reader.onload = function(e) {
+                      
                       callback(e.target.result, { alt: file.name });
                     };
                     reader.readAsDataURL(file);

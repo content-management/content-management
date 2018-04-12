@@ -6,6 +6,7 @@ import "../../styles/css/Credentials.css";
 import Instructions from "../../assets/images/instructions.png";
 import Instructions2 from "../../assets/images/instructions2.png";
 import Header from "../Header/Header";
+import renderHTML from 'react-render-html';
 
 
 
@@ -53,9 +54,10 @@ class Credentials extends Component {
           <div className="box3">
             <img src={Instructions}/>
           </div>
-          <h2>Have your own template?</h2>
+          <h2>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
             <img src={Instructions2}/>
+            {renderHTML("<figure><figcaption>Your code title</figcaption><pre><code> <!-- your code here --></code></pre></figure>")}
           </div>
           <p className="more-instr">Detailed Instructions</p>
         </div>
