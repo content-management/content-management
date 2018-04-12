@@ -3,8 +3,8 @@
 .header {
   display: flex;
   position: fixed;
-  background: #afafaf;
-  opacity: 0.7;
+  background: rgb(175, 175, 175, 0.7);
+  /* opacity: 0.7; */
   justify-content: space-between;
   border: none;
   top: 0;
@@ -127,25 +127,34 @@
   margin: 0 auto;
 }
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
-  background-color: #d3d3d3af;
+  background-color: transparent;
+  z-index: 1000000 !important;
   /* padding: 6px; */
   padding: 0px;
   min-width: 100px;
   text-align: left;
   overflow: auto;
-  z-index: 1100;
+  /* z-index: 1100;
+  right: 0px; */
+  overflow:hidden;
+    height:0;
+    -webkit-transition:height 500ms ease-in;
+    -moz-transition:height 500ms ease-in;
+    -o-transition:height 500ms ease-in;
+    transition:height 500ms ease-in;
+   
 }
 
 .dropdown:hover {
   color: #00168a;
+  z-index: 1000000 !important;
 }
 
 .dropdown-content a {
   position: relative;
   width: 100%;
-  transition: 0.4s ease all;
   margin: 0 auto;
   float: left;
   /* background-color: blue; */
@@ -155,6 +164,7 @@
   text-decoration: none;
   text-align: left;
   padding-left: 0px;
+
 }
 /* .dropdown-content a:hover {
   display: inline-flex;
@@ -169,8 +179,12 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+  background-color: rgba(211, 211, 211);
   right: 0px;
   padding-top: 37px;
+  /* overflow:hidden; */
+  height: 110vh;
+
 }
 .alternate {
   position: fixed;
@@ -183,12 +197,16 @@
 
 .settingsIcon {
   zoom: 0.2;
+  transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
 }
 .settingsIcon:hover {
   transform: rotate(180deg);
   -webkit-transition: -webkit-transform .5s ease-in-out;
           transition:         transform .5s ease-in-out;
 }
+
 
 
 @media only screen and (max-width: 550px) {

@@ -14,6 +14,7 @@ class Header extends Component {
     super();
     this.logout = this.logout.bind(this);
     this.changeProfile = this.changeProfile.bind(this);
+    this.profileClickedSwal = this.profileClickedSwal.bind(this);
     // this.getDaUser = this.getDaUser.bind(this);
   }
   componentDidMount(){
@@ -28,8 +29,25 @@ class Header extends Component {
       })
       .catch(console.log());
   }
+  profileClickedSwal(){
+    swal("Your display name is: " + this.props.user.name + 
+    "\n \n Would you like to change it?", {
+      content: "text",
+      buttons: true,
+      dangerMode: true,
+      html: true,
+    })
+    .then((value) => {
+      if(value){
+        this.changeProfile();
+      }else{
+        swal("Have a Nice Day!")
+      }
+    });
+  }
   changeProfile(){
-    swal("Your Display Name Is: " + this.props.user.name, {
+    swal("Your current display name is: " + this.props.user.name + 
+    "\n \n Enter your new display name below", {
       icon: "info",
       content: "input",
       buttons: true,
@@ -42,10 +60,10 @@ class Header extends Component {
           name: value
         }
         axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
-      swal(`Your Display Name Has Been Changed to: ${value}`);
+      swal(`Your display name have been changed to: ${value}`);
       
       }else{
-        swal('Your Display Name Has Not Been Changed')
+        swal('As you wish, your display name remains unchanged')
       }
     }).then(this.props.getUser());
   }
@@ -113,7 +131,7 @@ class Header extends Component {
               <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
               </img>
               <div className="dropdown-content alternate">
-                <div className="blogLinks" onClick={this.changeProfile}>Profile</div>
+                <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
                 <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
 
                 </div>
