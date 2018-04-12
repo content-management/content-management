@@ -273,6 +273,6 @@ class PickBlog extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog, getBlogs, getPages })(
+export default withRouter(connect(mapStateToProps, { getUser, currBlog, getBlogs, getPages })(
   PickBlog
-);
+));
