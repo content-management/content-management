@@ -3,8 +3,7 @@
 .header {
   display: flex;
   position: fixed;
-  background: rgb(175, 175, 175, 0.7);
-  /* opacity: 0.7; */
+  background: #afafafb3;
   justify-content: space-between;
   border: none;
   top: 0;
@@ -64,15 +63,7 @@
   line-height: 30px;
   font-size: 1.05rem;
   transition: .3s ease all;
-  /* position: absolute;
-  left: 110px;
-  top: 70px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  font-size: 1em;
-  font-family: "Allerta", sans-serif;
-  color: black; */
+  z-index: 100;
 }
 .backButton:hover {
   transition: .3s ease all;

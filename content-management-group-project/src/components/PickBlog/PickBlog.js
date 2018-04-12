@@ -177,8 +177,14 @@ class PickBlog extends Component {
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
         return (
+          <div className="blogList-container">
           <div key={i}>
             <ul className="blogList">
+            <button
+                className="deleteButtons"
+                onClick={() => this.deleteBlog(obj.blog_id)}>
+                X
+              </button>
               <Link
                 className="blogLinks"
                 to={`/Home/${obj.blog_name}/${obj.blog_id}`}
@@ -187,14 +193,9 @@ class PickBlog extends Component {
                   {" "}
                   {obj.blog_name}
                 </span>
-              </Link>
-              <button
-                className="deleteButtons"
-                onClick={() => this.deleteBlog(obj.blog_id)}
-              >
-                Delete Blog
-              </button>
+              </Link>          
             </ul>
+          </div>
           </div>
         );
       });
@@ -203,20 +204,21 @@ class PickBlog extends Component {
       this.props.pages.map((obj, i) => {
         return (
           <div key={i}>
-            <ul className="blogList">
-              <Link
-                className="blogLinks"
-                to={`/EditPage/${obj.page_id}`}
-              >
-                <span className="list">{obj.page_name}</span>
-              </Link>
+            <div className="blogList-container">
+              <ul className="blogList">
               <button
-                className="deleteButtons"
-                onClick={() => this.deletePage(obj.page_id)}
-              >
-                Delete Page
-              </button>
-            </ul>
+                  className="deleteButtons"
+                  onClick={() => this.deletePage(obj.page_id)}>
+                  X           
+                </button>
+                <Link
+                  className="blogLinks"
+                  to={`/EditPage/${obj.page_id}`}
+                >
+                  <span className="list">{obj.page_name}</span>
+                </Link>              
+              </ul>
+            </div>
           </div>
         );
       });
@@ -230,17 +232,18 @@ class PickBlog extends Component {
           <div className="pickBlog-greeting">
             <h1>Hello, {this.props.user.name}</h1>
           </div>
-          <span>Which website are you working on?</span>
+          <span className="whichBlog">Which website are you working on?</span>
         </div>
           
-        <div className="pickBlogPage">
-          <div>
+        
+          <div className="pickBlogPage">
               <h2>Blogs</h2>
-              {blogs}
               <button className="postsButtons" onClick={this.addBlogClicked}>
               Create New Blog
               </button>
-            </div>
+              {blogs}
+          </div>
+        
 
             {this.state.addBlog === true ? 
               <div className ='newBlog'>
@@ -250,14 +253,14 @@ class PickBlog extends Component {
                 </button>
               </div> : null} 
 
-            <div>
+            <div className="pickBlogPage">
               <h2>Pages</h2>
-                {pages}
                 <button className="postsButtons" onClick={this.addPageClicked}>
-                Create New Page
+                  Create New Page
                 </button>
+                {pages}
             </div>
-        </div>
+        
 
           {this.state.addPage === true ? 
             <div className="newPage">
