@@ -3,14 +3,12 @@
 .header {
   display: flex;
   position: fixed;
-  background: #afafaf;
+  background: rgb(175, 175, 175, 0.7);
+  /* opacity: 0.7; */
   justify-content: space-between;
+  border: none;
   top: 0;
-  left: 0px;
-  padding: 2px;
-  max-width: 1600px;
   width: 100%;
-  margin-right: 50px;
   margin-bottom: 10px;
   z-index: 1000;
   transition: 0.4s ease all;
@@ -20,7 +18,6 @@
   transition: 0.3s ease all;
   background: #d3d3d3;
 }
-
 
 /*** LOGO THANGS ***/
 
@@ -67,8 +64,16 @@
   line-height: 30px;
   font-size: 1.05rem;
   transition: .3s ease all;
+  /* position: absolute;
+  left: 110px;
+  top: 70px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-family: "Allerta", sans-serif;
+  color: black; */
 }
-
 .backButton:hover {
   transition: .3s ease all;
   background: #eeeeeea6;
@@ -76,6 +81,8 @@
   color: #00168a;
   box-shadow: -11px 8px 1px #1b1b2cab;
 }
+
+
 
  /*** NAV THINGS ***/
 
@@ -93,94 +100,113 @@
 }
 
 .links {
-  display: block;
-  /* background: #00178a8c; */
-  color: #00178a8c;
+  display: inline-block;
   transition: 0.3s ease all;
-  padding: 8px;
+ padding-right: 4px;
+  margin: 2px;
   filter: blur(0.4px);
   letter-spacing: -2.1px;
+  /* color: #00168a; */
   font-size: 1.25rem;
+  color: #00178a8c;
 }
 
 .links:hover {
   transition: 0.3s ease all;
   color: #00168a;
+  letter-spacing: -2px;
   filter: blur(0px);
 }
-
-    /*** DROPDOWN THANGS ***/
 
 .dropdown {
   float: left;
   overflow: hidden;
+  /* color: #00168a; #00178a8c; */ 
   color: #00178a8c;
-  padding: 8px 10px;
+  padding: 0px 10px 0px 10px;
   margin: 0 auto;
 }
-
-
 .dropdown-content {
-  display: none;
+  /* display: none; */
   position: absolute;
-  float:left;
-  right: 15px;
-  font-size: 1.5rem;
-  padding: 8px;
-  z-index: 1100;
+  background-color: transparent;
+  z-index: 1000000 !important;
+  /* padding: 6px; */
+  padding: 0px;
+  min-width: 100px;
+  text-align: left;
+  overflow: auto;
+  /* z-index: 1100;
+  right: 0px; */
+  overflow:hidden;
+    height:0;
+    -webkit-transition:height 500ms ease-in;
+    -moz-transition:height 500ms ease-in;
+    -o-transition:height 500ms ease-in;
+    transition:height 500ms ease-in;
+   
+}
+
+.dropdown:hover {
+  color: #00168a;
+  z-index: 1000000 !important;
 }
 
 .dropdown-content a {
-  display: block;
   position: relative;
-  background: green;
-  color: #00168a;
+  width: 100%;
   margin: 0 auto;
-  top: 1px;
-  padding: 6px;
-  font-size: 1.15rem;
+  float: left;
+  color: #00168a;
+  /* padding: 2px; */
+  display: block;
   text-decoration: none;
-  transition: 0.4s ease all;
+  text-align: left;
+  padding-left: 0px;
+
 }
-.dropdown-content a:hover {
+/* .dropdown-content a:hover {
+  display: inline-flex;
+  position: relative;
   transition: 0.4s ease all;
-  background-color: #00178a6b;
+  width: 100%;
   color: #d3d3d3;
-}
+  background-color: #00178a6b;
+  background-size: contain;
+  align-content: left;
+} */
 
 .dropdown:hover .dropdown-content {
-  background:#d3d3d3;
   display: block;
-  box-shadow: -10px 15px 4px #0713386b;
-  height: 510px;
-  width: 200px;
-  padding-top: 12px;
-  top: 70px;
+  background-color: rgba(211, 211, 211);
+  right: 0px;
+  padding-top: 37px;
+  /* overflow:hidden; */
+  height: 110vh;
+
 }
+.alternate {
+  position: fixed;
+  right: 0px;
 
-
-/* SETTINGS DROPDOWN  */
-
-
-#alternate {
-  display: none;
-  position: absolute;
-  overflow: auto;
-  font-size: 1rem;
-  padding: 8px;
-  z-index: 1100;
 }
-
+/* .blogLinks {
+  line-height: 30px;
+} */
 
 .settingsIcon {
   zoom: 0.2;
+  transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+          transition:         transform .5s ease-in-out;
 }
-
 .settingsIcon:hover {
   transform: rotate(180deg);
   -webkit-transition: -webkit-transform .5s ease-in-out;
           transition:         transform .5s ease-in-out;
 }
+
+
 
 @media only screen and (max-width: 550px) {
   .header {
