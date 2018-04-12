@@ -128,15 +128,12 @@
   margin: 0 auto;
 }
 .dropdown-content {
-  /* display: none; */
+  display: none;
   position: absolute;
   background-color: rgba(211, 211, 211);
-  /* padding: 6px; */
   padding: 0px;
   min-width: 100px;
   text-align: left;
-  /* z-index: 1100;
-  right: 0px; */
   right: 0px;
   padding-top: 37px;
   overflow:hidden;
