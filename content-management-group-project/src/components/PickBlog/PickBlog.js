@@ -230,16 +230,17 @@ class PickBlog extends Component {
           <div className="pickBlog-greeting">
             <h1>Hello, {this.props.user.name}</h1>
           </div>
-          <span>Which website are you working on?</span>
+          <span style={{textAlign: "center"}}>Which website are you working on?</span>
         </div>
           
         <div className="pickBlogPage">
           <div>
               <h2>Blogs</h2>
-              {blogs}
               <button className="postsButtons" onClick={this.addBlogClicked}>
               Create New Blog
               </button>
+              {blogs}
+              
             </div>
 
             {this.state.addBlog === true ? 
@@ -252,10 +253,11 @@ class PickBlog extends Component {
 
             <div>
               <h2>Pages</h2>
-                {pages}
-                <button className="postsButtons" onClick={this.addPageClicked}>
+              <button className="postsButtons" onClick={this.addPageClicked}>
                 Create New Page
                 </button>
+                {pages}
+                
             </div>
         </div>
 

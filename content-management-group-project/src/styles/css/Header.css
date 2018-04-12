@@ -3,7 +3,7 @@
 .header {
   display: flex;
   position: fixed;
-  background: rgb(175, 175, 175, 0.7);
+  background: rgba(211, 211, 211);;
   /* opacity: 0.7; */
   justify-content: space-between;
   border: none;
@@ -14,9 +14,9 @@
   transition: 0.4s ease all;
 }
 
-.header:hover {
+.header:hover .dropdown-content{
   transition: 0.3s ease all;
-  background: #d3d3d3;
+  background: rgb(211, 211, 211, 0.7);
 }
 
 /*** LOGO THANGS ***/
@@ -47,11 +47,12 @@
 .backButton {
   background:#00168a;
   color: #fafafa;
-  display: inline-block;
+  position: fixed !important;
+  left: 1px;
+  top: 112px;
   position: relative;
   margin: 0 auto;
   margin: 8px;
-  top: 120px;
   padding: 4px;
   height: 40px;
   line-height: 60px;
@@ -129,43 +130,42 @@
 .dropdown-content {
   /* display: none; */
   position: absolute;
-  background-color: transparent;
-  z-index: 1000000 !important;
+  background-color: rgba(211, 211, 211);
   /* padding: 6px; */
   padding: 0px;
   min-width: 100px;
   text-align: left;
-  overflow: auto;
   /* z-index: 1100;
   right: 0px; */
+  right: 0px;
+  padding-top: 37px;
   overflow:hidden;
     height:0;
     -webkit-transition:height 500ms ease-in;
     -moz-transition:height 500ms ease-in;
     -o-transition:height 500ms ease-in;
     transition:height 500ms ease-in;
+    z-index: 0;
    
 }
 
 .dropdown:hover {
   color: #00168a;
-  z-index: 1000000 !important;
+  
 }
 
-.dropdown-content a {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  float: left;
+/* .dropdown-content a { */
+  /* width: 100%; */
+  /* margin: 0 auto; */
+  /* float: left; */
   /* background-color: blue; */
-  color: #00168a;
+  /* color: #00168a; */
   /* padding: 2px; */
-  display: block;
-  text-decoration: none;
+  /* display: block; */
+  /* text-decoration: none;
   text-align: left;
-  padding-left: 0px;
-
-}
+  padding-left: 0px; */
+/* } */
 /* .dropdown-content a:hover {
   display: inline-flex;
   position: relative;
@@ -178,12 +178,16 @@
 } */
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  z-index: 1000000 !important;
+  /* display: block; */
+  position: fixed;
   background-color: rgba(211, 211, 211);
-  right: 0px;
-  padding-top: 37px;
   /* overflow:hidden; */
   height: 110vh;
+  -webkit-transition:height 500ms ease-out;
+  -moz-transition:height 500ms ease-out;
+  -o-transition:height 500ms ease-out;
+  transition:height 500ms ease-out;
 
 }
 .alternate {
@@ -196,7 +200,7 @@
 } */
 
 .settingsIcon {
-  zoom: 0.2;
+  zoom: 0.176;
   transform: rotate(-180deg);
   -webkit-transition: -webkit-transform .5s ease-in-out;
           transition:         transform .5s ease-in-out;

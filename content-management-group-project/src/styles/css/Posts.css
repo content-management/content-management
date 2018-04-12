@@ -37,7 +37,7 @@
 
 .newPostButton {
   position: fixed;
-  left: 1px;
+  right: 1px;
   top: 120px;
   padding: 10px;
   background: rgb(0, 22, 138);
