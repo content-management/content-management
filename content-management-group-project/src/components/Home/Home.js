@@ -99,7 +99,7 @@ class Home extends Component {
               this.props.match.params.id2}`}>          
               <button className="buttons-item">History</button>
           </Link>     
-          <Link to={`/NewPost/${this.props.match.params.id}`}> 
+          <Link to={`/NewPost/${this.props.myBlog.blog_id}`}> 
               <button className="buttons-item" id="newPost">New</button> 
           </Link>                 
         </div>
@@ -137,4 +137,4 @@ class Home extends Component {
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser, currBlog })(Home);
+export default withRouter(connect(mapStateToProps, { getUser, currBlog })(Home));

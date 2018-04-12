@@ -1,7 +1,8 @@
 import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser} from "../../ducks/reducer"; //get user from redux
+import { getUser, getBlogs, currBlog} from "../../ducks/reducer"; //get user from redux
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header/Header";
 import swal from "sweetalert";
@@ -88,7 +89,7 @@ let title = this.state.pages.title;
               file_browser_callback_types: "image",
               file_picker_callback: function(callback, value, meta) {
                 if (meta.filetype == "image") {
-                  var input = document.getElementById("my-file");
+                  let input = document.getElementById("my-file");
                   input.click();
                   input.onchange = function() {
                     var file = input.files[0];
@@ -114,6 +115,6 @@ let title = this.state.pages.title;
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(
+export default withRouter(connect(mapStateToProps, { getUser, getBlogs, currBlog })(
   EditPage
-);
+));
