@@ -38,12 +38,14 @@
 .App-intro {
   font-size: large;
 }
-
 .swal-button--danger {
   background-color: rgb(0, 22, 138);
 }
 .swal-button--confirm {
   background-color: rgb(0, 22, 138);
+}
+.swal-modal{
+  zoom: 2;
 }
 
 
