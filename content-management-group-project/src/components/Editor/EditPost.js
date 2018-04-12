@@ -17,15 +17,12 @@ class TextEditor extends React.Component {
     this.saveContent = this.saveContent.bind(this);
     this.addFavorite = this.addFavorite.bind(this);
     this.deleteFavorite = this.deleteFavorite.bind(this);
-    
-    
   }
   componentDidMount() {
     console.log("window", window.tinyMCE);
     axios
       .get(`/api/post/${this.props.match.params.id}`)
       .then(response => {
-
         this.setState({ post: response.data[0] });
         this.setState({
           title: this.state.post.title,
@@ -41,14 +38,13 @@ class TextEditor extends React.Component {
       content: e.target.getContent()
     });
   };
-  addFavorite(){
-    this.setState({favorite: 'yes'});
+  addFavorite() {
+    this.setState({ favorite: "yes" });
     swal("Added to favorites");
   }
-  deleteFavorite(){
-    this.setState({favorite: 'no'});
+  deleteFavorite() {
+    this.setState({ favorite: "no" });
     swal("Deleted from favorites");
-    
   }
   saveContent() {
     console.log(this.state.content);
@@ -80,60 +76,75 @@ class TextEditor extends React.Component {
         <Header />
         <div className="editPostPage">
           <div className="title-button">
-          <input
-            type="text"
-            placeholder={title}
-            onChange={e =>
-              this.setState({
-                title: e.target.value
-              })
-            }
-          />
+            <input
+              type="text"
+              placeholder={title}
+              onChange={e =>
+                this.setState({
+                  title: e.target.value
+                })
+              }
+            />
           </div>
+          <input
+            id="my-file"
+            type="file"
+            name="my-file"
+            style={{ display: "none" }}
+            onChange=""
+          />
         </div>
         <div className="new-post-editor">
-        {this.state.post.content && (
-          <Editor
-            initialValue={content}
-            init={{
-              selector: "textarea",
-              height: 500,
-              plugins: [
-                "advlist autolink lists link image code charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste imagetools wordcount",
-                "fullpage",
-                "save"
-              ],
-              toolbar:
-                "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ",
-              content_css: "//www.tinymce.com/css/codepen.min.css",
-              file_browser_callback_types: "image",
-              file_picker_callback: function(callback, value, meta) {
-                if (meta.filetype == "image") {
-                  var input = document.getElementById("my-file");
-                  input.click();
-                  input.onchange = function() {
-                    var file = input.files[0];
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                      console.log("name", e.target.result);
-                      callback(e.target.result, { alt: file.name });
+          {this.state.post.content && (
+            <Editor
+              initialValue={content}
+              init={{
+                selector: "textarea",
+                height: 500,
+                plugins: [
+                  "advlist autolink lists link image code charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table contextmenu paste imagetools wordcount",
+                  "fullpage",
+                  "save"
+                ],
+                toolbar:
+                  "formatselect | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | imageupload | fullpage ",
+                content_css: "//www.tinymce.com/css/codepen.min.css",
+                file_browser_callback_types: "image",
+                file_picker_callback: function(callback, value, meta) {
+                  if (meta.filetype == "image") {
+                    var input = document.getElementById("my-file");
+                    input.click();
+                    input.onchange = function() {
+                      var file = input.files[0];
+                      var reader = new FileReader();
+                      reader.onload = function(e) {
+                        console.log("name", e.target.result);
+                        callback(e.target.result, { alt: file.name });
+                      };
+                      reader.readAsDataURL(file);
                     };
-                    reader.readAsDataURL(file);
-                  };
-                }
-              },
-              paste_data_images: true
-            }}
-            onChange={this.handleEditorChange}
-          />
-        )}
-        <button onClick={this.saveContent} className="savebutton">Save</button>
-        {this.state.post.favorites === 'yes' ?
-        <button onClick={this.deleteFavorite}className="favoritesButton">Delete from Favorites</button>
-      : <button onClick={this.addFavorite} className='favoritesButton'>Add to Favorites</button>}
-      </div>
+                  }
+                },
+                paste_data_images: true
+              }}
+              onChange={this.handleEditorChange}
+            />
+          )}
+          <button onClick={this.saveContent} className="savebutton">
+            Save
+          </button>
+          {this.state.post.favorites === "yes" ? (
+            <button onClick={this.deleteFavorite} className="favoritesButton">
+              Delete from Favorites
+            </button>
+          ) : (
+            <button onClick={this.addFavorite} className="favoritesButton">
+              Add to Favorites
+            </button>
+          )}
+        </div>
       </div>
     );
   }
