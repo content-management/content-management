@@ -19,6 +19,7 @@ h2 {
 .pickBlogPage{
     color: black;
     display: flex;
+    text-align: center;
 }
 
 .pickBlogPage:hover {
@@ -87,6 +88,8 @@ span.list {
 }
 
 .postsButtons {
+    text-align: center;
+    align-self: center;
   background: #00168a;
   color: #fafafa;
   display: inline-block;

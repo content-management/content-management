@@ -74,7 +74,7 @@ class TextEditor extends React.Component {
     return (
       <div>
         <Header />
-        <div className="editPostPage">
+        <div>
           <div className="title-button">
             <input
               type="text"
