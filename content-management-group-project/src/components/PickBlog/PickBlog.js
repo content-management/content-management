@@ -29,7 +29,10 @@ class PickBlog extends Component {
     this.props.getUser().then(() => {
       axios.get(`/api/pages/${this.props.user.id}`).then(response => {
         this.props.getPages(response.data);
-      }).then(this.getDaStuffs()).then(console.log("userID", this.props.user.id));
+      })
+      axios.get(`/api/blogs/${this.props.user.id}`).then(response => {
+        this.props.getBlogs(response.data);
+      });
     });
     
   }
@@ -38,18 +41,33 @@ class PickBlog extends Component {
     // this.setState({ addBlog: true });
     swal("Blog Title:", {
       content: "input",
+      buttons: true,
+      dangerMode: true,
     })
     .then((value) => {
+      if(value){
       this.addBlog(value)
+      swal("Your new blog awaits!");
+      }else{
+        swal("Fine, don't make a new blog, see if I care...");
+      }
     });
   }
   addPageClicked() {
     // this.setState({ addPage: true });
-    swal("Blog Title:", {
+    swal("Page Title:", {
       content: "input",
+      buttons: true,
+  dangerMode: true,
+
     })
     .then((value) => {
+      if(value){
       this.addPage(value)
+      swal("Your new page awaits!");
+      }else{
+        swal("Fine, don't make a new page, see if I care...");
+      }
     });
   }
   addBlog(value) {
@@ -113,7 +131,7 @@ class PickBlog extends Component {
         } else {
           swal("Your blog is safe!");
         }
-      }).then(this.getDaStuffs())
+      })
   }
 
   deletePage(i) {
@@ -127,30 +145,30 @@ class PickBlog extends Component {
       if (willDelete) {
         axios
           .delete(`/api/deletePage/${i}`)
+          .then(axios
+              .get(`/api/pages/${this.props.user.id}`)
+              .then(response => {
+                this.props.getPages(response.data);
+              }))
           .catch(console.log())
-          .then(
-            swal("Page Deleted!", {
-              icon: "success"
-            })
-          ).then(axios.get(`/api/pages/${this.props.user.id}`).then(response => {
-            this.setState({ pages: response.data });
-          })
-        );
+          .then(swal("Page Deleted!", { icon: "success" }))
+         
       } else {
         swal("Your Page is safe!");
       }
-    }).then(this.getDaStuffs())
+    })
   }
 //below function written by Logan
   getDaStuffs(){
     axios.get(`/api/pages/${this.props.user.id}`).then(response => {
       this.props.getPages(response.data);
-    }).then(axios
+    })
+    axios
       .get(`/api/blogs/${this.props.user.id}`)
       .then(response => {
         this.props.getBlogs(response.data);
       })
-      .catch(console.log()))
+      .catch(console.log())
   }
 
   render() {
@@ -202,6 +220,7 @@ class PickBlog extends Component {
           </div>
         );
       });
+      // console.log("asdf", this.props.user);
     return( 
       <div className="pickBlog-body">
       

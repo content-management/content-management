@@ -64,8 +64,8 @@ class TextEditor extends React.Component {
         .post(`/api/post/${this.props.match.params.id}`, body)
         .then(results => {
           swal("New post added");
-        });
-      // .then(window.history.back());
+        })
+      .then(window.history.back());
     }
   }
 
@@ -129,15 +129,11 @@ class TextEditor extends React.Component {
             onChange={this.handleEditorChange}
           />
         </div>
-        <Link
-          to={`/Posts/${this.props.myBlog.blog_name}/${
-            this.props.myBlog.blog_id
-          }`}
-        >
+  
           <button className="savebutton" onClick={this.saveContent}>
             Save
           </button>
-        </Link>
+    
           <div>
         <button onClick={this.addFavorite} className ='favoritesButton'>Add to Favorites</button>
         </div>

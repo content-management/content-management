@@ -24,6 +24,7 @@ export function currBlog(e) {
     payload: e
   };
 }
+
 export function getBlogs(e) {
   return {
     type: GET_BLOGS,
