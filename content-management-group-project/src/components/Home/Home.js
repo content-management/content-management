@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser, currBlog } from "../../ducks/reducer"; //get user from redux
+import { getUser, currBlog, getBlogs } from "../../ducks/reducer"; //get user from redux
 import { withRouter } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
 import axios from "axios";
@@ -18,20 +18,30 @@ class Home extends Component {
       thisWeek: [],
     };
   }
+
   componentDidMount() {
     this.props.getUser().then(
       axios
-        .get(`/api/posts/${this.props.myBlog.blog_id}`)
+        .get(`/api/posts/${this.props.match.params.id2}`)
         .then(response => {
- 
           this.setState({ posts: response.data });
         })
         .catch(console.log())
     );
   }
+  componentWillReceiveProps(nextProps){
+    if(this.props.match.params.id2 !== nextProps.match.params.id2){
+      axios
+        .get(`/api/posts/${nextProps.match.params.id2}`)
+        .then(response => {
+          ;
+          this.setState({ posts: response.data });
+        })
+        .catch(console.log());
+    }
+  }
+
   render() {
-    console.log(this.props.match.params.id2);
-    console.log(this.props.myBlog.blog_id)
     let myPost =
       this.state.posts &&
       this.state.posts.map((obj, i) => {
@@ -85,12 +95,13 @@ class Home extends Component {
     return (
       <div>
         <Header
+          reGetDaStuffs = {this.reGetDaStuffs}
           id={this.props.match.params.id}
           id2={this.props.match.params.id2}
         />
         <div className="home-body">
           <div className="header-container">
-            <h1>{this.props.myBlog.blog_name}</h1>
+            <h1>{this.props.match.params.id}</h1>
             {this.props.isLoading && <h2>Loading...</h2>}
           </div>
 
@@ -137,4 +148,4 @@ class Home extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps, { getUser, currBlog })(Home));
+export default withRouter(connect(mapStateToProps, { getUser, currBlog, getBlogs })(Home));

@@ -141,6 +141,7 @@
   padding-top: 37px;
   overflow:hidden;
     height:0;
+    width: 0;
     -webkit-transition:height 500ms ease-in;
     -moz-transition:height 500ms ease-in;
     -o-transition:height 500ms ease-in;
@@ -184,6 +185,7 @@
   background-color: rgba(211, 211, 211);
   /* overflow:hidden; */
   height: 110vh;
+  width: 300px;
   -webkit-transition:height 500ms ease-out;
   -moz-transition:height 500ms ease-out;
   -o-transition:height 500ms ease-out;
