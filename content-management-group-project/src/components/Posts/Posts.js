@@ -82,7 +82,7 @@ class Posts extends Component {
               <div>{obj.date} </div>
               {/* <h4> {obj.time}</h4> */}
 
-              <iframe className="postIframe" srcdoc={obj.content} />
+              <iframe className="postIframe" srcDoc={obj.content} />
 
               <div>Post: {num}</div>
               <div>PostId: {obj.post_id}</div>
