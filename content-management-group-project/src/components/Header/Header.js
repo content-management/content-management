@@ -15,58 +15,65 @@ class Header extends Component {
     this.logout = this.logout.bind(this);
     this.changeProfile = this.changeProfile.bind(this);
     this.profileClickedSwal = this.profileClickedSwal.bind(this);
-    this.changeProp = this.changeProp.bind(this);
+    // this.changeProp = this.changeProp.bind(this);
     // this.getDaUser = this.getDaUser.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.getUser();
-    console.log(this.props);
   }
   logout(event) {
     axios
       .get("/logout")
-      .then(response => {
-        console.log(window.session);
-      })
+      .then(response => {})
       .catch(console.log());
   }
-  profileClickedSwal(){
-    swal("Your display name is: " + this.props.user.name + 
-    "\n \n Would you like to change it?", {
-      content: "text",
-      buttons: true,
-      dangerMode: true,
-      html: true,
-    })
-    .then((value) => {
-      if(value){
+  profileClickedSwal() {
+    swal(
+      "Your display name is: " +
+        this.props.user.name +
+        "\n \n Would you like to change it?",
+      {
+        content: "text",
+        buttons: true,
+        dangerMode: true,
+        html: true
+      }
+    ).then(value => {
+      if (value) {
         this.changeProfile();
-      }else{
-        swal("Have a Nice Day!")
+      } else {
+        swal("Have a Nice Day!");
       }
     });
   }
-  changeProfile(){
-    swal("Your current display name is: " + this.props.user.name + 
-    "\n \n Enter your new display name below", {
-      icon: "info",
-      content: "input",
-      buttons: true,
-      dangerMode: true
-    })
-    .then((value) => {
-      // console.log(value)
-      if(value){
-        let body = {
-          name: value
-        }
-        axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
-      swal(`Your display name have been changed to: ${value}`);
-      
-      }else{
-        swal('As you wish, your display name remains unchanged')
+  changeProfile() {
+    swal(
+      "Your current display name is: " +
+        this.props.user.name +
+        "\n \n Enter your new display name below",
+      {
+        icon: "info",
+        content: "input",
+        buttons: true,
+        dangerMode: true
       }
-    }).then(this.props.getUser());
+    )
+      .then(value => {
+        // console.log(value)
+        if (value) {
+          let body = {
+            name: value
+          };
+          axios
+            .put(`/api/changeName/${this.props.user.id}`, body)
+            .then(window.location.replace(`/#/pickblog/${body.name}`))
+            .then(() => this.props.getUser());
+          swal(`Your display name have been changed to: ${value}`);
+        } else {
+          swal("As you wish, your display name remains unchanged");
+        }
+      })
+      .then(this.props.getUser());
   }
   // getDaUser(){
   //   this.props.getUser();
@@ -77,39 +84,36 @@ class Header extends Component {
   // setPage(i) {
   //   this.props.currPage(i);
   // }
-  changeProp(){
-    
-  }
   render() {
-    console.log(this.props.pages);
     let blogs =
       this.props.blogs &&
       this.props.blogs.map((obj, i) => {
         return (
           <div key={i}>
             <ul>
-              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`} onClick={this.props.reGetDaStuffs}>
-                <div className="blogLinks">
-                  {obj.blog_name}
-                </div>
+              <Link
+                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
+                onClick={this.props.reGetDaStuffs}
+              >
+                <div className="blogLinks">{obj.blog_name}</div>
               </Link>
             </ul>
           </div>
         );
       });
-    let pages =
-      this.props.pages &&
-      this.props.pages.map((obj, i) => {
-        return (
-          <div key={i}>
-            <ul>
-              <Link to={`/EditPage/${obj.page_id}`}>
-                <div className="blogLinks">{obj.page_name}</div>
-              </Link>
-            </ul>
-          </div>
-        );
-      });
+    // let pages =
+    //   this.props.pages &&
+    //   this.props.pages.map((obj, i) => {
+    //     return (
+    //       <div key={i}>
+    //         <ul>
+    //           <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
+    //             <div className="blogLinks">{obj.page_name}</div>
+    //           </Link>
+    //         </ul>
+    //       </div>
+    //     );
+    //   });
     return (
       <div>
         <div className="header">
@@ -125,26 +129,32 @@ class Header extends Component {
               <div className="links">Dashboard</div>
             </Link>
             <div className="links dropdown">
-            <Link
-              to={`/pickblog/${this.props.user.name}`}
-              
-            >
-              Switch Sites </Link>
+              <Link to={`/pickblog/${this.props.user.name}`}>
+                Switch Sites{" "}
+              </Link>
               {blogs && (
                 <div className="dropdown-content">
                   Blogs {blogs}
-                  <hr />Pages {pages}
+                  <hr />
+                  <Link to={`/pickblog/${this.props.user.name}`}>Pages </Link>
                 </div>
-               
               )}
-              </div>
-            
-              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
-              </img>
+            </div>
+
+            <div className="links dropdown">
+              <img src={settingsIcon} className="settingsIcon" />
               <div className="dropdown-content alternate">
-                <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
-                <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
+                <div className="blogLinks" onClick={this.profileClickedSwal}>
+                  Display Name
+                </div>
+                <a href="/">
+                  <div className="blogLinks" onClick={this.logout}>
+                    Logout
+                  </div>
+                </a>
+                <Link to={`/Credentials/${this.props.user.name}`}>
+                  <div className="blogLinks">Your Credentials</div>
+                </Link>
               </div>
             </div>
           </div>
