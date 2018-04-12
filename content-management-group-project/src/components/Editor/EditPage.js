@@ -1,7 +1,8 @@
 import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import { connect } from "react-redux"; //connect to redux
-import { getUser} from "../../ducks/reducer"; //get user from redux
+import { getUser, getBlogs, currBlog } from "../../ducks/reducer"; //get user from redux
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import Header from "../Header/Header";
 import swal from "sweetalert";
@@ -19,10 +20,11 @@ class EditPage extends React.Component {
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
+    axios;
     axios
-         axios.get(`/api/page/${this.props.match.params.id}`)
-        .then(response => {
-          this.setState({pages: response.data[0]})
+      .get(`/api/page/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ pages: response.data[0] });
         this.setState({
           pageName: this.state.pages.page_name,
           content: this.state.pages.content
@@ -50,8 +52,7 @@ class EditPage extends React.Component {
       .then(window.history.back());
   }
   render() {
-
-let title = this.state.pages.title;
+    let title = this.state.pages.title;
     let pageName = this.state.pages.page_name;
     // let content = this.state.post.content;
     let content = this.state.pages.content;
@@ -67,6 +68,13 @@ let title = this.state.pages.title;
                 pageName: e.target.value
               })
             }
+          />
+          <input
+            id="my-file"
+            type="file"
+            name="my-file"
+            style={{ display: "none" }}
+            onChange=""
           />
         </div>
         {this.state.pages.content && (
@@ -88,7 +96,7 @@ let title = this.state.pages.title;
               file_browser_callback_types: "image",
               file_picker_callback: function(callback, value, meta) {
                 if (meta.filetype == "image") {
-                  var input = document.getElementById("my-file");
+                  let input = document.getElementById("my-file");
                   input.click();
                   input.onchange = function() {
                     var file = input.files[0];
@@ -114,6 +122,6 @@ let title = this.state.pages.title;
 
 const mapStateToProps = state => state;
 
-export default connect(mapStateToProps, { getUser })(
-  EditPage
+export default withRouter(
+  connect(mapStateToProps, { getUser, getBlogs, currBlog })(EditPage)
 );
