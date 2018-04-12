@@ -153,6 +153,8 @@ span.list:hover{
 
 
 .postsButtons {
+    text-align: center;
+    align-self: center;
   background: #00168a;
   color: #fafafa;
   display: block;
