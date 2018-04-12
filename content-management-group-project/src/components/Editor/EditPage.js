@@ -18,6 +18,7 @@ class EditPage extends React.Component {
       title: ""
     };
     this.saveContent = this.saveContent.bind(this);
+    this.getPage = this.getPage.bind(this);
   }
   componentDidMount() {
     axios
@@ -31,19 +32,26 @@ class EditPage extends React.Component {
       })
       .catch(console.log());
   }
-  componentWillReceiveProps(nextProps){
-    if(this.props.pages !== nextProps.pages){
-      this.props.getUser();
+  componentWillReceiveProps(nextState){
+    if(this.state.content !== nextState.content){
+    axios
+      .get(`/api/page/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ pages: response.data[0] });
+        this.setState({
+          pageName: this.state.pages.page_name,
+          content: this.state.pages.content
+        });
+      })
+      .catch(console.log());
     }
   }
   handleEditorChange = e => {
-    // console.log(e.target.contentDocument);
     this.setState({
       content: e.target.getContent()
     });
   };
   saveContent() {
-    console.log(this.state.content);
     let body = {
       pageName: this.state.pageName,
       content: this.state.content
@@ -55,15 +63,28 @@ class EditPage extends React.Component {
       })
       .then(window.history.back());
   }
+  getPage(){
+    axios
+      .get(`/api/page/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ pages: response.data[0] });
+        this.setState({
+          pageName: this.state.pages.page_name,
+          content: this.state.pages.content
+        });
+      })
+      .catch(console.log());
+  }
   render() {
     let title = this.state.pages.title;
     let pageName = this.state.pages.page_name;
     // let content = this.state.post.content;
     let content = this.state.pages.content;
-    console.log("content", content);
     return (
       <div>
-        <Header />
+        <Header 
+        getPage = {this.getPage}
+        />
         <div className="editPostPage">
           <input
             type="text"
@@ -107,7 +128,7 @@ class EditPage extends React.Component {
                     var file = input.files[0];
                     var reader = new FileReader();
                     reader.onload = function(e) {
-                      console.log("name", e.target.result);
+                      
                       callback(e.target.result, { alt: file.name });
                     };
                     reader.readAsDataURL(file);
