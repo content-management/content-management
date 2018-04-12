@@ -10,6 +10,8 @@ import NewPost from "./components/Editor/NewPost";
 import EditPost from "./components/Editor/EditPost";
 import EditPage from "./components/Editor/EditPage";
 import Posts from "./components/Posts/Posts";
+import Credentials from "./components/Credentials/Credentials";
+
 
 
 export default (
@@ -24,6 +26,7 @@ export default (
     <Route path="/EditPost/:id" component={EditPost} />
     <Route path="/EditPage/:id" component={EditPage} />
     <Route path="/Posts/:id/:id2" component={Posts} />
+    <Route path="/Credentials/:id" component={Credentials} />
     {/*id-blog name, id2-blogid  */}
     <Route
       path="*"
