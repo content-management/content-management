@@ -50,13 +50,12 @@ class Credentials extends Component {
             </div>
           </div>
           <h1>Add this to your html</h1>
-          <h2>Template From Contintum?</h2>
+          <h2>Template From Contentum?</h2>
           <div className="box3">
             <img src={Instructions}/>
           </div>
           <h2>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
-<<<<<<< HEAD
           <pre>{`<div class="demo" id="demo1"></div> <div class="demo" id="demo2"></div>
     <div class="demo" id="demo3"></div>
     <div class="demo" id="demo4"></div>
@@ -83,10 +82,6 @@ class Credentials extends Component {
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>`}</pre>
             {/* <img src={Instructions2}/> */}
-=======
-            <img src={Instructions2}/>
-            {renderHTML("<figure><figcaption>Your code title</figcaption><pre><code> <!-- your code here --></code></pre></figure>")}
->>>>>>> master
           </div>
           <p className="more-instr">Detailed Instructions</p>
         </div>
