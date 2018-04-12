@@ -6,6 +6,7 @@ import "../../styles/css/Credentials.css";
 import Instructions from "../../assets/images/instructions.png";
 import Instructions2 from "../../assets/images/instructions2.png";
 import Header from "../Header/Header";
+import renderHTML from 'react-render-html';
 
 
 
@@ -55,6 +56,7 @@ class Credentials extends Component {
           </div>
           <h2>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
+<<<<<<< HEAD
           <pre>{`<div class="demo" id="demo1"></div> <div class="demo" id="demo2"></div>
     <div class="demo" id="demo3"></div>
     <div class="demo" id="demo4"></div>
@@ -81,6 +83,10 @@ class Credentials extends Component {
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>`}</pre>
             {/* <img src={Instructions2}/> */}
+=======
+            <img src={Instructions2}/>
+            {renderHTML("<figure><figcaption>Your code title</figcaption><pre><code> <!-- your code here --></code></pre></figure>")}
+>>>>>>> master
           </div>
           <p className="more-instr">Detailed Instructions</p>
         </div>
