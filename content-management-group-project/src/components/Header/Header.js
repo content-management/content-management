@@ -84,33 +84,40 @@ class Header extends Component {
       });
     return (
       <div>
+
         <div className="header">
           <div className="logo-container">
             <img src={Logo} className="logo" alt="Logo" />
           </div>
+
           <div className="nav">
+
             <Link
               to={`/Home/${this.props.myBlog.blog_name}/${
-                this.props.myBlog.blog_id
-              }`}
-            >
-              <div className="links">Dashboard</div>
+                this.props.myBlog.blog_id}`}>
+                <div className="links">Dashboard</div>
             </Link>
+
             <Link to={`/pickblog/${this.props.user.name}`} className="links dropdown">
               Switch Sites
               {blogs && <div className="dropdown-content">Blogs {blogs}<hr/>Pages {pages}</div>}
             </Link>
             
               <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
-              </img>
-              <div className="dropdown-content alternate">
-                <div className="blogLinks" onClick={this.changeProfile}>Profile</div>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
 
+                </img>
+
+                <div className="dropdown-content">
+
+                  <div className="links" onClick={this.changeProfile}>Profile</div>
+                  <div className="links" onClick={this.logout}><a href="/">Logout</a></div>
+                  
                 </div>
+
               </div>
           </div>
         </div>
+        
           <button className="backButton" onClick={() => history.goBack()}>
               Back
           </button>
