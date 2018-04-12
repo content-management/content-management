@@ -20,7 +20,6 @@ class EditPage extends React.Component {
     this.saveContent = this.saveContent.bind(this);
   }
   componentDidMount() {
-    axios;
     axios
       .get(`/api/page/${this.props.match.params.id}`)
       .then(response => {
@@ -31,6 +30,11 @@ class EditPage extends React.Component {
         });
       })
       .catch(console.log());
+  }
+  componentWillReceiveProps(nextProps){
+    if(this.props.pages !== nextProps.pages){
+      this.props.getUser();
+    }
   }
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
@@ -56,6 +60,7 @@ class EditPage extends React.Component {
     let pageName = this.state.pages.page_name;
     // let content = this.state.post.content;
     let content = this.state.pages.content;
+    console.log("content", content);
     return (
       <div>
         <Header />
