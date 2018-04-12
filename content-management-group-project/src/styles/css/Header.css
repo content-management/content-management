@@ -3,7 +3,8 @@
 .header {
   display: flex;
   position: fixed;
-  background: #afafafb3;
+  background: rgba(211, 211, 211);;
+  /* opacity: 0.7; */
   justify-content: space-between;
   border: none;
   top: 0;
@@ -64,7 +65,15 @@
   line-height: 30px;
   font-size: 1.05rem;
   transition: .3s ease all;
-  z-index: 100;
+  /* position: absolute;
+  left: 110px;
+  top: 70px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  font-size: 1em;
+  font-family: "Allerta", sans-serif;
+  color: black; */
 }
 .backButton:hover {
   transition: .3s ease all;
@@ -119,15 +128,12 @@
   margin: 0 auto;
 }
 .dropdown-content {
-  /* display: none; */
+  display: none;
   position: absolute;
   background-color: rgba(211, 211, 211);
-  /* padding: 6px; */
   padding: 0px;
   min-width: 100px;
   text-align: left;
-  /* z-index: 1100;
-  right: 0px; */
   right: 0px;
   padding-top: 37px;
   overflow:hidden;
@@ -146,12 +152,12 @@
   
 }
 
-.dropdown-content a {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  float: left;
-  color: #00168a;}
+/* .dropdown-content a { */
+  /* width: 100%; */
+  /* margin: 0 auto; */
+  /* float: left; */
+  /* background-color: blue; */
+  /* color: #00168a; */
   /* padding: 2px; */
   /* display: block; */
   /* text-decoration: none;
