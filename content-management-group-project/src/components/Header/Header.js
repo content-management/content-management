@@ -96,29 +96,28 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link
-                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
-                onClick={this.props.reGetDaStuffs}
-              >
-                <div className="blogLinks">{obj.blog_name}</div>
+              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`} onClick={this.props.reGetDaStuffs}>
+                <div className="drop-siteLinks">
+                  {obj.blog_name}
+                </div>
               </Link>
             </ul>
           </div>
         );
       });
-    // let pages =
-    //   this.props.pages &&
-    //   this.props.pages.map((obj, i) => {
-    //     return (
-    //       <div key={i}>
-    //         <ul>
-    //           <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
-    //             <div className="blogLinks">{obj.page_name}</div>
-    //           </Link>
-    //         </ul>
-    //       </div>
-    //     );
-    //   });
+    let pages =
+      this.props.pages &&
+      this.props.pages.map((obj, i) => {
+        return (
+          <div key={i}>
+            <ul>
+              <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
+              <div className="drop-siteLinks">{obj.page_name}</div>
+              </Link>
+            </ul>
+          </div>
+        );
+      });
     return (
       <div>
         <div className="header">
@@ -126,41 +125,38 @@ class Header extends Component {
             <img src={Logo} className="logo" alt="Logo" />
           </div>
           <div className="nav">
+
             <Link
               to={`/Home/${this.props.myBlog.blog_name}/${
-                this.props.myBlog.blog_id
-              }`}
-            >
-              <div className="links">Dashboard</div>
+                this.props.myBlog.blog_id}`}>
+              <div className="header-links">Dashboard</div>
             </Link>
-            <div className="links dropdown">
-              <Link to={`/pickblog/${this.props.user.name}`}>
-                Switch Sites{" "}
-              </Link>
+
+          <div className="dropdown">
+            <Link to={`/pickblog/${this.props.user.name}`}>
+            <div className="header-links">Switch Site</div>
+            </Link>
               {blogs && (
                 <div className="dropdown-content">
-                  Blogs {blogs}
+                  <span className="droptitle">Blogs</span> {blogs}
                   <hr />
-                  <br />
-                  <ul>
-                    <Link
-                      className="blogLinks"
-                      to={`/pickblog/${this.props.user.name}`}
-                    >
-                      Pages{" "}
-                    </Link>
-                  </ul>
-                </div>
+                <Link
+                  to={`/pickblog/${this.props.user.name}`}>
+                  <span className="droptitle">Pages</span>{pages}
+                </Link>
+              </div>
+               
               )}
               </div>
             
-              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
+              <div className=" dropdown"><img src={settingsIcon} className="settingsIcon" >
               </img>
-              <div className="dropdown-content alternate">
-                <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
-                <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
-                <Link to={`/GettingStarted/`}><div className="blogLinks">Getting Started </div></Link>
+              <div className="dropdown-content">
+              <span className="droptitle">Settings</span>
+                <div className="setting-links" onClick={this.profileClickedSwal}>Display Name</div>
+                <Link to={`/GettingStarted/`}><div className="setting-links">Getting Started </div></Link>
+                <Link to={`/Credentials/${this.props.user.name}`}><div className="setting-links">Your Credentials</div></Link>
+                <a href="/"><div className="logout-links" onClick={this.logout}>Logout</div></a>
               </div>
             </div>
           </div>
