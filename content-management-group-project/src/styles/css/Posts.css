@@ -65,9 +65,11 @@
   box-shadow: -11px 8px 1px #1b1b2cab;
 }
 .switchView{
-  margin: 4% 0 0 10%;
+  margin: 9% 0 0 96%;
+  color: #00168a;
+  font-size: 1.3em;
 }
 .switchView:hover{
   cursor: pointer;
-  color: blue;
+  color: #00178a8c;
 }
