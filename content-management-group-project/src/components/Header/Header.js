@@ -147,26 +147,15 @@ class Header extends Component {
                   </ul>
                 </div>
               )}
-            </div>
-
-            <div className="links dropdown">
-              <img src={settingsIcon} className="settingsIcon" />
-              <div className="dropdown-content">
-                <div>
-                  <br />
-                  <br />
-                  <div className="blogLinks" onClick={this.profileClickedSwal}>
-                    Display Name
-                  </div>
-                  <Link to={`/Credentials/${this.props.user.name}`}>
-                    <div className="blogLinks">Your Credentials</div>
-                  </Link>
-                  <a href="/">
-                    <div className="blogLinks" onClick={this.logout}>
-                      Logout
-                    </div>
-                  </a>
-                </div>
+              </div>
+            
+              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
+              </img>
+              <div className="dropdown-content alternate">
+                <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
+                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
+                <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
+                <Link to={`/GettingStarted/`}><div className="blogLinks">Getting Started </div></Link>
               </div>
             </div>
           </div>
