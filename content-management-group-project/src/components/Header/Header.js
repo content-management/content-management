@@ -60,7 +60,7 @@ class Header extends Component {
           name: value
         }
         axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
-      swal(`Your display name have been changed to: ${value}`);
+      swal(`Your display name has been changed to: ${value}`);
       
       }else{
         swal('As you wish, your display name remains unchanged')
