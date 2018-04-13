@@ -18,17 +18,14 @@ class Header extends Component {
     // this.changeProp = this.changeProp.bind(this);
     // this.getDaUser = this.getDaUser.bind(this);
   }
-  componentDidMount(){
-    //Get user from props
+  componentDidMount() {
     this.props.getUser();
-
   }
   //Logout of the user session and redirect to contentum login screen
   logout(event) {
     axios
       .get("/logout")
-      .then(response => {
-      })
+      .then(response => {})
       .catch(console.log());
   }
   //sweet alert opens when user clicks "display name"
@@ -43,8 +40,8 @@ class Header extends Component {
     .then((value) => {
       if(value){
         this.changeProfile();
-      }else{
-        swal("Have a Nice Day!")
+      } else {
+        swal("Have a Nice Day!");
       }
     });
   }
@@ -68,8 +65,22 @@ class Header extends Component {
       
       }else{
         swal('As you wish, your display name remains unchanged')
-      }
-    }).then(this.props.getUser());
+      }}).then(value => {
+        // console.log(value)
+        if (value) {
+          let body = {
+            name: value
+          };
+          axios
+            .put(`/api/changeName/${this.props.user.id}`, body)
+            .then(window.location.replace(`/#/pickblog/${body.name}`))
+            .then(() => this.props.getUser());
+          swal(`Your display name has been changed to: ${value}`);
+        } else {
+          swal("As you wish, your display name remains unchanged");
+        }
+      })
+      .then(this.props.getUser());
   }
 
   setBlog(i) {
@@ -85,10 +96,11 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`} onClick={this.props.reGetDaStuffs}>
-                <div className="blogLinks">
-                  {obj.blog_name}
-                </div>
+              <Link
+                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
+                onClick={this.props.reGetDaStuffs}
+              >
+                <div className="blogLinks">{obj.blog_name}</div>
               </Link>
             </ul>
           </div>
@@ -122,32 +134,44 @@ class Header extends Component {
               <div className="links">Dashboard</div>
             </Link>
             <div className="links dropdown">
-            <Link
-              to={`/pickblog/${this.props.user.name}`}
-              
-            >
-              Switch Sites </Link>
+              <Link to={`/pickblog/${this.props.user.name}`}>
+                Switch Sites{" "}
+              </Link>
               {blogs && (
                 <div className="dropdown-content">
                   Blogs {blogs}
-                  <hr /><br/><ul><Link className="blogLinks"
-                  to={`/pickblog/${this.props.user.name}`}
-                  
-                >
-                  Pages </Link></ul>
+                  <hr />
+                  <br />
+                  <ul>
+                    <Link
+                      className="blogLinks"
+                      to={`/pickblog/${this.props.user.name}`}
+                    >
+                      Pages{" "}
+                    </Link>
+                  </ul>
                 </div>
-               
               )}
-              </div>
-            
-              <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
-              </img>
+            </div>
+
+            <div className="links dropdown">
+              <img src={settingsIcon} className="settingsIcon" />
               <div className="dropdown-content">
-              <div><br/><br/>
-                <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
-                <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
-              </div>
+                <div>
+                  <br />
+                  <br />
+                  <div className="blogLinks" onClick={this.profileClickedSwal}>
+                    Display Name
+                  </div>
+                  <Link to={`/Credentials/${this.props.user.name}`}>
+                    <div className="blogLinks">Your Credentials</div>
+                  </Link>
+                  <a href="/">
+                    <div className="blogLinks" onClick={this.logout}>
+                      Logout
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
