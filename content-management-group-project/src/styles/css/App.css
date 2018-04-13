@@ -15,7 +15,7 @@
 
 .App{
   text-align: center;
-  display: flex;
+  display: block;
   font-family: "Allerta", sans-serif;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,6 @@
 
 .App-header {
   display: fixed;
-  top: 0px;
   text-align: left;
   align-self: flex-start;
   background: white;

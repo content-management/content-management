@@ -197,9 +197,9 @@
   right: 0px;
 
 }
-/* .blogLinks {
-  line-height: 30px;
-} */
+.blogLinks {
+  height: 30px;
+}
 
 .settingsIcon {
   zoom: 0.176;
