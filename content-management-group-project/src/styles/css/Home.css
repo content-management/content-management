@@ -11,10 +11,10 @@
 
 .home-body {
   display: block;
-  margin: 0 auto;
   position: relative;
   font-family: "Allerta", sans-serif;
-  top: 49px;
+  margin: 0 auto;
+  top: 8rem;
   width: 80%;
   height: 1200px;
   z-index: 1;
@@ -39,7 +39,7 @@
   word-wrap: break-word;
   font-size: 3.25rem;
   color:#00168a;
-  width: 94%;
+  width: 97%;
   transition: .3s ease all;
 }
 
