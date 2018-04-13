@@ -36,23 +36,33 @@
 
 
 .newPostButton {
-  position: fixed;
+  background:#00168a;
+  color: #fafafa;
+  position: fixed !important;
   right: 1px;
-  top: 120px;
-  padding: 10px;
-  background: rgb(0, 22, 138);
-  border: none;
-  box-shadow: 1px 1px 1px;
+  top: 112px;
+  position: relative;
+  margin: 0 auto;
+  margin: 8px;
+  padding: 4px;
+  height: 40px;
+  line-height: 60px;
+  min-width: 80px;
+  max-width: 150px;
+  border: 1px solid #00000000;
   border-radius: 5px;
-  color: white;
-  width: 90px;
-}
-.newPostButton:active {
-  box-shadow: none;
+  font-family: "Allerta", sans-serif;
+  text-align: center;
+  line-height: 30px;
+  font-size: 1.05rem;
+  transition: .3s ease all;
 }
 .newPostButton:hover {
-  background: rgb(0, 22, 138, 0.5);
-  color: black;
+  transition: .3s ease all;
+  background: #eeeeeea6;
+  border: 1px solid #0000005e;
+  color: #00168a;
+  box-shadow: -11px 8px 1px #1b1b2cab;
 }
 .switchView{
   margin: 4% 0 0 10%;

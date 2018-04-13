@@ -18,54 +18,62 @@ class Header extends Component {
     // this.changeProp = this.changeProp.bind(this);
     // this.getDaUser = this.getDaUser.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.getUser();
-
   }
   logout(event) {
     axios
       .get("/logout")
-      .then(response => {
-      })
+      .then(response => {})
       .catch(console.log());
   }
-  profileClickedSwal(){
-    swal("Your display name is: " + this.props.user.name + 
-    "\n \n Would you like to change it?", {
-      content: "text",
-      buttons: true,
-      dangerMode: true,
-      html: true,
-    })
-    .then((value) => {
-      if(value){
+  profileClickedSwal() {
+    swal(
+      "Your display name is: " +
+        this.props.user.name +
+        "\n \n Would you like to change it?",
+      {
+        content: "text",
+        buttons: true,
+        dangerMode: true,
+        html: true
+      }
+    ).then(value => {
+      if (value) {
         this.changeProfile();
-      }else{
-        swal("Have a Nice Day!")
+      } else {
+        swal("Have a Nice Day!");
       }
     });
   }
-  changeProfile(){
-    swal("Your current display name is: " + this.props.user.name + 
-    "\n \n Enter your new display name below", {
-      icon: "info",
-      content: "input",
-      buttons: true,
-      dangerMode: true
-    })
-    .then((value) => {
-      // console.log(value)
-      if(value){
-        let body = {
-          name: value
-        }
-        axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
-      swal(`Your display name have been changed to: ${value}`);
-      
-      }else{
-        swal('As you wish, your display name remains unchanged')
+  changeProfile() {
+    swal(
+      "Your current display name is: " +
+        this.props.user.name +
+        "\n \n Enter your new display name below",
+      {
+        icon: "info",
+        content: "input",
+        buttons: true,
+        dangerMode: true
       }
-    }).then(this.props.getUser());
+    )
+      .then(value => {
+        // console.log(value)
+        if (value) {
+          let body = {
+            name: value
+          };
+          axios
+            .put(`/api/changeName/${this.props.user.id}`, body)
+            .then(window.location.replace(`/#/pickblog/${body.name}`))
+            .then(() => this.props.getUser());
+          swal(`Your display name has been changed to: ${value}`);
+        } else {
+          swal("As you wish, your display name remains unchanged");
+        }
+      })
+      .then(this.props.getUser());
   }
   // getDaUser(){
   //   this.props.getUser();
@@ -83,10 +91,11 @@ class Header extends Component {
         return (
           <div key={i}>
             <ul>
-              <Link to={`/Home/${obj.blog_name}/${obj.blog_id}`} onClick={this.props.reGetDaStuffs}>
-                <div className="blogLinks">
-                  {obj.blog_name}
-                </div>
+              <Link
+                to={`/Home/${obj.blog_name}/${obj.blog_id}`}
+                onClick={this.props.reGetDaStuffs}
+              >
+                <div className="blogLinks">{obj.blog_name}</div>
               </Link>
             </ul>
           </div>
@@ -120,21 +129,23 @@ class Header extends Component {
               <div className="links">Dashboard</div>
             </Link>
             <div className="links dropdown">
-            <Link
-              to={`/pickblog/${this.props.user.name}`}
-              
-            >
-              Switch Sites </Link>
+              <Link to={`/pickblog/${this.props.user.name}`}>
+                Switch Sites{" "}
+              </Link>
               {blogs && (
                 <div className="dropdown-content">
                   Blogs {blogs}
-                  <hr /><Link
-                  to={`/pickblog/${this.props.user.name}`}
-                  
-                >
-                  Pages </Link>
+                  <hr />
+                  <br />
+                  <ul>
+                    <Link
+                      className="blogLinks"
+                      to={`/pickblog/${this.props.user.name}`}
+                    >
+                      Pages{" "}
+                    </Link>
+                  </ul>
                 </div>
-               
               )}
               </div>
             
