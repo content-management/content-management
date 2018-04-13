@@ -128,11 +128,11 @@ class Header extends Component {
               {blogs && (
                 <div className="dropdown-content">
                   Blogs {blogs}
-                  <hr /><Link
+                  <hr /><br/><ul><Link className="blogLinks"
                   to={`/pickblog/${this.props.user.name}`}
                   
                 >
-                  Pages </Link>
+                  Pages </Link></ul>
                 </div>
                
               )}
@@ -140,10 +140,12 @@ class Header extends Component {
             
               <div className="links dropdown"><img src={settingsIcon} className="settingsIcon" >
               </img>
-              <div className="dropdown-content alternate">
+              <div className="dropdown-content">
+              <div><br/><br/>
                 <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
-                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
                 <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
+                <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
+              </div>
               </div>
             </div>
           </div>
