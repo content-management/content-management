@@ -144,6 +144,7 @@ class Header extends Component {
                 <div className="blogLinks" onClick={this.profileClickedSwal}>Display Name</div>
                 <a href="/"><div className="blogLinks" onClick={this.logout}>Logout</div></a>
                 <Link to={`/Credentials/${this.props.user.name}`}><div className="blogLinks">Your Credentials</div></Link>
+                <Link to={`/GettingStarted/`}><div className="blogLinks">Getting Started </div></Link>
               </div>
             </div>
           </div>
