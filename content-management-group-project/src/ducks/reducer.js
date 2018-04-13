@@ -55,7 +55,9 @@ const initialState = {
   blogs: "",
   myBlog: "",
   pages: "",
-  myPage: ""
+  myPage: "",
+  helpPage: 182,
+  helpBlog: 154
 };
 
 export default function reducer(state = initialState, action) {
