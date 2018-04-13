@@ -1,51 +1,144 @@
 .pickBlog-body{
   font-family: "Allerta", sans-serif;
+  margin-top: 120px;
 }
 
-h1{
-    text-align: center;
-    
+h1{ 
+  display: block;
+  color:#1818188c;
+  position: relative;
+  font-size: 3rem;
+  letter-spacing: -4px;
+  bottom: 20px;
+  margin: 0 auto;
+  text-align: center; 
 }
-h2 {
-    margin-left: 25%;
+
+.whichBlog{
+  display: block;
+  position: relative;
+  color:#1818188c;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .pickHeader {
-    color: black;
-    padding-top: 100px;
-    display: flex;
-    flex-direction: column; 
+  background: #00178a8c; 
+  display:block;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 55px;
+  padding:6px;
+  width: 55%;
+  border-radius: 5px;
+  border: 2px solid #0713386b;
+  color: black;
+  padding-top: 30px;
+  transition: .4s ease all;
 }
+
 .pickBlogPage{
-    color: black;
-    display: flex;
-    text-align: center;
+  display: inline-block; 
+  position: relative;
+  /* background: grey; */
+  margin: 0 20px;
+  left: 18%;
+  width: 30%;
+  text-align: center;
+  position: relative;
 }
 
 .pickBlogPage:hover {
-    color: #00168a;
+    /* background: #00168a; */
 }
 
-.pickBlogPage>div{
-    width: 50%;
-    padding: 10px;
+.blogList-container{
+  background: #d3d3d300;
+  display: inline-block;
+  position: relative;
+  width: 70%;
+  min-width: 220px;
+  margin: 12px;
+  left:12%;
+  padding: 4px;
+  text-align: center;
 }
 
-.pickBlogPage>div:first-child {
-    margin-right: 20px;
+.blogList {
+  background: #d3d3d3a4;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 95%;
+  height: 200px;
+  right: 25%;
+  min-width: 105px;
+  max-width: 260px;
+  padding: 20px;
+  padding-bottom: 40px;
+  border-radius: 5px;
+  border: 1.5px solid #0713386b;
+  transition: .2s ease all;
+}
+
+.blogList:hover {
+  transition: .2s ease all;
+  background:#d3deffb3;
+  color: #fafafa;
+  border: 1.5px solid #0713386b;;
+  box-shadow: -2px 2px 2px #0f1618b4;
 }
 
 .blogLinks {
-    color: #00168a;
-    width: 250px;
-    line-height: 55px;
-    flex-direction: row;
-    transition: .2s ease all;
+  background: #00178a8c;
+  color: #00168a;
+  border: 1.5px solid #00178a8c;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: 65%;
+  height: 85%;
+  min-width: 110px;
+  margin: 10px 15%;
+  bottom:40px;
+  padding: 4px 6px;
+  border-radius: 5px;
+  text-align: center;
+  word-wrap: break-word;
+  transition: .2s ease all;
 }
 
 .blogLinks:hover{
-    transition: .2s ease all;
-    color: #fafafa;
+  transition: .2s ease all;
+  background: #00168a;
+  color: #fafafa;
+  border: 1.5px solid #fafafa;
+  overflow: none;
+  box-shadow: -16px 17px 2px #0f161875;   
+}
+
+span.list {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 4px;
+  font-size: 1.8rem;
+  width: 90%;
+  top: 10px;
+  height: 65%;
+  max-width: 150px;
+  border-radius: 5px;
+  line-height: 35px;
+  letter-spacing: -3px;
+  transition: .2s ease all;
+}
+
+span.list:hover{
+  transition: .4s ease all;
+  color: #fafafa;
+  background: #c0c0c067;
+  text-shadow: -16px 12px 1px #0f1118a4;
 }
 
 .newBlog {
@@ -58,47 +151,20 @@ h2 {
     color: white;
 }
 
-.blogList {
-  background: #d3d3d3;
-  width: 300px;
-  height: 130px;
-  border-radius: 5px;
-  text-align: center;
-  padding-right: 40px;
-  margin-left: 25%;
-  transition: .2s ease all;
-}
 
-.blogList:hover {
-  transition: .2s ease all;
-  background: #00178a8c;
-  color: #fafafa;
-  display: block;
-  position: relative;
-  box-shadow: -16px 17px 2px #0f1618b4;
-  height: 131px;
-}
-
-span.list {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 10%;
-    font-size: 20px;
-}
 
 .postsButtons {
     text-align: center;
     align-self: center;
   background: #00168a;
   color: #fafafa;
-  display: inline-block;
+  display: block;
   position: relative;
   margin: 0 auto;
-  margin: 8px;
   padding: 4px;
-  height: 60px;
-  line-height:20px;
+  height: 40px;
+  top:10px;
+  line-height:12px;
   min-width: 100px;
   max-width: 110px;
   border-radius: 5px;
@@ -110,38 +176,43 @@ span.list {
   .postsButtons:hover{
     transition: .3s ease all;
     border: 1px solid #0713386b;
-    height: 61px;
     background: #fafafa;
     color: #00168a;
     box-shadow: -16px 17px 2px #0f1618b4;
   }
 
   .deleteButtons {
-  background: #00168a;
-  color: #fafafa;
+  background: #35363a00;
+  color: #0f1618b4;
   display: inline-block;
   position: relative;
   margin: 0 auto;
-  margin: 8px;
-  padding: 4px;
-  height: 60px;
-  line-height:50px;
-  min-width: 100px;
-  max-width: 110px;
+  margin-bottom: 14px;
+  padding: 2px;
+  right: 15px;
+  bottom: 15px;
+  height: 1.5rem;
+  width: 24px;
+  float: left;
   border-radius: 5px;
-  font-family: "Allerta", sans-serif;
-  transition: .3s ease all;
+  border: 1.5px solid #fafafa00;
+  /* font-family: "Allerta", sans-serif; */
+  font-size: .75rem;
+  font-weight: 100;
+  line-height: 20px;
+  transition: .2s ease all;
   }
 
-  .deleteButtons:hover {
-    transition: .3s ease all;
-    background: #eeeeee;
-    color: #00168a;
-    /* background: #00168a80;
-    color: #00168a; */
-    cursor: pointer;  
-    box-shadow: -10px 16px 2px #1b1b2cab;
-  }
+.deleteButtons:hover {
+  transition: .3s ease all;
+  background: #ff260998;
+  border: 1.5px solid #fafafa;
+  line-height: 22px;
+  color: #fafafa;
+  cursor: pointer;  
+  box-shadow: -2px 2px 2px #1b1b2cab;
+  z-index: 200;
+}
   
 
   .submitButtons {

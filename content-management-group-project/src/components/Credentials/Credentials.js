@@ -50,13 +50,13 @@ class Credentials extends Component {
             </div>
           </div>
           <h1>Add this to your html</h1>
-          <h2>Template From Contintum?</h2>
+          <h2 style={{textAlign: "center"}}>Template From Contentum?</h2>
           <div className="box3">
             <img src={Instructions}/>
           </div>
-          <h2>Have your own template? Copy this in your body tag.</h2>
+          <h2 style={{textAlign: "center"}}>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
-          <pre>{`<div class="demo" id="demo1"></div> <div class="demo" id="demo2"></div>
+          <pre className="HTML2Display">{`<div class="demo" id="demo1"></div> <div class="demo" id="demo2"></div>
     <div class="demo" id="demo3"></div>
     <div class="demo" id="demo4"></div>
     <div class="demo" id="demo5"></div>
@@ -65,8 +65,10 @@ class Credentials extends Component {
         function loadDoc() {
             let results = {};
             let blogID ="" // <<=REPLACE # WITH BLOG ID HERE`}
-           { "const url = `http://localhost:3001/api/posts/${blogID}`; //" }
-           {`// EXAMPLE 'http://localhost:3001/api/posts/999'; WHERE 999 IS YOUR BLOG ID NUMBER`}
+            <br/>
+           { "           const url = `http://localhost:3001/api/posts/${blogID}`; //" }
+           <br/>
+           {`           // EXAMPLE 'http://localhost:3001/api/posts/999'; WHERE 999 IS YOUR BLOG ID NUMBER`}
             {`
             axios.get(url).then(response => {
            results = response.data;

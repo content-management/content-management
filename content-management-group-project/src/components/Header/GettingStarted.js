@@ -25,7 +25,10 @@ class GettingStarted extends Component {
             Photos are saved when you click save after you have finished writing. 
             </p>
             <h2> Connecting to Your Website </h2>
-            <p></p>
+            <p> How do you get all this onto your own site? First, you need to get your site’s credentials. Go to settings wheel and a drop down will appear. Click on credentials. If you are using one of Contentum’s templates then you can open your index.html file. Enter the id of the site you want to appear on that template. The picture on this page shows you where this is located
+            If you are using your own template, you will need to go to your index.html file and then find the body tags. It should look like this <pre>{`<body>`}</pre>. On the credential’s page copy the code between the body tags. 
+            This should pull your content into your website. 
+</p>
             <h2> Use Caution When Deleting</h2>
             <p> As you can see there are lots of options for deleting both whole blogs and pages and individual blog posts. We urge you to exercise caution when hitting that delete button. We do give you a warning, but once you click ok everything is gone forever! 
             </p>
