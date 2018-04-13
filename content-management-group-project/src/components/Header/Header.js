@@ -19,9 +19,11 @@ class Header extends Component {
     // this.getDaUser = this.getDaUser.bind(this);
   }
   componentDidMount(){
+    //Get user from props
     this.props.getUser();
 
   }
+  //Logout of the user session and redirect to contentum login screen
   logout(event) {
     axios
       .get("/logout")
@@ -29,6 +31,7 @@ class Header extends Component {
       })
       .catch(console.log());
   }
+  //sweet alert opens when user clicks "display name"
   profileClickedSwal(){
     swal("Your display name is: " + this.props.user.name + 
     "\n \n Would you like to change it?", {
@@ -36,7 +39,7 @@ class Header extends Component {
       buttons: true,
       dangerMode: true,
       html: true,
-    })
+    }) //then if they want to change their profile name invoke that function, else do not and show sweet alert
     .then((value) => {
       if(value){
         this.changeProfile();
@@ -45,6 +48,7 @@ class Header extends Component {
       }
     });
   }
+  //sweet alert allows user to input desired display name and fires off function to replace name in database
   changeProfile(){
     swal("Your current display name is: " + this.props.user.name + 
     "\n \n Enter your new display name below", {
@@ -67,9 +71,7 @@ class Header extends Component {
       }
     }).then(this.props.getUser());
   }
-  // getDaUser(){
-  //   this.props.getUser();
-  // }
+
   setBlog(i) {
     this.props.currBlog(i);
   }

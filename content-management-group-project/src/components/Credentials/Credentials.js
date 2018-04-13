@@ -56,12 +56,12 @@ class Credentials extends Component {
           </div>
           <h2 style={{textAlign: "center"}}>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
-          <pre className="HTML2Display">{`<div class="demo" id="demo1"></div> <div class="demo" id="demo2"></div>
+          <pre className="HTML2Display">{`    <div class="demo" id="demo1"></div> 
+    <div class="demo" id="demo2"></div>
     <div class="demo" id="demo3"></div>
     <div class="demo" id="demo4"></div>
     <div class="demo" id="demo5"></div>
     <script>
-        
         function loadDoc() {
             let results = {};
             let blogID ="" // <<=REPLACE # WITH BLOG ID HERE`}
@@ -80,7 +80,6 @@ class Credentials extends Component {
         })
         .catch(console.log())
     }
-        
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>`}</pre>
             {/* <img src={Instructions2}/> */}
