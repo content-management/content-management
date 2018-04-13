@@ -11,6 +11,7 @@ import EditPost from "./components/Editor/EditPost";
 import EditPage from "./components/Editor/EditPage";
 import Posts from "./components/Posts/Posts";
 import Credentials from "./components/Credentials/Credentials";
+import GettingStarted from "./components/Header/GettingStarted";
 
 
 
@@ -27,6 +28,7 @@ export default (
     <Route path="/EditPage/:id" component={EditPage} />
     <Route path="/Posts/:id/:id2" component={Posts} />
     <Route path="/Credentials/:id" component={Credentials} />
+    <Route path="/GettingStarted/" component={GettingStarted}/>
     {/*id-blog name, id2-blogid  */}
     <Route
       path="*"

@@ -1,6 +1,8 @@
 .pickBlog-body{
   font-family: "Allerta", sans-serif;
-  margin-top: 120px;
+  display:block;
+  position: relative;
+  top: 110px;
 }
 
 h1{ 
@@ -91,17 +93,17 @@ h1{
 }
 
 .blogLinks {
-  background: #00178a8c;
-  color: #00168a;
-  border: 1.5px solid #00178a8c;
+  background: #00168a;
+  color: #fafafa;
+  border: 1.5px solid #fafafa;
   display: inline-block;
   position: relative;
   overflow: hidden;
   width: 65%;
-  height: 85%;
+  height: 65%;
   min-width: 110px;
   margin: 10px 15%;
-  bottom:40px;
+  bottom:15px;
   padding: 4px 6px;
   border-radius: 5px;
   text-align: center;
@@ -111,10 +113,13 @@ h1{
 
 .blogLinks:hover{
   transition: .2s ease all;
-  background: #00168a;
-  color: #fafafa;
-  border: 1.5px solid #fafafa;
+  background: #00178a8c;
+  color: #fafafa; 
+  border: 1.5px solid #00178a8c;
   overflow: none;
+  /* background: #00168a;
+  color: #fafafa;
+  border: 1.5px solid #fafafa; */
   box-shadow: -16px 17px 2px #0f161875;   
 }
 
@@ -126,7 +131,7 @@ span.list {
   font-size: 1.8rem;
   width: 90%;
   top: 10px;
-  height: 65%;
+  height: 75%;
   max-width: 150px;
   border-radius: 5px;
   line-height: 35px;
@@ -137,8 +142,7 @@ span.list {
 span.list:hover{
   transition: .4s ease all;
   color: #fafafa;
-  background: #c0c0c067;
-  text-shadow: -16px 12px 1px #0f1118a4;
+  /* text-shadow: -16px 12px 1px #0f1118a4; */
 }
 
 .newBlog {
@@ -154,12 +158,12 @@ span.list:hover{
 
 
 .postsButtons {
-    text-align: center;
-    align-self: center;
-  background: #00168a;
-  color: #fafafa;
   display: block;
   position: relative;
+  text-align: center;
+  align-self: center;
+  background: #00168a;
+  color: #fafafa;
   margin: 0 auto;
   padding: 4px;
   height: 40px;
@@ -184,7 +188,7 @@ span.list:hover{
   .deleteButtons {
   background: #35363a00;
   color: #0f1618b4;
-  display: inline-block;
+  display: block;
   position: relative;
   margin: 0 auto;
   margin-bottom: 14px;
@@ -204,7 +208,7 @@ span.list:hover{
   }
 
 .deleteButtons:hover {
-  transition: .3s ease all;
+  transition: .2s ease all;
   background: #ff260998;
   border: 1.5px solid #fafafa;
   line-height: 22px;
