@@ -21,44 +21,51 @@ class Header extends Component {
   componentDidMount() {
     this.props.getUser();
   }
+  //Logout of the user session and redirect to contentum login screen
   logout(event) {
     axios
       .get("/logout")
       .then(response => {})
       .catch(console.log());
   }
-  profileClickedSwal() {
-    swal(
-      "Your display name is: " +
-        this.props.user.name +
-        "\n \n Would you like to change it?",
-      {
-        content: "text",
-        buttons: true,
-        dangerMode: true,
-        html: true
-      }
-    ).then(value => {
-      if (value) {
+  //sweet alert opens when user clicks "display name"
+  profileClickedSwal(){
+    swal("Your display name is: " + this.props.user.name + 
+    "\n \n Would you like to change it?", {
+      content: "text",
+      buttons: true,
+      dangerMode: true,
+      html: true,
+    }) //then if they want to change their profile name invoke that function, else do not and show sweet alert
+    .then((value) => {
+      if(value){
         this.changeProfile();
       } else {
         swal("Have a Nice Day!");
       }
     });
   }
-  changeProfile() {
-    swal(
-      "Your current display name is: " +
-        this.props.user.name +
-        "\n \n Enter your new display name below",
-      {
-        icon: "info",
-        content: "input",
-        buttons: true,
-        dangerMode: true
-      }
-    )
-      .then(value => {
+  //sweet alert allows user to input desired display name and fires off function to replace name in database
+  changeProfile(){
+    swal("Your current display name is: " + this.props.user.name + 
+    "\n \n Enter your new display name below", {
+      icon: "info",
+      content: "input",
+      buttons: true,
+      dangerMode: true
+    })
+    .then((value) => {
+      // console.log(value)
+      if(value){
+        let body = {
+          name: value
+        }
+        axios.put(`/api/changeName/${this.props.user.id}`, body).then(window.location.replace(`/#/pickblog/${body.name}`)).then(() => this.props.getUser());
+      swal(`Your display name has been changed to: ${value}`);
+      
+      }else{
+        swal('As you wish, your display name remains unchanged')
+      }}).then(value => {
         // console.log(value)
         if (value) {
           let body = {
@@ -75,9 +82,7 @@ class Header extends Component {
       })
       .then(this.props.getUser());
   }
-  // getDaUser(){
-  //   this.props.getUser();
-  // }
+
   setBlog(i) {
     this.props.currBlog(i);
   }
@@ -100,19 +105,19 @@ class Header extends Component {
           </div>
         );
       });
-    let pages =
-      this.props.pages &&
-      this.props.pages.map((obj, i) => {
-        return (
-          <div key={i}>
-            <ul>
-              <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
-              <div className="drop-siteLinks">{obj.page_name}</div>
-              </Link>
-            </ul>
-          </div>
-        );
-      });
+    // let pages =
+    //   this.props.pages &&
+    //   this.props.pages.map((obj, i) => {
+    //     return (
+    //       <div key={i}>
+    //         <ul>
+    //           <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
+    //           <div className="drop-siteLinks">{obj.page_name}</div>
+    //           </Link>
+    //         </ul>
+    //       </div>
+    //     );
+    //   });
     return (
       <div>
         <div className="header">
@@ -135,10 +140,12 @@ class Header extends Component {
                 <div className="dropdown-content">
                   <span className="droptitle">Blogs</span> {blogs}
                   <hr />
-                <Link
-                  to={`/pickblog/${this.props.user.name}`}>
-                  <span className="droptitle">Pages</span>{pages}
-                </Link>
+                  <ul>
+                  <Link  to={`/pickblog/${this.props.user.name}`}>
+                  <span >
+                  <div className="drop-siteLinks">Pages</div></span>
+                  </Link>
+                  </ul>
               </div>
                
               )}
