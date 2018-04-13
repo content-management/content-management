@@ -6,7 +6,11 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { HashRouter as Router } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
+import PickBlog from '../src/components/PickBlog/PickBlog';
+import NewPost from './components/Editor/NewPost';
+import Posts from './components/Posts/Posts';
 
+// const {  } = require("./styles/css/App.css");
 const { tempTest } = require("./components/Home/HomeTest");
 
 // const temp = "asdfasdfasdf";
@@ -14,6 +18,11 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, div);
   ReactDOM.unmountComponentAtNode(div);
+});
+it('store.errMessage should equal null', () => {
+  // console.log("store", store.getState());
+  const temp = store.getState();
+  temp.errMessage === null;
 });
 
 it('variable tempTest is a string', () => {
@@ -44,8 +53,34 @@ it('store.helpBlog should equal 154', () => {
   temp.helpPage === 154;
 });
 
-// it('store.subscribe expects a function ', () => {
-//   // console.log("App", App)
-//   const temp = store.subscribe("test");
-//   temp.includes("Expected") === false;
-// });
+it('getState returns an obj', () => {
+  console.log("store", store.getState());
+  // expect(typeof tempTest).toBe('string');  // compare something on state?
+});
+
+ it('state.blogs should be a string', ()=>{
+   const temp = store.getState();
+    expect(typeof temp.blogs).toBe('string');
+ });
+
+ it('state.myBlog should be string', () =>{
+   const temp = store.getState();
+   expect (typeof temp.myBlog).toBe('string');
+ });
+
+ it('state.pages should be a string', () =>{
+   const temp = store.getState();
+   expect(typeof temp.pages).toBe('string');
+ });
+
+ it('state.myPage should be a string', () =>{
+   const temp = store.getState();
+   expect (typeof temp.myPage).toBe('string');
+ });
+ it('console log', () => {
+  console.log("styles", App);
+  // expect(typeof tempTest).toBe('string');  // compare something on state?
+});
+
+ 
+
