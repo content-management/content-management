@@ -105,19 +105,19 @@ class Header extends Component {
           </div>
         );
       });
-    let pages =
-      this.props.pages &&
-      this.props.pages.map((obj, i) => {
-        return (
-          <div key={i}>
-            <ul>
-              <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
-              <div className="drop-siteLinks">{obj.page_name}</div>
-              </Link>
-            </ul>
-          </div>
-        );
-      });
+    // let pages =
+    //   this.props.pages &&
+    //   this.props.pages.map((obj, i) => {
+    //     return (
+    //       <div key={i}>
+    //         <ul>
+    //           <Link to={`/EditPage/${obj.page_id}`} onClick={this.props.getPage}>
+    //           <div className="drop-siteLinks">{obj.page_name}</div>
+    //           </Link>
+    //         </ul>
+    //       </div>
+    //     );
+    //   });
     return (
       <div>
         <div className="header">
@@ -140,10 +140,12 @@ class Header extends Component {
                 <div className="dropdown-content">
                   <span className="droptitle">Blogs</span> {blogs}
                   <hr />
-                <Link
-                  to={`/pickblog/${this.props.user.name}`}>
-                  <span className="droptitle">Pages</span>{pages}
-                </Link>
+                  <ul>
+                  <Link  to={`/pickblog/${this.props.user.name}`}>
+                  <span >
+                  <div className="drop-siteLinks">Pages</div></span>
+                  </Link>
+                  </ul>
               </div>
                
               )}
