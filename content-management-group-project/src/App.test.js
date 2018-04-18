@@ -9,6 +9,7 @@ import { Switch, Route } from "react-router-dom";
 import PickBlog from '../src/components/PickBlog/PickBlog';
 import NewPost from './components/Editor/NewPost';
 import Posts from './components/Posts/Posts';
+import {blogLanguage, postCounter} from '../server/controllers/blogCtrl';
 
 // const {  } = require("./styles/css/App.css");
 const { tempTest } = require("./components/Home/HomeTest");
@@ -100,6 +101,14 @@ it('getState returns an obj', () => {
         it("state.user should be a object", () => {
           const temp = store.getState();
           expect(typeof temp.user).toBe("object");
+        });
+        it("blogLanguage is a English", () => {
+          // expect(typeof blogLanguage).toBe('string') console.log(blogLanguage)
+          blogLanguage === "English";
+        });
+        it("postCounter is 27", () => {
+          // expect(typeof postCounter).toBe('number') console.log(postCounter)\
+          // postCounter === 27;
         });
 
  it('console log', () => {
