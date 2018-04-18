@@ -50,7 +50,7 @@ class Credentials extends Component {
             </div>
           </div>
           <h1>Add this to your html</h1>
-          <h2 style={{textAlign: "center"}}>Template From Contentum?</h2>
+          <h2 style={{textAlign: "center"}}>Template From Contentum? Just update your blog id.</h2>
           <div className="box3">
             <img src={Instructions}/>
           </div>
