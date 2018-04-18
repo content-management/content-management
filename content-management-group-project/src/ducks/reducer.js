@@ -10,9 +10,7 @@ const GET_FAVES = "GET_FAVES";
 const UPDATE_FAV = "UPDATE_FAV";
 const UPDATE_TITLE = "UPDATE_TITLE";
 const UPDATE_CONTENT = "UPDATE_CONTENT";
-
-
-
+const UPDATE_PAGENAME = "UPDATE_PAGENAME";
 
 
 // ACTION CREATORS
@@ -76,6 +74,12 @@ export function updateContent(e) {
     payload: e
   };
 }
+export function updatePageName(e) {
+  return {
+    type: UPDATE_PAGENAME,
+    payload: e
+  };
+}
 
 //INITIAL STATE
 
@@ -93,7 +97,8 @@ const initialState = {
   favs: false,
   favorite: "",
   title: "",
-  content: ""
+  content: "",
+  pageName: ""
 };
 
 export default function reducer(state = initialState, action) {
