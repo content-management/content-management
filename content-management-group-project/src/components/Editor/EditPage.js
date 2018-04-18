@@ -13,7 +13,7 @@ class EditPage extends React.Component {
     super();
     this.state = {
       pages: "",
-      pageNaem: "",
+      pageName: "",
       content: "",
       title: ""
     };

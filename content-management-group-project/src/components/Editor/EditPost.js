@@ -1,6 +1,8 @@
 import React from "react";
 import { Editor, textarea } from "@tinymce/tinymce-react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { updateFav, updateTitle, updateContent } from "../../ducks/reducer";
 import Header from "../Header/Header";
 import swal from "sweetalert";
 import "../../styles/css/EditPost.css";
@@ -10,9 +12,7 @@ class TextEditor extends React.Component {
     super();
     this.state = {
       post: "",
-      title: "",
-      content: "",
-      favorite: ""
+  
     };
     this.saveContent = this.saveContent.bind(this);
     this.addFavorite = this.addFavorite.bind(this);
@@ -24,34 +24,31 @@ class TextEditor extends React.Component {
       .get(`/api/post/${this.props.match.params.id}`)
       .then(response => {
         this.setState({ post: response.data[0] });
-        this.setState({
-          title: this.state.post.title,
-          content: this.state.post.content,
-          favorite: this.state.post.favorites
-        });
+
+        this.props.updateFav(this.state.post.favorites);
+        this.props.updateTitle(this.state.post.title);
+        this.props.updateContent(this.state.post.content);
       })
       .catch(console.log());
   }
   handleEditorChange = e => {
     // console.log(e.target.contentDocument);
-    this.setState({
-      content: e.target.getContent()
-    });
+    this.props.updateContent(e.target.getContent());
   };
   addFavorite() {
-    this.setState({ favorite: "yes" });
+    this.props.updateFav("yes");
     swal("Added to favorites");
   }
   deleteFavorite() {
-    this.setState({ favorite: "no" });
+    this.props.updateFav("no");
     swal("Deleted from favorites");
   }
   saveContent() {
     console.log(this.state.content);
     let body = {
-      title: this.state.title,
-      content: this.state.content,
-      favorites: this.state.favorite
+      title: this.props.title,
+      content: this.props.content,
+      favorites: this.props.favorite
     };
     axios
       .put(`/api/put/${this.props.match.params.id}`, body)
@@ -61,7 +58,7 @@ class TextEditor extends React.Component {
       .then(window.history.back());
   }
   render() {
-    console.log(this.state.post.favorites);
+    console.log(this.props.favorite);
     // console.log(this.props.match.params.id);
     // console.log(this.state.post);
     // console.log(this.state.content);
@@ -79,11 +76,7 @@ class TextEditor extends React.Component {
             <input
               type="text"
               placeholder={title}
-              onChange={e =>
-                this.setState({
-                  title: e.target.value
-                })
-              }
+              onChange={e => this.props.updateTitle(e.target.value)}
             />
           </div>
           <input
@@ -149,5 +142,10 @@ class TextEditor extends React.Component {
     );
   }
 }
+const mapStateToProps = state => state;
 
-export default TextEditor;
+export default connect(mapStateToProps, {
+  updateFav,
+  updateTitle,
+  updateContent
+})(TextEditor);
