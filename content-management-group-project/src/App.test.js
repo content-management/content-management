@@ -77,6 +77,31 @@ it('getState returns an obj', () => {
    const temp = store.getState();
    expect (typeof temp.myPage).toBe('string');
  });
+  it("state.favs should default to false", () => {
+    const temp = store.getState();
+    expect(temp.favs).toBe(false);
+  });
+   it("state.favorite should be a string", () => {
+     const temp = store.getState();
+     expect(typeof temp.favorite).toBe("string");
+   });
+    it("state.title should be a string", () => {
+      const temp = store.getState();
+      expect(typeof temp.title).toBe("string");
+    });
+     it("state.content should be a string", () => {
+       const temp = store.getState();
+       expect(typeof temp.content).toBe("string");
+     });
+      it("state.pageName should be a string", () => {
+        const temp = store.getState();
+        expect(typeof temp.pageName).toBe("string");
+      });
+        it("state.user should be a object", () => {
+          const temp = store.getState();
+          expect(typeof temp.user).toBe("object");
+        });
+
  it('console log', () => {
   console.log("styles", App);
   // expect(typeof tempTest).toBe('string');  // compare something on state?
