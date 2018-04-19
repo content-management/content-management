@@ -37,24 +37,31 @@ class Credentials extends Component {
                 );
     return <div>
         <Header />
-        <div className="cred-wrapper">
-          <h1>Your Credentials</h1>
+        <div className="cred-body">
+
+        <div className="cred-header-container">
+          <h1 className="cred-hone">Your Credentials</h1>
+        </div>
+
           <div className="main-box">
-            <div className="box box1">
+            <div className="box">
               <h2>Your blogs id </h2>
               {blogs}
             </div>
-            <div className=" box box2 ">
+            <div className="box">
               <h2>Your Pages id </h2>
               {pages}
             </div>
           </div>
-          <h1>Add this to your html</h1>
-          <h2 style={{textAlign: "center"}}>Template From Contentum?</h2>
+
+          <h1 className="cred-h-one">Add this to your html</h1>
+          <h2>Template From Contentum?</h2>
+
           <div className="box3">
             <img src={Instructions}/>
           </div>
-          <h2 style={{textAlign: "center"}}>Have your own template? Copy this in your body tag.</h2>
+
+          <h2>Have your own template? Copy this in your body tag.</h2>
           <div className="box4">
           <pre className="HTML2Display">{`    <div class="demo" id="demo1"></div> 
     <div class="demo" id="demo2"></div>

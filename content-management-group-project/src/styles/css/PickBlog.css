@@ -2,7 +2,10 @@
   font-family: "Allerta", sans-serif;
   display:block;
   position: relative;
+  align-content: center;
   top: 110px;
+  width: 80%;
+  margin: 0 auto;  
 }
 
 h1{ 
@@ -33,6 +36,7 @@ h1{
   padding:6px;
   width: 55%;
   border-radius: 5px;
+  text-align: center;
   border: 2px solid #0713386b;
   color: black;
   padding-top: 30px;
@@ -42,9 +46,7 @@ h1{
 .pickBlogPage{
   display: inline-block; 
   position: relative;
-  /* background: grey; */
   margin: 0 20px;
-  left: 18%;
   width: 30%;
   text-align: center;
   position: relative;
@@ -55,26 +57,23 @@ h1{
 }
 
 .blogList-container{
-  background: #d3d3d300;
   display: inline-block;
   position: relative;
   width: 70%;
   min-width: 220px;
   margin: 12px;
-  left:12%;
   padding: 4px;
   text-align: center;
 }
 
 .blogList {
-  background: #d3d3d3a4;
+  background: #afafaf;
   display: inline-block;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
   width: 95%;
   height: 200px;
-  right: 25%;
   min-width: 105px;
   max-width: 260px;
   padding: 20px;

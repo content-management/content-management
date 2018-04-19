@@ -81,6 +81,43 @@ it('state.myPage should be a string', () => {
   const temp = store.getState();
   expect(typeof temp.myPage).toBe('string');
 });
+it("state.favs should default to false", () => {
+  const temp = store.getState();
+  expect(temp.favs).toBe(false);
+});
+it("state.favorite should be a string", () => {
+  const temp = store.getState();
+  expect(typeof temp.favorite).toBe("string");
+});
+it("state.title should be a string", () => {
+  const temp = store.getState();
+  expect(typeof temp.title).toBe("string");
+});
+it("state.content should be a string", () => {
+  const temp = store.getState();
+  expect(typeof temp.content).toBe("string");
+});
+it("state.pageName should be a string", () => {
+  const temp = store.getState();
+  expect(typeof temp.pageName).toBe("string");
+});
+it("state.user should be a object", () => {
+  const temp = store.getState();
+  expect(typeof temp.user).toBe("object");
+});
+it("blogLanguage is a English", () => {
+  // expect(typeof blogLanguage).toBe('string') console.log(blogLanguage)
+  blogLanguage === "English";
+});
+it("postCounter is 27", () => {
+  // expect(typeof postCounter).toBe('number') console.log(postCounter)\
+  // // postCounter === 27;
+});
+
+it('console log', () => {
+  console.log("styles", App);
+  // expect(typeof tempTest).toBe('string');  // compare something on state?
+});
 
 it('blogLanguage is a string', () => {
   // expect(typeof blogLanguage).toBe('string') console.log(blogLanguage)
@@ -89,5 +126,6 @@ it('blogLanguage is a string', () => {
 
 it('postCounter is a number', () => {
   // expect(typeof postCounter).toBe('number') console.log(postCounter)\
+  //
   // postCounter === 27;
 });

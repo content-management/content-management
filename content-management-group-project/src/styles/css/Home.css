@@ -14,15 +14,18 @@
   position: relative;
   font-family: "Allerta", sans-serif;
   margin: 0 auto;
-  top: 8rem;
+  padding-top: 8rem;
+  top: 3rem;
   width: 80%;
-  height: 1200px;
+  
+  height: 1100px;
   z-index: 1;
 }
 
 .header-container {
-  width: 53%;
+  display:block;
   position: relative;
+  width: 53%;
   margin: 0 auto;
   text-align: center;
   overflow: auto;
@@ -48,7 +51,7 @@
   letter-spacing: -5px;
   border-bottom: 2px solid #0713386b;
   font-weight: bold;
-  text-shadow: -21px 21px 5px #000000a4;
+  text-shadow: -21px 21px 5px #0000005e;
 }
 
 /*** SIDESCROLL THANGS ***/
@@ -208,13 +211,13 @@
   margin: 0 auto;
   margin: 8px;
   padding: 4px;
-  height: 60px;
-  line-height:50px;
+  height: 30px;
+  line-height: 20px;
   min-width: 100px;
-  max-width: 110px;
-  border-radius: 5px;
+  width:150px;
+  border-radius: 50px;
   font-family: "Allerta", sans-serif;
-  font-size: 1.25rem;
+  font-size: .7rem;
   transition: .3s ease all;
 }
 
@@ -223,14 +226,29 @@
   background: #eeeeee;
   cursor: pointer;  
   color: #00168a;
-  box-shadow: -13px 16px 1px #1b1b2cab;
+  box-shadow: -10px 11px 1px #1b1b2cab;
 }
+
+.table-container{
+  display:block;
+  background: #d3d3d3;
+  border:1px solid #0713386b;
+  border-radius: 4px;
+  padding: 2px 0;
+  width: 55%;
+  margin:0 auto;
+  position: relative;
+
+}
+
 table {
-  background: black;
-  border-radius: 5px;
+  background:#0713386b;
+  border-radius: 4px; 
+  margin: 0 auto;
 }
 th{
-  background: gray;
+  background: #0713386b;
+ 
   color: white;
   padding: 5px;
 }
