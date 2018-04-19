@@ -1,0 +1,1 @@
+DELETE FROM bin WHERE bin_id = $1;

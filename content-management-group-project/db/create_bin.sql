@@ -1,0 +1,1 @@
+INSERT INTO bin (user_id, bin_name) VALUES ($1, $2);
