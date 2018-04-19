@@ -5,20 +5,20 @@ CREATE TABLE users
     name varchar(40)
 )
 
-CREATE TABLE posts (
-post_id SERIAL ,
+CREATE TABLE item (
+item_id SERIAL ,
 title varChar(30),
-content varChar(120),
+description varChar(120),
 images text,
 caption varChar(120),
-blog_name varChar(60),
-FOREIGN KEY (post_id) REFERENCES blogs (blog_id)
+bin_name varChar(60),
+FOREIGN KEY (item_id) REFERENCES bin (bin_id)
 );
 
 
-CREATE TABLE blogs (
+CREATE TABLE bin (
 user_id SERIAL ,
-blog_id SERIAL primary key,
-blog_name varChar(60),
+bin_id SERIAL primary key,
+bin_name varChar(60),
 FOREIGN KEY (user_id) REFERENCES users (id)
 );

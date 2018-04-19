@@ -2,21 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Home from './components/Home/Home';
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
 import store from "./store";
-import { HashRouter as Router } from "react-router-dom";
-import { Switch, Route } from "react-router-dom";
+import {HashRouter as Router} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import PickBlog from '../src/components/PickBlog/PickBlog';
 import NewPost from './components/Editor/NewPost';
 import Posts from './components/Posts/Posts';
+import {blogLanguage, postCounter} from '../server/controllers/blogCtrl';
 
 // const {  } = require("./styles/css/App.css");
-const { tempTest } = require("./components/Home/HomeTest");
+const {tempTest} = require("./components/Home/HomeTest");
 
 // const temp = "asdfasdfasdf";
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, div);
+  ReactDOM.render(
+    <Provider store={store}>
+    <Router><App/></Router>
+  </Provider>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 it('store.errMessage should equal null', () => {
@@ -58,29 +62,32 @@ it('getState returns an obj', () => {
   // expect(typeof tempTest).toBe('string');  // compare something on state?
 });
 
- it('state.blogs should be a string', ()=>{
-   const temp = store.getState();
-    expect(typeof temp.blogs).toBe('string');
- });
-
- it('state.myBlog should be string', () =>{
-   const temp = store.getState();
-   expect (typeof temp.myBlog).toBe('string');
- });
-
- it('state.pages should be a string', () =>{
-   const temp = store.getState();
-   expect(typeof temp.pages).toBe('string');
- });
-
- it('state.myPage should be a string', () =>{
-   const temp = store.getState();
-   expect (typeof temp.myPage).toBe('string');
- });
- it('console log', () => {
-  console.log("styles", App);
-  // expect(typeof tempTest).toBe('string');  // compare something on state?
+it('state.blogs should be a string', () => {
+  const temp = store.getState();
+  expect(typeof temp.blogs).toBe('string');
 });
 
- 
+it('state.myBlog should be string', () => {
+  const temp = store.getState();
+  expect(typeof temp.myBlog).toBe('string');
+});
 
+it('state.pages should be a string', () => {
+  const temp = store.getState();
+  expect(typeof temp.pages).toBe('string');
+});
+
+it('state.myPage should be a string', () => {
+  const temp = store.getState();
+  expect(typeof temp.myPage).toBe('string');
+});
+
+it('blogLanguage is a string', () => {
+  // expect(typeof blogLanguage).toBe('string') console.log(blogLanguage)
+  blogLanguage === "English"
+});
+
+it('postCounter is a number', () => {
+  // expect(typeof postCounter).toBe('number') console.log(postCounter)\
+  // postCounter === 27;
+});
