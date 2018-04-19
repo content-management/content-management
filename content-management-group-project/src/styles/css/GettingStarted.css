@@ -1,0 +1,41 @@
+.gs-body{
+  display: block;
+  position: relative;
+  width: 75%;
+  top: 4rem;
+  margin: 0 auto;
+  font-family: "Allerta", sans-serif;
+  background:#00178a8c;
+  padding: 10px;
+  padding-top: 4rem;
+  }
+
+
+  .gs-hone{
+    background:#00178a;
+    display: block;
+    position: relative;
+    /* margin: 0 auto; */
+    align-content: center;
+    border-radius: 50px;
+    top: 50%;
+    width: 70%;
+    padding: 4px;
+    color: #fafafa;
+    text-align: center;
+    font-size: 2.25rem;
+    /* border: 1px solid black; */
+  }
+
+  .gs-p{
+    display:block;
+    position:relative;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    padding: 4px;
+    background: #e6e6e662;
+    font-size: 1rem;
+    border-radius: 2px;
+    width: 60%;
+    max-width: 800px;
+  }

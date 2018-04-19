@@ -127,18 +127,20 @@ class Home extends Component {
                 this.props.match.params.id2
               }`}
             ></Link>
-            <table>
-              <tr>
-              <th>Number of posts</th>
-              <th>Posts This Week</th>
-              <th>Posts this month</th>
-              </tr>
-              <tr>
-              <td>{this.state.posts.length}</td>
-              <td>{temp3.length}</td>
-              <td>{thisWeek}</td>
-              </tr>
+            <div className="table-container">
+              <table>
+                <tr>
+                <th>Number of posts</th>
+                <th>Posts This Week</th>
+                <th>Posts this month</th>
+                </tr>
+                <tr>
+                <td>{this.state.posts.length}</td>
+                <td>{temp3.length}</td>
+                <td>{thisWeek}</td>
+                </tr>
               </table>
+            </div>
           </div>
         </div>
 
