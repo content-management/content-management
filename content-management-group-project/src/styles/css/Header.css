@@ -17,7 +17,7 @@
 .header:hover{
   transition: 0.4s ease all;
   border-bottom: 1.5px solid #0713386b;
-  background: #dbdada;
+  background: #e7e7e7;
 }
 
 /*** LOGO THANGS ***/
@@ -50,6 +50,7 @@
   background:#00168a;
   color: #fafafa;
   position: fixed !important;
+  z-index: 1000;
   left: 12px;
   top: 112px;
   position: relative;
@@ -61,7 +62,8 @@
   min-width: 80px;
   max-width: 150px;
   border: 1px solid #00000000;
-  border-radius: 5px;
+  border-radius: 50px;
+  /* border-radius: 5px; */
   font-family: "Allerta", sans-serif;
   text-align: center;
   line-height: 30px;
@@ -95,12 +97,17 @@
 .header-links {
   display: inline-block;
   transition: 0.3s ease all;
+  background:#00168a;
+  color: #fafafa;
+  /* color: #00178a8c; */
   padding-right: 4px;
   margin: 2px;
-  padding:6px;
+  padding:10px;
   letter-spacing: -3px;
-  font-size: 1.5rem;
-  color: #00178a8c;
+  line-height: 20px;
+  height: 20px;
+  width: 110px;
+  font-size: 1rem;
   border: 1.5px solid #0713386b;
   border-radius: 4px;
   transition: .3s ease all;
@@ -116,7 +123,10 @@
 
 .dropdown {
   display: block;
+<<<<<<< HEAD
+=======
   /* overflow: scroll; */
+>>>>>>> master
   color: #00178a8c;
   padding: 0px 10px 0px 10px;
   margin: 0 auto;
@@ -145,7 +155,7 @@
 .dropdown:hover .dropdown-content {
   display: block;
   z-index: 10000 !important;
-  background-color: #d3d3d3d8; 
+  background-color: #e7e7e7; 
   position: absolute;
   overflow:scroll;
   right: -15px;

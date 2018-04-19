@@ -139,6 +139,14 @@ class Header extends Component {
               {blogs && (
                 <div className="dropdown-content">
                   <span className="droptitle">Blogs</span> {blogs}
+<<<<<<< HEAD
+                  <ul>  
+                    <Link to={`/pickblog/${this.props.user.name}`}>
+                  <div className="drop-siteLinks">Switch to Pages</div>
+                    </Link>
+                </ul>
+                
+=======
                   <hr />
                   <ul>
                   <Link  to={`/pickblog/${this.props.user.name}`}>
@@ -146,6 +154,7 @@ class Header extends Component {
                   <div className="drop-siteLinks">Pages</div></span>
                   </Link>
                   </ul>
+>>>>>>> master
               </div>
                
               )}
