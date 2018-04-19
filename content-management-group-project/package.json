@@ -8,6 +8,8 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-to-json": "^3.3.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "massive": "^4.7.1",

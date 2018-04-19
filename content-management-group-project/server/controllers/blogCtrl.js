@@ -1,4 +1,6 @@
 module.exports = {
+  blogLanguage: "English",
+  postCounter: 27,
   getBlogs: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params } = req;
@@ -18,7 +20,7 @@ module.exports = {
       .then(() => res.status(200).json())
       .catch(() => res.status(500).json());
   },
-  
+
   deleteBlog: (req, res, next) => {
     const dbInstance = req.app.get("db");
     const { params } = req;
@@ -33,10 +35,10 @@ module.exports = {
     // console.log("this", req.user);
     req.user.name = req.body.name;
     const { params, body } = req;
-    // console.log(params.id, body); 
+    // console.log(params.id, body);
     dbInstance
-    .change_user_name([params.id, body.name])
-    .then(() => res.status(200).json())
-    .catch(err => console.log(err));
+      .change_user_name([params.id, body.name])
+      .then(() => res.status(200).json())
+      .catch(err => console.log(err));
   }
 };

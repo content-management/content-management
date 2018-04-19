@@ -123,6 +123,10 @@
 
 .dropdown {
   display: block;
+<<<<<<< HEAD
+=======
+  /* overflow: scroll; */
+>>>>>>> master
   color: #00178a8c;
   padding: 0px 10px 0px 10px;
   margin: 0 auto;
